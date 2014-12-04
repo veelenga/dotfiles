@@ -32,6 +32,7 @@ map <F4>  :call QuickfixToggle()<CR>
 map <F5>  :make<CR>:copen<CR><CR><C-W><C-P>
 map <F6>  :make<CR>:copen<CR><CR>
 map <F9>  :make<CR>
+map <F10> :TagbarToggle<CR>
 map <F12> :!ctags -R ./ <CR>
 
 imap <F1>  <C-o><F1>
