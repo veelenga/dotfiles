@@ -104,6 +104,7 @@ export GIT_REPOS=~/Dev/projects/git_repos
 # Custom aliases
 alias repos='cd $GIT_REPOS'
 alias conf='cd $GIT_REPOS/conf'
+alias dotfiles='cd $GIT_REPOS/dotfiles'
 alias vimrc='vim ~/.vimrc'
 alias vi='vim'
 
