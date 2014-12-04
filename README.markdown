@@ -37,5 +37,5 @@ lrwxrwxrwx  1 user user      59 Dec  4 23:43 .i3blocks.conf -> /home/user/Dev/gi
 lrwxrwxrwx  1 user user      51 Dec  4 23:43 .zshrc -> /home/user/Dev/git_repos/dotfiles/zshrc
 lrwxrwxrwx  1 user user      55 Dec  4 23:43 .tmux.conf -> /home/user/Dev/git_repos/dotfiles/tmux.conf
 
-Your old dotfiles were saved in /home/user/Dev/projects/git_repos/dotfiles/temp directory if any
+Your old dotfiles were saved in /home/user/Dev/git_repos/dotfiles/temp directory if any
 ```
