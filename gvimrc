@@ -1,5 +1,5 @@
 color codeschool
-set guifont=DejaVu\ Sans\ Mono\ for\ Powerline 10
+set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 12px
 set guioptions-=T " Removes top toolbar
 set guioptions-=r " Removes right hand scroll bar
 set guioptions-=m " Removes menu
