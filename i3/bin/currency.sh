@@ -14,12 +14,12 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-# Usage. To change default parameters:
-# currency.sh EUR UAH
+# Usage:
+#    currency.sh EUR UAH
 #
 from=${1:-"USD"}
 to=${2:-"UAH"}
 
-# api describtion: https://github.com/hippasus/ExchangeRates
+# api description: https://github.com/hippasus/ExchangeRates
 curl -s http://rate-exchange.appspot.com/currency\?from\=$from\&to\=$to |
   python -c "import sys,json; data=json.loads(sys.stdin.read()); print(data['rate'] if 'rate' in data.keys() else 'N/A')"
