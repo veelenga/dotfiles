@@ -1,6 +1,6 @@
 Dotfiles
 ========
-This repository includes all of my custom dotfiles. It contains a script (bin/restore.sh) to hep with managing and updating your dotfiles.
+This repository includes all of my custom dotfiles. It contains a script (bin/restore.sh) to help with managing and updating your dotfiles.
 
 Using this repo
 ========
