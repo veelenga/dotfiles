@@ -111,3 +111,5 @@ alias vi='vim'
 # Support powerline
 powerline-daemon -q
 . $GIT_REPOS/powerline/powerline/bindings/zsh/powerline.zsh
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
