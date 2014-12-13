@@ -4,11 +4,31 @@
 # This script creates symlinks from the home directory to any desired dotfiles in desired directory
 ############################
 
+# Beautify list of current symlinks recursively
+#
+# Prints symlink in next format:
+#    path_to_file -> path_to_symlink
+#
+# If $1 is directory iterate recursively all child 
+#  files/folders.
+#
+# $1 - path to file/directory to print it's symlink
+pretty_symlink() {
+      if [ -d "$1" ]; then
+        for e in "$1"/*
+        do
+          pretty_symlink $(dirname $e)/$(basename $e) # avoid multiple separators
+        done
+      else
+        echo "$1 -> $(readlink $1)"
+      fi
+}
+
 ########## Variables
 
 dir=$GIT_REPOS/dotfiles           # dotfiles directory
 temp=$GIT_REPOS/dotfiles/temp     # backup directory
-files="vimrc gvimrc ctags i3blocks.conf i3/ zshrc tmux.conf"
+files="vimrc gvimrc ctags zshrc tmux.conf i3blocks.conf i3/"
 
 ##########
 
@@ -29,10 +49,11 @@ mkdir $temp
 for file in $files; do
     if [ -e ~/.$file ]; then
       mv ~/.$file $temp/$file
+      echo -n
     fi
     if [ -e $dir/$file ]; then
       cp -rs $dir/$file ~/.$file
-      ls -al ~/ | grep "\.$file"
+      pretty_symlink ~/.$file
     fi
 done
 

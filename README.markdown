@@ -30,12 +30,16 @@ Sample output (depends on your config):
 ```sh
 Changing to the /home/user/Dev/git_repos/dotfiles directory ...done
 
-lrwxrwxrwx  1 user user      51 Dec  4 23:43 .vimrc -> /home/user/Dev/git_repos/dotfiles/vimrc
-lrwxrwxrwx  1 user user      52 Dec  4 23:43 .gvimrc -> /home/user/Dev/git_repos/dotfiles/gvimrc
-lrwxrwxrwx  1 user user      51 Dec  4 23:43 .ctags -> /home/user/Dev/git_repos/dotfiles/ctags
-lrwxrwxrwx  1 user user      59 Dec  4 23:43 .i3blocks.conf -> /home/user/Dev/git_repos/dotfiles/i3blocks.conf
-lrwxrwxrwx  1 user user      51 Dec  4 23:43 .zshrc -> /home/user/Dev/git_repos/dotfiles/zshrc
-lrwxrwxrwx  1 user user      55 Dec  4 23:43 .tmux.conf -> /home/user/Dev/git_repos/dotfiles/tmux.conf
+/home/user/.vimrc -> /home/user/git_repos/dotfiles/vimrc
+/home/user/.gvimrc -> /home/user/git_repos/dotfiles/gvimrc
+/home/user/.ctags -> /home/user/git_repos/dotfiles/ctags
+/home/user/.zshrc -> /home/user/git_repos/dotfiles/zshrc
+/home/user/.tmux.conf -> /home/user/git_repos/dotfiles/tmux.conf
+/home/user/.i3blocks.conf -> /home/user/git_repos/dotfiles/i3blocks.conf
+/home/user/.i3/bin/currency.sh -> /home/user/git_repos/dotfiles/i3/bin/currency.sh
+/home/user/.i3/bin/display.sh -> /home/user/git_repos/dotfiles/i3/bin/display.sh
+/home/user/.i3/bin/vpnc.sh -> /home/user/git_repos/dotfiles/i3/bin/vpnc.sh
+/home/user/.i3/config -> /home/user/git_repos/dotfiles/i3/config
 
 Your old dotfiles were saved in /home/user/Dev/git_repos/dotfiles/temp directory if any
 ```
