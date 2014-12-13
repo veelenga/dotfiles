@@ -49,7 +49,6 @@ mkdir $temp
 for file in $files; do
     if [ -e ~/.$file ]; then
       mv ~/.$file $temp/$file
-      echo -n
     fi
     if [ -e $dir/$file ]; then
       cp -rs $dir/$file ~/.$file
