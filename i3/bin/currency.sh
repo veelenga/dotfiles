@@ -22,4 +22,4 @@ to=${2:-"UAH"}
 
 # api description: https://github.com/hippasus/ExchangeRates
 curl -s http://rate-exchange.appspot.com/currency\?from\=$from\&to\=$to |
-  python -c "import sys,json; data=json.loads(sys.stdin.read()); print(data['rate'] if 'rate' in data.keys() else 'N/A')"
+  python -c "import sys,json; exec 'try: data=json.loads(sys.stdin.read()); print(data[\"rate\"] if \"rate\" in data.keys() else \"N/A\");\nexcept: print \"N/A\"'"
