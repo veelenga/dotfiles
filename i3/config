@@ -33,7 +33,6 @@ set $m 58 # Be sure that 'set $mod value' follows this line :)
 
 # i3blocks signals
 set $sig_vol -RTMIN+10
-set $sig_lan -RTMIN+8
 
 set $bin_dir ~/.i3/bin/
 
@@ -65,7 +64,7 @@ bindcode $mod+Shift+$q kill
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-bindcode $mod+$d exec --no-startup-id setxkbmap us && pkill $sig_lan i3blocks && i3-dmenu-desktop
+bindcode $mod+$d exec --no-startup-id $bin_dir/language.sh us && i3-dmenu-desktop
 
 # volume hotkeys
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute && pkill $sig_vol i3blocks
@@ -89,9 +88,9 @@ bindcode $mod+Shift+$k move up
 bindcode $mod+Shift+$l move right
 
 # split in horizontal orientation
-bindsym $mod+$g split h
+bindcode $mod+$g split h
 # split in vertical orientation
-bindsym $mod+$v split v
+bindcode $mod+$v split v
 # enter fullscreen mode for the focused container
 bindcode $mod+$f fullscreen
 
@@ -249,12 +248,10 @@ bindsym XF86Display mode "$mode_display"; exec --no-startup-id feh --bg-fill $pi
 #exec --no-startup-id xinput disable 'SynPS/2 Synaptics TouchPad'
 #exec --no-startup-id xrandr --output VGA-1-2 --off
 
-# Language support. Fixing setxkbmap bug
-exec --no-startup-id setxkbmap -option -option grp:caps_toggle,caps:super
-bindsym  Caps_Lock exec --no-startup-id setxkbmap -layout us && pkill $sig_lan i3blocks
-# Ctrl+Shift will switch to ua
-bindcode --release Ctrl+50   exec --no-startup-id setxkbmap -layout ua && pkill $sig_lan i3blocks
-bindcode --release Shift+37  exec --no-startup-id setxkbmap -layout ua && pkill $sig_lan i3blocks
+# Language support.
+exec_always --no-startup-id setxkbmap -layout ua,us -option -option caps:super,grp:ctrl_shift_toggle && $bin_dir/language.sh us
+# Bind Caps_Lock to change only to english
+bindcode 66 exec --no-startup-id $bin_dir/language.sh us
 
 # Startup applications
 #exec_always --no-startup-id wicd-gtkt
