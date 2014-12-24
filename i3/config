@@ -250,7 +250,7 @@ bindsym XF86Display mode "$mode_display"; exec --no-startup-id feh --bg-fill $pi
 
 # Language support.
 exec_always --no-startup-id setxkbmap -layout ua,us -option -option caps:super,grp:ctrl_shift_toggle && $bin_dir/language.sh us
-# Bind Caps_Lock to change only to english
+# Bind Caps_Lock to change to english
 bindcode 66 exec --no-startup-id $bin_dir/language.sh us
 
 # Startup applications
@@ -261,5 +261,3 @@ exec --no-startup-id syndaemon -i 4 -K -d # fixing touchpad freeze bug
 
 # Background
 exec --no-startup-id feh --bg-fill ~/.wallpaper
-# sometimes it is needed to restore picture
-bindsym $mod+F1 exec --no-startup-id feh --bg-fill ~/.wallpaper
