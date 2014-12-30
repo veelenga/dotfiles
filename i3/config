@@ -125,13 +125,14 @@ bindcode $mod+Shift+$r restart
 # exit i3 (logs you out of your X session)
 bindcode $mod+Shift+$e exec "i3-nagbar -t warning -m 'Do you really want to exit i3? ' -b 'Yes, exit i3' 'i3-msg exit'"
 
-set $w_term 0:term
-set $w_www  1:www
+set $w_term   0:term
+set $w_www    1:www
+set $w_remote 3:remote
 
 # switch to workspace
 bindsym $mod+1 workspace $w_www
 bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
+bindsym $mod+3 workspace $w_remote
 bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
@@ -143,7 +144,7 @@ bindsym $mod+0 workspace $w_term
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $w_www
 bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+3 move container to workspace $w_remote
 bindsym $mod+Shift+4 move container to workspace 4
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
@@ -155,13 +156,14 @@ bindsym $mod+Shift+0 move container to workspace $w_term
 # Application specific
 assign     [class = "Google-chrome"  instance = "Google-chrome" ] → $w_www
 assign     [class = "Gnome-terminal" instance = "gnome-terminal"] → $w_term
-for_window [class = "Gnome-terminal" instance = "gnome-terminal"] border none
-for_window [class = "Google-chrome"  instance = "Google-chrome" ] border none
+assign     [class = "Remmina" instance = "remmina"] → $w_remote
+assign     [class = "Skype" instance = "skype" ] → $w_www
 for_window [class = "Skype" instance = "skype" ] resize shrink width 30 px or 30 ppt
 
 # Automatically putting workspaces on specific screens
-workspace $w_term output LVDS1
-workspace $w_www  output VGA1
+workspace $w_term   output LVDS1
+workspace $w_www    output VGA1
+workspace $w_remote output VGA1
 
 # resize window
 bindcode $mod+$r mode "resize"
