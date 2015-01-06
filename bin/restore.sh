@@ -28,7 +28,7 @@ pretty_symlink() {
 
 dir=$GIT_REPOS/dotfiles           # dotfiles directory
 temp=$GIT_REPOS/dotfiles/temp     # backup directory
-files="vimrc gvimrc ctags zshrc tmux.conf i3blocks.conf i3/"
+files="vimrc gvimrc ctags zshrc i3blocks.conf i3/"
 
 ##########
 
