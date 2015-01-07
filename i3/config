@@ -256,7 +256,7 @@ exec_always --no-startup-id setxkbmap -layout ua,us -option -option caps:super,g
 bindcode 66 exec --no-startup-id $bin_dir/language.sh us
 
 # Startup applications
-exec --no-startup-id wicd-gtk
+exec --no-startup-id wicd-client --tray
 exec --no-startup-id gnome-terminal
 exec --no-startup-id syndaemon -i 4 -K -d # fixing touchpad freeze bug
 
