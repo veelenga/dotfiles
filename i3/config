@@ -154,11 +154,13 @@ bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace $w_term
 
 # Application specific
-assign     [class = "Google-chrome"  instance = "Google-chrome" ] → $w_www
-assign     [class = "Gnome-terminal" instance = "gnome-terminal"] → $w_term
-assign     [class = "Remmina" instance = "remmina"] → $w_remote
-assign     [class = "Skype" instance = "skype" ] → $w_www
-for_window [class = "Skype" instance = "skype" ] resize shrink width 30 px or 30 ppt
+assign [class = "Google-chrome"  instance = "Google-chrome"]  → $w_www
+assign [class = "Gnome-terminal" instance = "gnome-terminal"] → $w_term
+assign [class = "Remmina" instance = "remmina"]               → $w_remote
+assign [class = "Skype" instance = "skype"]                   → $w_www
+
+for_window [class = "Skype" instance = "skype"] resize shrink width 30 px or 30 ppt
+for_window [class = "Wicd-client.py"] floating enable; floating_maximum_size 30 x 10
 
 # Automatically putting workspaces on specific screens
 workspace $w_term   output LVDS1
