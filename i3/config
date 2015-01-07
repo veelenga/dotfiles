@@ -259,6 +259,7 @@ bindcode 66 exec --no-startup-id $bin_dir/language.sh us
 exec --no-startup-id wicd-client --tray
 exec --no-startup-id gnome-terminal
 exec --no-startup-id syndaemon -i 4 -K -d # fixing touchpad freeze bug
+exec --no-startup-id synclient TouchpadOff=1 # Use trackpoint only
 
 # Background
 exec --no-startup-id feh --bg-fill ~/.wallpaper
