@@ -199,7 +199,7 @@ bar {
         inactive_workspace #2d2d2d #2d2d2d #888888
         urgent_workspace   #333333 #900000 #ffffff
   }
-  tray_output primary
+
   workspace_buttons yes
   strip_workspace_numbers yes
   position top
@@ -256,10 +256,9 @@ exec_always --no-startup-id setxkbmap -layout ua,us -option -option caps:super,g
 bindcode 66 exec --no-startup-id $bin_dir/language.sh us
 
 # Startup applications
-#exec_always --no-startup-id wicd-gtkt
-exec --no-startup-id nm-applet
+exec --no-startup-id wicd-gtk
 exec --no-startup-id gnome-terminal
-#exec --no-startup-id syndaemon -i 4 -K -d # fixing touchpad freeze bug
+exec --no-startup-id syndaemon -i 4 -K -d # fixing touchpad freeze bug
 
 # Background
 exec --no-startup-id feh --bg-fill ~/.wallpaper
