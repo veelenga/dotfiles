@@ -229,6 +229,8 @@ bindsym XF86Calculator exec --no-startup-id gnome-calculator
 bindsym XF86AudioPrev  exec --no-startup-id mocp --previous
 bindsym XF86AudioPlay  exec --no-startup-id mocp --toggle-pause
 bindsym XF86AudioNext  exec --no-startup-id mocp --next
+bindsym XF86KbdBrightnessUp   exec xbacklight -inc 10
+bindsym XF86KbdBrightnessDown exec xbacklight -dec 10
 bindsym Print          exec --no-startup-id scrot 'Screenshot - %Y-%m-%d--%_$wx$h_scrot.png'
 bindcode $mod+$p       exec --no-startup-id pcmanfm
 
