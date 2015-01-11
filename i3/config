@@ -68,8 +68,8 @@ bindcode $mod+Shift+$q kill
 bindcode $mod+$d exec $bin_dir/language.sh us && pkill $sig_lan i3blocks && i3-dmenu-desktop
 
 # volume hotkeys
-bindsym XF86AudioRaiseVolume exec amixer -q -D default sset Master 2%+ && pkill $sig_vol i3blocks
-bindsym XF86AudioLowerVolume exec amixer -q -D default sset Master 2%- && pkill $sig_vol i3blocks
+bindsym XF86AudioRaiseVolume exec amixer -q -D default sset Master 5%+ && pkill $sig_vol i3blocks
+bindsym XF86AudioLowerVolume exec amixer -q -D default sset Master 5%- && pkill $sig_vol i3blocks
 bindsym XF86AudioMute        exec amixer -q -D default sset Master toggle && pkill $sig_vol i3blocks
 
 # scratchpad hotkeys
