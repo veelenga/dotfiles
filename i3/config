@@ -109,6 +109,9 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindcode $mod+$a focus parent
 
+# jump to urgent window
+bindsym $mod+x [urgent=latest] focus
+
 # hide vertical borders <none|vertical|horizontal|both>
 hide_edge_borders both
 
@@ -186,7 +189,6 @@ client.focused #d64937 #d64937 #dedede
 client.unfocused #333333 #333333 #dedede
 client.focused_inactive #333333 #333333 #dedede
 client.urgent #383a3b #383a3b #ee0000
-
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 bar {
