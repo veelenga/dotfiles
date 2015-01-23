@@ -265,7 +265,7 @@ bindsym XF86Display mode "$mode_display"; exec --no-startup-id feh --bg-fill $pi
 # Startup & system settings
 ######################################################################################
 # fixing touchpad freeze bug
-exec --no-startup-id syndaemon -i 4 -K -d
+#exec_always --no-startup-id syndaemon -i 4 -K -d
 
 # Use trackpoint only
 exec --no-startup-id synclient TouchpadOff=1
