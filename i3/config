@@ -278,6 +278,7 @@ bindcode $mod+$u exec --no-startup-id $bin_dir/language.sh ua && pkill $sig_lan 
 # Startup applications
 exec --no-startup-id wicd-client --tray
 exec --no-startup-id gnome-terminal
+exec --no-startup-id pcmanfm -d
 
 # Background
 exec --no-startup-id feh --bg-fill ~/.wallpaper
