@@ -1,0 +1,3 @@
+wicd-client --tray &
+pcmanfm -d &
+compton -b &

@@ -262,7 +262,7 @@ bindsym $mod+F6     mode "$mode_display"; exec --no-startup-id feh --bg-fill $pi
 bindsym XF86Display mode "$mode_display"; exec --no-startup-id feh --bg-fill $pic
 
 ######################################################################################
-# Startup & system settings
+# Startup & settings
 ######################################################################################
 # fixing touchpad freeze bug
 #exec_always --no-startup-id syndaemon -i 4 -K -d
@@ -276,9 +276,7 @@ bindcode 66 exec --no-startup-id $bin_dir/language.sh us && pkill $sig_lan i3blo
 bindcode $mod+$u exec --no-startup-id $bin_dir/language.sh ua && pkill $sig_lan i3blocks
 
 # Startup applications
-exec --no-startup-id wicd-client --tray
 exec --no-startup-id gnome-terminal
-exec --no-startup-id pcmanfm -d
 
 # Background
 exec --no-startup-id feh --bg-fill ~/.wallpaper
