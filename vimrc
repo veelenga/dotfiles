@@ -170,3 +170,9 @@ let g:rbpt_loadcmd_toggle = 0
 "autocmd Syntax * RainbowParenthesesLoadSquare
 "autocmd Syntax * RainbowParenthesesLoadBraces
 autocmd BufNewFile,BufRead *.rkt,*.lisp :RainbowParenthesesToggle
+
+" rspec
+let g:rspec_command = "!rspec {spec}"
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
