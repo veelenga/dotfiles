@@ -56,6 +56,14 @@ inoremap CC <Esc>C
 inoremap DD <Esc>S
 inoremap UU <Esc>u
 
+" resizing windows
+if bufwinnr(1)
+  map + <C-W>+
+  map - <C-W>-
+  map < <C-W><
+  map > <C-W>>
+endif
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 " APPEARANCE AND BEHAVIOR
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
