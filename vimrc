@@ -58,10 +58,10 @@ inoremap UU <Esc>u
 
 " resizing windows
 if bufwinnr(1)
-  map + <C-W>+
-  map - <C-W>-
-  map < <C-W><
-  map > <C-W>>
+  map + <C-W><
+  map - <C-W>>
+  "map < <C-W><
+  "map > <C-W>>
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -82,6 +82,9 @@ set number
 
 " save automatically
 set autowriteall
+
+" reload file automatically
+set autoread
 
 " make programs
 autocmd BufNewFile,BufRead *.rb set makeprg=ruby\ %
