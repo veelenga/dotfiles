@@ -3,6 +3,10 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader = ","
 
+" edit vimrc quickly
+nnoremap <leader>ev :vsplit $MYVIMRC<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
+
 " copy-paste bindings
 vnoremap <C-c> "+yi
 vnoremap <C-x> "+cse16
@@ -75,8 +79,6 @@ filetype on
 filetype indent on
 filetype plugin on
 
-" colors
-colorscheme desert
 set number
 
 " save automatically
@@ -178,3 +180,14 @@ let g:rspec_command = "!rspec {spec}"
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
+
+" vim colors solarized
+syntax enable
+set background=dark
+colorscheme solarized
+" and then use favourite colors
+if has('gui_running')
+  color codeschool
+else
+  color desert
+endif
