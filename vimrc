@@ -1,8 +1,7 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 " HOTKEYS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
-" exit all with ZZ (useful when NERDTree activated)
-noremap ZZ :qa<CR>
+let mapleader = ","
 
 " copy-paste bindings
 vnoremap <C-c> "+yi
