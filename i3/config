@@ -163,13 +163,13 @@ bindsym $mod+3 workspace $w_remote
 bindsym $mod+4 workspace $w_read
 bindsym $mod+5 workspace $w_und
 
-# move focused container to workspace
-bindsym $mod+Shift+0 move container to workspace $w_term
-bindsym $mod+Shift+1 move container to workspace $w_www
-bindsym $mod+Shift+2 move container to workspace $w_edit
-bindsym $mod+Shift+3 move container to workspace $w_remote
-bindsym $mod+Shift+4 move container to workspace $w_read
-bindsym $mod+Shift+5 move container to workspace $w_und
+# move focused container to workspace and go to that workspace
+bindsym $mod+Shift+0 move container to workspace $w_term;   workspace $w_term
+bindsym $mod+Shift+1 move container to workspace $w_www;    workspace $w_www
+bindsym $mod+Shift+2 move container to workspace $w_edit;   workspace $w_edit
+bindsym $mod+Shift+3 move container to workspace $w_remote; workspace $w_remote
+bindsym $mod+Shift+4 move container to workspace $w_read;   workspace $w_read
+bindsym $mod+Shift+5 move container to workspace $w_und;    workspace $w_und
 
 # Application specific
 assign [class = "Google-chrome"  instance = "Google-chrome"]  → $w_www
