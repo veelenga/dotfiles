@@ -1,9 +1,11 @@
-Dotfiles
-========
-This repository includes all of my custom dotfiles. It contains a script (bin/restore.sh) to help with managing and updating your dotfiles.
+# Dotfiles
+This repository includes all of my custom dotfiles. 
 
-Using this repo
-========
+I am a fun of i3, vim and Slipknot. How it looks:
+
+[![Foo](https://sc-cdn.scaleengine.net/i/15ff14ed5844c965cc28171c153889fa.png)](https://screencloud.net/v/aoAk)
+
+# Using this repo
 
 First, fork this repo.
 
