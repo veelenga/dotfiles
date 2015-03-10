@@ -130,7 +130,7 @@ bindcode $mod+Shift+$r restart
 # exit i3 (logs you out of your X session)
 bindcode $mod+Shift+$e exec "i3-nagbar -t warning -m 'Do you really want to exit i3? ' -b 'Yes, exit i3' 'i3-msg exit'"
 
-# multimedia functions
+# multimedia hotkeys
 bindsym  XF86PowerOff          exec i3exit shutdown
 bindsym  XF86Calculator        exec gnome-calculator
 bindsym  XF86AudioPrev         exec mocp --previous
@@ -142,8 +142,11 @@ bindsym  XF86AudioRaiseVolume  exec amixer -q -D default sset Master 5%+ && pkil
 bindsym  XF86AudioLowerVolume  exec amixer -q -D default sset Master 5%- && pkill $sig_vol i3blocks
 bindsym  XF86AudioMute         exec amixer -q -D default sset Master toggle && pkill $sig_vol i3blocks
 bindsym  Print                 exec scrot 'Screenshot - %Y-%m-%d--%_$wx$h_scrot.png'
+
+# application shortkeys
 bindsym  $mod+Return           exec gnome-terminal
 bindcode $mod+$p               exec pcmanfm
+bindcode $mod+$o               exec google-chrome-stable
 
 ######################################################################################
 # Workspaces
