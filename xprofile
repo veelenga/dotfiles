@@ -2,3 +2,4 @@ wicd-client --tray &
 pcmanfm -d &
 compton -b &
 screencloud &
+start-pulseaudio-x11 &
