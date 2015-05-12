@@ -176,7 +176,7 @@ let g:rbpt_loadcmd_toggle = 0
 autocmd BufNewFile,BufRead *.rkt,*.lisp :RainbowParenthesesToggle
 
 " rspec
-let g:rspec_command = "!rspec {spec}"
+let g:rspec_command = "!rspec {spec} --format documentation"
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
@@ -198,11 +198,11 @@ let g:EasyMotion_do_mapping = 0 " Disable default mappings
 " Bi-directional find motion
 " Jump to anywhere you want with minimal keystrokes, with just one key binding.
 " `s{char}{label}`
-map <Leader>s <Plug>(easymotion-s)
+map <Leader>f <Plug>(easymotion-s)
 " or
 " `s{char}{char}{label}`
 " Need one more keystroke, but on average, it may be more comfortable.
-nmap <Leader>s <Plug>(easymotion-s2)
+nmap <Leader>f <Plug>(easymotion-s2)
 
 " Turn on case insensitive feature
 let g:EasyMotion_smartcase = 1
