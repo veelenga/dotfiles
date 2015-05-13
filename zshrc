@@ -111,3 +111,9 @@ alias vi='vim'
 # Support powerline
 powerline-daemon -q
 . /usr/lib/python3.4/site-packages/powerline/bindings/zsh/powerline.zsh
+
+# Use tmux
+tmux attach &> /dev/null
+if [[ ! $TERM =~ screen ]]; then
+    exec tmux new -s veelenga
+fi
