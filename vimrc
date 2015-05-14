@@ -124,8 +124,44 @@ set keywordprg=trans\ :uk
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PLUGIN OPTIONS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
-" pathogen support (plugin installer)
-execute pathogen#infect()
+" vundle support (plugin manager)
+set nocompatible              " be iMproved, required
+filetype off                  " required by Vundle
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'gmarik/Vundle.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'PotatoesMaster/i3-vim-syntax'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'ervandew/supertab'
+Plugin 'scrooloose/syntastic'
+Plugin 'majutsushi/tagbar'
+Plugin 'bling/vim-airline'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-fugitive'
+Plugin 'veelenga/vim-gems-complete'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'elzr/vim-json'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'tpope/vim-obsession'
+Plugin 'wlangstroth/vim-racket'
+Plugin 'thoughtbot/vim-rspec'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'lucapette/vim-ruby-doc'
+Plugin 'henrik/vim-ruby-runner'
+Plugin 'chilicuil/vim-sml-coursera'
+Plugin 'christoomey/vim-tmux-navigator'
+
+call vundle#end()
+filetype plugin indent on    " required by Vundle
 
 " powerline
 set laststatus=2
