@@ -183,6 +183,15 @@ let NERDTreeWinSize=20
 " ctrlp
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
+" git gutter
+nmap ]h <Plug>GitGutterNextHunk
+nmap [h <Plug>GitGutterPrevHunk
+
+nmap <Leader>hs <Plug>GitGutterStageHunk
+nmap <Leader>hr <Plug>GitGutterRevertHunk
+
+nmap <Leader>hp <Plug>GitGutterPreviewHunk
+
 " Rainbow parentheses
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
