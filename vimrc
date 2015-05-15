@@ -159,6 +159,7 @@ Plugin 'lucapette/vim-ruby-doc'
 Plugin 'henrik/vim-ruby-runner'
 Plugin 'chilicuil/vim-sml-coursera'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'tpope/vim-git'
 
 call vundle#end()
 filetype plugin indent on    " required by Vundle
