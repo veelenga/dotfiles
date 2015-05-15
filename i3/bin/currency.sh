@@ -24,5 +24,6 @@ to=${2:-"UAH"}
 # Response example:
 #  <div id="currency_converter_result">1 USD = <span class="bld">21 UAH</span>
 #
-curl -s https://www.google.com/finance/converter\?a=1\&from=$from\&to=$to | 
-  grep -a "<span class=bld>" | ruby -e "puts ARGF.read.scan(/bld>(.*) $to</)"
+curl -s https://www.google.com/finance/converter\?a=1\&from=$from\&to=$to |
+  grep -a "currency_converter_result" |
+  ruby -e "r = ARGF.read.scan(/bld>(.*) $to</)[0]; r ? puts(r) : puts('N/A')"
