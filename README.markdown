@@ -1,6 +1,8 @@
 # Dotfiles
 This repository includes all of my custom dotfiles. 
 
+[![Foo](https://sc-cdn.scaleengine.net/i/f1150c1698a3e48b480ec9c368b0f6cd.png)](https://sc-cdn.scaleengine.net/i/f1150c1698a3e48b480ec9c368b0f6cd.png)
+
 # Using this repo
 
 First, fork this repo.
