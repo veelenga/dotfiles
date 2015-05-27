@@ -118,5 +118,5 @@ if [[ ! $TERM =~ screen ]]; then
     exec tmux new -s veelenga
 fi
 
-# Unable thefuck
+# Enable thefuck
 alias fuck='eval $(thefuck $(fc -ln -1 | tail -n 1)); fc -R'
