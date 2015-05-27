@@ -1,9 +1,7 @@
 # Dotfiles
 This repository includes all of my custom dotfiles. 
 
-I am a fun of i3, vim and Slipknot. How it looks:
-
-[![Foo](https://sc-cdn.scaleengine.net/i/15ff14ed5844c965cc28171c153889fa.png)](https://screencloud.net/v/aoAk)
+[![Foo](https://sc-cdn.scaleengine.net/i/f1150c1698a3e48b480ec9c368b0f6cd.png)](https://sc-cdn.scaleengine.net/i/f1150c1698a3e48b480ec9c368b0f6cd.png)
 
 # Using this repo
 
