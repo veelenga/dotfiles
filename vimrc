@@ -27,6 +27,20 @@ function! QuickfixToggle()
     endif
 endfunction
 
+" Restores cursor position between editing sessions.
+" http://vim.wikia.com/wiki/Restore_cursor_to_file_position_in_previous_editing_session
+function! ResCur()
+  if line("'\"") <= line("$")
+    normal! g`"
+    return 1
+  endif
+endfunction
+
+augroup resCur
+  autocmd!
+  autocmd BufWinEnter * call ResCur()
+augroup END
+
 " functional keys
 map <F1>  :RainbowParenthesesToggle<CR>
 map <F2>  :setlocal spell! spelllang=en_us<CR>
