@@ -175,6 +175,8 @@ Plugin 'chilicuil/vim-sml-coursera'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tpope/vim-git'
 Plugin 'rust-lang/rust.vim'
+Plugin 'timonv/vim-cargo'
+Plugin 'tpope/vim-dispatch'
 
 call vundle#end()
 filetype plugin indent on    " required by Vundle
@@ -271,3 +273,6 @@ let g:EasyMotion_smartcase = 1
 " JK motions: Line motions
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
+
+" Vim-cargo
+let g:cargo_command = "Dispatch cargo {cmd}"
