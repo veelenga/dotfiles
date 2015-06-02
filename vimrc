@@ -177,6 +177,7 @@ Plugin 'tpope/vim-git'
 Plugin 'rust-lang/rust.vim'
 Plugin 'timonv/vim-cargo'
 Plugin 'tpope/vim-dispatch'
+Plugin 'rhysd/vim-crystal'
 
 call vundle#end()
 filetype plugin indent on    " required by Vundle
