@@ -88,6 +88,9 @@ bindkey '^h' backward-delete-char
 bindkey '^w' backward-kill-word
 bindkey '^r' history-incremental-search-backward
 
+bindkey '^f' end-of-line
+bindkey '^a' beginning-of-line
+
 function zle-line-init zle-keymap-select {
     #RPS1="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
     #RPS2=$RPS1
