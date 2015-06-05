@@ -106,6 +106,8 @@ autocmd BufNewFile,BufRead *.rb set makeprg=ruby\ %
 autocmd BufNewFile,BufRead *.py set makeprg=python\ %
 autocmd BufNewFile,BufRead *.sml set makeprg=sml\ %
 autocmd BufNewFile,BufRead *.rkt set makeprg=racket\ %
+autocmd BufNewFile,BufRead *.cr set makeprg=crystal\ %
+autocmd BufNewFile,BufRead *.rs set makeprg=rustc\ %
 
 " By default vim will indent arguments after the function name
 " but sometimes you want to only indent by 2 spaces similar to
