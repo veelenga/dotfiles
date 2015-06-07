@@ -3,3 +3,4 @@ pcmanfm -d &
 compton -b &
 screencloud &
 start-pulseaudio-x11 &
+unclutter -grab &
