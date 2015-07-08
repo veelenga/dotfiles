@@ -181,6 +181,7 @@ Plugin 'timonv/vim-cargo'
 Plugin 'tpope/vim-dispatch'
 Plugin 'rhysd/vim-crystal'
 Plugin 'Townk/vim-autoclose'
+Plugin 'vim-scripts/HTML-AutoCloseTag'
 
 call vundle#end()
 filetype plugin indent on    " required by Vundle
