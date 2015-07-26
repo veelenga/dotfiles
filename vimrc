@@ -87,6 +87,9 @@ endif
 " vim, not vi
 set nocompatible
 
+" show partial command
+set showcmd
+
 " syntax and filetypes
 syntax   on
 filetype on
