@@ -66,12 +66,12 @@ imap <F11> <C-o><F11>
 imap <F12> <C-o><F12>
 
 " useful combinations in insert mode
-inoremap II <Esc>I
-inoremap AA <Esc>A
-inoremap OO <Esc>o
-inoremap CC <Esc>C
-inoremap DD <Esc>S
-inoremap UU <Esc>u
+" inoremap II <Esc>I
+" inoremap AA <Esc>A
+" inoremap OO <Esc>o
+" inoremap CC <Esc>C
+" inoremap DD <Esc>S
+" inoremap UU <Esc>u
 
 " resizing windows
 if bufwinnr(1)
