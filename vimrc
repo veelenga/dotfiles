@@ -119,7 +119,7 @@ autocmd BufNewFile,BufRead *.rs set makeprg=rustc\ %
 set lispwords+=public-method,override-method,private-method,syntax-case,syntax-rules
 
 " automatically remove trailing characters
-autocmd BufWritePre *.py,*.rb,*.sml,*.java,*.rkt :%s/\s\+$//e
+autocmd BufWritePre *.py,*.rb,*.sml,*.java,*.rkt,*.css,*.html,*.js,*.coffee,*.erb,*.haml  :%s/\s\+$//e
 
 " code formatting
 set tabstop=2
