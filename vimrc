@@ -186,6 +186,8 @@ Plugin 'rhysd/vim-crystal'
 Plugin 'Townk/vim-autoclose'
 Plugin 'vim-scripts/HTML-AutoCloseTag'
 Plugin 'kchmck/vim-coffee-script'
+Plugin 'mattn/emmet-vim.git'
+Plugin 'skammer/vim-css-color.git'
 
 call vundle#end()
 filetype plugin indent on    " required by Vundle
@@ -285,3 +287,7 @@ map <Leader>k <Plug>(easymotion-k)
 
 " Vim-cargo
 let g:cargo_command = "Dispatch cargo {cmd}"
+
+" Emmet-vim
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
