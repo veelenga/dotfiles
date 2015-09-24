@@ -187,6 +187,8 @@ Plugin 'vim-scripts/HTML-AutoCloseTag'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'mattn/emmet-vim.git'
 Plugin 'skammer/vim-css-color.git'
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'mattreduce/vim-mix'
 
 call vundle#end()
 filetype plugin indent on    " required by Vundle
