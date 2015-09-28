@@ -189,6 +189,8 @@ Plugin 'mattn/emmet-vim.git'
 Plugin 'skammer/vim-css-color.git'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'mattreduce/vim-mix'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 
 call vundle#end()
 filetype plugin indent on    " required by Vundle
@@ -292,3 +294,6 @@ let g:cargo_command = "Dispatch cargo {cmd}"
 " Emmet-vim
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
+
+" Vim-markdown
+let g:vim_markdown_folding_disabled=1
