@@ -191,6 +191,7 @@ Plugin 'elixir-lang/vim-elixir'
 Plugin 'mattreduce/vim-mix'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'wakatime/vim-wakatime'
 
 call vundle#end()
 filetype plugin indent on    " required by Vundle
