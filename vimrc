@@ -11,6 +11,7 @@ nnoremap <leader>sv :source $MYVIMRC<CR>
 vnoremap <C-c> "+yi
 vnoremap <C-x> "+cse16
 inoremap <C-v> <C-r><C-o>+
+set clipboard=unnamedplus
 
 " save with ctrl+s
 noremap  <C-s> :w<CR>
