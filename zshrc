@@ -45,7 +45,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(rails git ruby common-aliases)
+plugins=(rails git ruby common-aliases crystal)
 
 # User configuration
 
@@ -91,18 +91,6 @@ bindkey '^r' history-incremental-search-backward
 bindkey '^f' end-of-line
 bindkey '^a' beginning-of-line
 
-function zle-line-init zle-keymap-select {
-    #RPS1="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
-    #RPS2=$RPS1
-    #VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}"
-    #RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}$EPS1"
-    #zle reset-prompt
-}
-
-zle -N zle-line-init
-zle -N zle-keymap-select
-export KEYTIMEOUT=1
-
 export GIT_REPOS=~/Dev/projects/git_repos
 # Custom aliases
 alias repos='cd $GIT_REPOS'
@@ -111,23 +99,17 @@ alias dotfiles='cd $GIT_REPOS/dotfiles'
 alias vimrc='vim ~/.vimrc'
 alias vi='vim'
 
+export KEYTIMEOUT=1
+
 # Support powerline
 powerline-daemon -q
-. /usr/lib/python3.4/site-packages/powerline/bindings/zsh/powerline.zsh
+. /usr/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh
 
 # Use tmux
 tmux attach &> /dev/null
 if [[ ! $TERM =~ screen ]]; then
     exec tmux new -s veelenga
 fi
-
-# Enable thefuck
-alias fuck='eval $(thefuck $(fc -ln -1 | tail -n 1)); fc -R'
-
-# Autosuggestions
-
-# Load zsh-syntax-highlighting.
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Load zsh-autosuggestions.
 source ~/.zsh/zsh-autosuggestions/autosuggestions.zsh
