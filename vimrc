@@ -188,6 +188,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'wakatime/vim-wakatime'
 Plugin 'rhysd/clever-f.vim'
+Plugin 'dkprice/vim-easygrep'
 
 call vundle#end()
 filetype plugin indent on    " required by Vundle
