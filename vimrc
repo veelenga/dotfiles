@@ -3,6 +3,12 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader = ","
 
+" custom usability hotkeys
+" => ruby & rails
+nnoremap <leader>pr obinging.pry<ESC>
+inoremap <leader>pr binding.pry<ESC>
+" end of custom usability hotkeys
+
 " edit vimrc quickly
 nnoremap <leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
