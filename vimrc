@@ -102,7 +102,7 @@ filetype indent on
 filetype plugin on
 
 set nowrap
-
+set noswapfile
 set number
 
 " save automatically
