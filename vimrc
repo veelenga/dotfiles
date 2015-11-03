@@ -3,6 +3,18 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader = ","
 
+" custom usability hotkeys
+" => ruby & rails
+" binding.pry
+nnoremap <leader>pr obinging.pry<ESC>
+inoremap <leader>pr binding.pry<ESC>
+" erb tag
+nnoremap <leader>et o<%=  %><ESC>F i
+inoremap <leader>et <%=  %><ESC>F i
+nnoremap <leader>er o<%  %><ESC>F i
+inoremap <leader>er <%  %><ESC>F i
+" end of custom usability hotkeys
+
 " edit vimrc quickly
 nnoremap <leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
@@ -90,7 +102,7 @@ filetype indent on
 filetype plugin on
 
 set nowrap
-
+set noswapfile
 set number
 
 " save automatically
