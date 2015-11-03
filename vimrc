@@ -189,6 +189,9 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'wakatime/vim-wakatime'
 Plugin 'rhysd/clever-f.vim'
 Plugin 'dkprice/vim-easygrep'
+Plugin 'Shougo/unite.vim'
+Plugin 'Shougo/vimproc.vim'
+Plugin 'Shougo/neocomplcache.vim'
 
 call vundle#end()
 filetype plugin indent on    " required by Vundle
