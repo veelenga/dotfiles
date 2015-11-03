@@ -267,9 +267,9 @@ autocmd BufNewFile,BufRead *.rkt,*.lisp :RainbowParenthesesToggle
 
 " rspec
 let g:rspec_command = "!rspec {spec} --format documentation"
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
+map <Leader>rt :call RunCurrentSpecFile()<CR>
+map <Leader>rs :call RunNearestSpec()<CR>
+map <Leader>ra :call RunAllSpecs()<CR>
 
 " vim colors solarized
 syntax enable
@@ -310,3 +310,9 @@ autocmd FileType html,css EmmetInstall
 
 " Vim-markdown
 let g:vim_markdown_folding_disabled=1
+
+" Unite
+nnoremap <C-P> :Unite -start-insert file_rec/async:!<cr>
+nnoremap <space>/ :Unite -no-quit -default-action=split grep:.<cr>
+nnoremap <space>s :Unite -quick-match buffer<cr>
+nnoremap <space>c :UniteClose<cr>
