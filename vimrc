@@ -159,7 +159,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
-"Plugin 'kien/ctrlp.vim'
 Plugin 'PotatoesMaster/i3-vim-syntax'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
@@ -178,11 +177,9 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'tpope/vim-obsession'
 Plugin 'wlangstroth/vim-racket'
-"Plugin 'thoughtbot/vim-rspec'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'lucapette/vim-ruby-doc'
 Plugin 'henrik/vim-ruby-runner'
-"Plugin 'chilicuil/vim-sml-coursera'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tpope/vim-git'
 Plugin 'rust-lang/rust.vim'
@@ -205,6 +202,7 @@ Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/neocomplcache.vim'
 Plugin 'tpope/vim-rails'
+Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
 filetype plugin indent on    " required by Vundle
@@ -225,9 +223,6 @@ let NERDTreeMapActivateNode='l'
 "autocmd VimEnter * NERDTree ../
 autocmd VimEnter * wincmd p
 let NERDTreeWinSize=20
-
-" ctrlp
-set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 " git gutter
 nmap ]h <Plug>GitGutterNextHunk
@@ -265,12 +260,6 @@ let g:rbpt_loadcmd_toggle = 0
 "autocmd Syntax * RainbowParenthesesLoadSquare
 "autocmd Syntax * RainbowParenthesesLoadBraces
 autocmd BufNewFile,BufRead *.rkt,*.lisp :RainbowParenthesesToggle
-
-" rspec
-let g:rspec_command = "!rspec {spec} --format documentation"
-map <Leader>rt :call RunCurrentSpecFile()<CR>
-map <Leader>rs :call RunNearestSpec()<CR>
-map <Leader>ra :call RunAllSpecs()<CR>
 
 " vim colors solarized
 syntax enable
