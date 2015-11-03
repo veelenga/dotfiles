@@ -159,7 +159,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
-Plugin 'kien/ctrlp.vim'
+"Plugin 'kien/ctrlp.vim'
 Plugin 'PotatoesMaster/i3-vim-syntax'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
@@ -178,11 +178,11 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'tpope/vim-obsession'
 Plugin 'wlangstroth/vim-racket'
-Plugin 'thoughtbot/vim-rspec'
+"Plugin 'thoughtbot/vim-rspec'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'lucapette/vim-ruby-doc'
 Plugin 'henrik/vim-ruby-runner'
-Plugin 'chilicuil/vim-sml-coursera'
+"Plugin 'chilicuil/vim-sml-coursera'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tpope/vim-git'
 Plugin 'rust-lang/rust.vim'
@@ -204,6 +204,7 @@ Plugin 'dkprice/vim-easygrep'
 Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/neocomplcache.vim'
+Plugin 'tpope/vim-rails'
 
 call vundle#end()
 filetype plugin indent on    " required by Vundle
@@ -310,6 +311,11 @@ autocmd FileType html,css EmmetInstall
 
 " Vim-markdown
 let g:vim_markdown_folding_disabled=1
+
+" Ruby + Rails
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1 
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 
 " Unite
 nnoremap <C-P> :Unite -start-insert file_rec/async:!<cr>
