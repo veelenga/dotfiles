@@ -207,6 +207,7 @@ Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/neocomplcache.vim'
 Plugin 'tpope/vim-rails'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'dandorman/vim-colors'
 
 call vundle#end()
 filetype plugin indent on    " required by Vundle
@@ -266,7 +267,6 @@ let g:rbpt_loadcmd_toggle = 0
 autocmd BufNewFile,BufRead *.rkt,*.lisp :RainbowParenthesesToggle
 
 " vim colors solarized
-syntax enable
 set background=dark
 colorscheme solarized
 " and then use favourite colors
