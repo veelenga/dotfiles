@@ -299,8 +299,7 @@ map <Leader>k <Plug>(easymotion-k)
 let g:cargo_command = "Dispatch cargo {cmd}"
 
 " Emmet-vim
-let g:user_emmet_install_global = 0
-autocmd FileType html,css EmmetInstall
+let g:user_emmet_install_global = 1
 
 " Vim-markdown
 let g:vim_markdown_folding_disabled=1
