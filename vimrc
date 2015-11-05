@@ -6,8 +6,8 @@ let mapleader = ","
 " custom usability hotkeys
 " => ruby & rails
 " binding.pry
-nnoremap <leader>pr obinging.pry<ESC>
-inoremap <leader>pr binding.pry<ESC>
+nnoremap <leader>br obinding.pry<ESC>
+inoremap <leader>br binding.pry<ESC>
 " erb tag
 nnoremap <leader>et o<%=  %><ESC>F i
 inoremap <leader>et <%=  %><ESC>F i
@@ -18,6 +18,10 @@ inoremap <leader>er <%  %><ESC>F i
 " edit vimrc quickly
 nnoremap <leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
+
+" tab navigation
+nnoremap H gT
+nnoremap L gt
 
 " copy-paste bindings
 vnoremap <C-c> "+yi
