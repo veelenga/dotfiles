@@ -17,7 +17,7 @@ inoremap <leader>er <%  %><ESC>F i
 
 " edit vimrc quickly
 nnoremap <leader>ev :vsplit $MYVIMRC<CR>
-nnoremap <leader>sv :source $MYVIMRC<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>:echo 'configuration reloaded'<CR>
 
 " tab navigation
 nnoremap H gT
@@ -27,11 +27,6 @@ nnoremap L gt
 vnoremap <C-c> "+yi
 vnoremap <C-x> "+cse16
 inoremap <C-v> <C-r><C-o>+
-set clipboard=unnamedplus
-
-" save with ctrl+s
-noremap  <C-s> :w<CR>
-inoremap <C-s> <C-o>:w<CR>
 
 let g:quickfix_is_open = 0
 function! QuickfixToggle()
@@ -181,33 +176,28 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'tpope/vim-obsession'
 Plugin 'wlangstroth/vim-racket'
-Plugin 'vim-ruby/vim-ruby'
 Plugin 'lucapette/vim-ruby-doc'
 Plugin 'henrik/vim-ruby-runner'
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'tpope/vim-git'
-Plugin 'rust-lang/rust.vim'
 Plugin 'timonv/vim-cargo'
 Plugin 'tpope/vim-dispatch'
 Plugin 'rhysd/vim-crystal'
 Plugin 'Townk/vim-autoclose'
 Plugin 'vim-scripts/HTML-AutoCloseTag'
-Plugin 'kchmck/vim-coffee-script'
 Plugin 'mattn/emmet-vim.git'
 Plugin 'skammer/vim-css-color.git'
-Plugin 'elixir-lang/vim-elixir'
 Plugin 'mattreduce/vim-mix'
 Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'wakatime/vim-wakatime'
 Plugin 'rhysd/clever-f.vim'
 Plugin 'dkprice/vim-easygrep'
 Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/neocomplcache.vim'
 Plugin 'tpope/vim-rails'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'dandorman/vim-colors'
+Plugin 'vim-scripts/vim-auto-save'
+Plugin 'justincampbell/vim-eighties'
+Plugin 'sheerun/vim-polyglot'
 
 call vundle#end()
 filetype plugin indent on    " required by Vundle
@@ -260,10 +250,6 @@ let g:rbpt_colorpairs = [
 let g:rbpt_max = 16
 let g:rbpt_loadcmd_toggle = 0
 
-"au VimEnter * RainbowParenthesesToggle
-"autocmd Syntax * RainbowParenthesesLoadRound
-"autocmd Syntax * RainbowParenthesesLoadSquare
-"autocmd Syntax * RainbowParenthesesLoadBraces
 autocmd BufNewFile,BufRead *.rkt,*.lisp :RainbowParenthesesToggle
 
 " vim colors solarized
@@ -305,7 +291,7 @@ let g:user_emmet_install_global = 1
 let g:vim_markdown_folding_disabled=1
 
 " Ruby + Rails
-autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1 
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
 autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 
@@ -314,3 +300,8 @@ nnoremap <C-P> :Unite -start-insert file_rec/async:!<cr>
 nnoremap <space>/ :Unite -no-quit -default-action=split grep:.<cr>
 nnoremap <space>s :Unite -quick-match buffer<cr>
 nnoremap <space>c :UniteClose<cr>
+
+" Autosave
+let g:auto_save = 1
+let g:auto_save_silent = 1
+let g:auto_save_in_insert_mode = 0
