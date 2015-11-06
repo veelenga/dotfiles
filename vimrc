@@ -215,9 +215,11 @@ let g:airline_theme='murmur'
 " nerdtree
 let NERDTreeMapJumpParent='h'
 let NERDTreeMapActivateNode='l'
-"autocmd VimEnter * NERDTree ../
-autocmd VimEnter * wincmd p
 let NERDTreeWinSize=20
+let g:nerdtree_tabs_open_on_gui_startup=0
+let g:nerdtree_tabs_focus_on_files=1
+let g:nerdtree_tabs_autofind=1
+map <C-t> :NERDTreeTabsToggle<cr>
 
 " git gutter
 nmap ]h <Plug>GitGutterNextHunk
@@ -296,10 +298,28 @@ autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 
 " Unite
-nnoremap <C-P> :Unite -start-insert file_rec/async:!<cr>
-nnoremap <space>/ :Unite -no-quit -default-action=split grep:.<cr>
+nnoremap <C-P>    :Unite -buffer-name=files -sync -start-insert -winheight=15 file_rec/async:!<cr>
+nnoremap <space>/ :Unite -no-empty -no-resize -no-wrap -auto-preview -vertical-preview -default-action=split grep<cr>
 nnoremap <space>s :Unite -quick-match buffer<cr>
 nnoremap <space>c :UniteClose<cr>
+" Custom mappings for the unite buffer
+autocmd FileType unite call s:unite_settings()
+function! s:unite_settings()
+  " play nice with supertab
+  let b:SuperTabDisabled=1
+  " enable navigation
+  imap <buffer> <C-j>   <Plug>(unite_select_next_line)
+  imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
+  map <silent><buffer><expr> <C-s> unite#do_action('split')
+  map <silent><buffer><expr> <C-v> unite#do_action('vsplit')
+  nnoremap <ESC> :UniteClose<cr>
+endfunction
+
+call unite#custom#profile('default', 'context', {
+\   'direction': 'below',
+\   'winheight': '15',
+\   'auto-resize': '0'
+\ })
 
 " Autosave
 let g:auto_save = 1
