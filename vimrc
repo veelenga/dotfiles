@@ -299,7 +299,7 @@ autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 
 " Unite
 nnoremap <C-P>    :Unite -buffer-name=files -sync -start-insert -winheight=15 file_rec/async:!<cr>
-nnoremap <space>/ :Unite -no-empty -no-resize -no-wrap -auto-preview -vertical-preview -default-action=split grep<cr>
+nnoremap <space>/ :Unite -no-empty -no-resize -no-wrap -auto-preview -vertical-preview grep<cr>
 nnoremap <space>s :Unite -quick-match buffer<cr>
 nnoremap <space>c :UniteClose<cr>
 " Custom mappings for the unite buffer
@@ -310,8 +310,17 @@ function! s:unite_settings()
   " enable navigation
   imap <buffer> <C-j>   <Plug>(unite_select_next_line)
   imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
-  map <silent><buffer><expr> <C-s> unite#do_action('split')
-  map <silent><buffer><expr> <C-v> unite#do_action('vsplit')
+
+  nmap <silent><buffer><expr> Enter unite#do_action('switch')
+  nmap <silent><buffer><expr> <C-t> unite#do_action('tabswitch')
+  nmap <silent><buffer><expr> <C-h> unite#do_action('splitswitch')
+  nmap <silent><buffer><expr> <C-v> unite#do_action('vsplitswitch')
+
+  imap <silent><buffer><expr> Enter <Plug>unite#do_action('switch')
+  imap <silent><buffer><expr> <C-t> <Plug>unite#do_action('tabswitch')
+  imap <silent><buffer><expr> <C-h> <Plug>unite#do_action('splitswitch')
+  imap <silent><buffer><expr> <C-v> <Plug>unite#do_action('vsplitswitch')
+
   nnoremap <ESC> :UniteClose<cr>
 endfunction
 
