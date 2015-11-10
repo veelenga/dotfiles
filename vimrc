@@ -146,6 +146,22 @@ set ignorecase
 
 set keywordprg=trans\ :uk
 
+" crp - copy relative path of %
+" cap - copy absolute path of %
+" cfn - copy file name of %
+" cdn - copy directory name of %
+if has("mac") || has("gui_macvim") || has("gui_mac")
+  nnoremap <leader>crp :let @*=expand("%")<CR>
+  nnoremap <leader>cap :let @*=expand("%:p")<CR>
+  nnoremap <leader>cfn :let @*=expand("%:t")<CR>
+  nnoremap <leader>cdn :let @*=expand("%:p:h")<CR>
+elseif has("gui_gtk") || has("gui_gtk2") || has("gui_gnome") || has("unix")
+  nnoremap <leader>crp :let @+=expand("%")<CR>
+  nnoremap <leader>cap :let @+=expand("%:p")<CR>
+  nnoremap <leader>cfn :let @+=expand("%:t")<CR>
+  nnoremap <leader>cdn :let @+=expand("%:p:h")<CR>
+endif
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PLUGIN OPTIONS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -189,7 +205,6 @@ Plugin 'skammer/vim-css-color.git'
 Plugin 'mattreduce/vim-mix'
 Plugin 'godlygeek/tabular'
 Plugin 'rhysd/clever-f.vim'
-Plugin 'dkprice/vim-easygrep'
 Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/neocomplcache.vim'
