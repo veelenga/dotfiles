@@ -4,6 +4,11 @@
 let mapleader = ","
 
 " custom usability hotkeys
+" => general movement
+nnoremap <leader>o jddko
+inoremap <leader>o <ESC>jddko
+nnoremap <leader>O kddO
+inoremap <leader>O <ESC>kddO
 " => ruby & rails
 " binding.pry
 nnoremap <leader>br obinding.pry<ESC>
