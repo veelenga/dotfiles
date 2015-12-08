@@ -219,7 +219,6 @@ Plugin 'dandorman/vim-colors'
 Plugin 'vim-scripts/vim-auto-save'
 Plugin 'justincampbell/vim-eighties'
 Plugin 'sheerun/vim-polyglot'
-Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
 filetype plugin indent on    " required by Vundle
