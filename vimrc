@@ -319,9 +319,9 @@ autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 
 " Unite
-nnoremap <C-P>    :Unite -buffer-name=files -sync -start-insert -winheight=15 file_rec/async:!<cr>
-nnoremap <space>/ :Unite -no-empty -no-resize -no-wrap -auto-preview -vertical-preview grep<cr>
-nnoremap <space>s :Unite -quick-match buffer<cr>
+nnoremap <C-P>    :Unite -buffer-name=files -sync -start-insert -winheight=15 -vertical-preview file_rec/async:!<cr>
+nnoremap <space>/ :Unite -no-empty -no-resize -no-wrap -vertical-preview grep<cr>
+nnoremap <space>s :Unite -quick-match -vertical-previw buffer<cr>
 nnoremap <space>c :UniteClose<cr>
 " Custom mappings for the unite buffer
 autocmd FileType unite call s:unite_settings()
@@ -337,18 +337,20 @@ function! s:unite_settings()
   nmap <silent><buffer><expr> <C-h> unite#do_action('splitswitch')
   nmap <silent><buffer><expr> <C-v> unite#do_action('vsplitswitch')
 
-  imap <silent><buffer><expr> Enter <Plug>unite#do_action('switch')
-  imap <silent><buffer><expr> <C-t> <Plug>unite#do_action('tabswitch')
-  imap <silent><buffer><expr> <C-h> <Plug>unite#do_action('splitswitch')
-  imap <silent><buffer><expr> <C-v> <Plug>unite#do_action('vsplitswitch')
+  imap <silent><buffer><expr> Enter unite#do_action('switch')
+  imap <silent><buffer><expr> <C-t> unite#do_action('tabswitch')
+  imap <silent><buffer><expr> <C-h> unite#do_action('splitswitch')
+  imap <silent><buffer><expr> <C-v> unite#do_action('vsplitswitch')
+
+  map <buffer> <C-p> <Plug>(unite_toggle_auto_preview)
 
   nnoremap <ESC> :UniteClose<cr>
 endfunction
 
 call unite#custom#profile('default', 'context', {
-\   'direction': 'below',
-\   'winheight': '15',
-\   'auto-resize': '0'
+\   'direction': 'botright',
+\   'vertical-preview': 1,
+\   'winheight': 15,
 \ })
 
 " Autosave
