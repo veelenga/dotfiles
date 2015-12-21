@@ -319,9 +319,9 @@ autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 
 " Unite
-nnoremap <C-P>    :Unite -buffer-name=files -sync -start-insert -winheight=15 -vertical-preview file_rec/async:!<cr>
-nnoremap <space>/ :Unite -no-empty -no-resize -vertical-preview grep<cr>
-nnoremap <space>s :Unite -quick-match -vertical-preview buffer<cr>
+nnoremap <C-P>    :Unite -buffer-name=files -start-insert file_rec/async:!<cr>
+nnoremap <space>/ :Unite -no-empty -no-resize grep<cr>
+nnoremap <space>s :Unite -quick-match buffer<cr>
 nnoremap <space>c :UniteClose<cr>
 " Custom mappings for the unite buffer
 autocmd FileType unite call s:unite_settings()
@@ -349,8 +349,8 @@ endfunction
 
 call unite#custom#profile('default', 'context', {
 \   'direction': 'botright',
-\   'vertical-preview': 1,
-\   'winheight': 15,
+\   'vertical_preview': 1,
+\   'winheight': 15
 \ })
 
 let g:unite_source_grep_max_candidates = 50
