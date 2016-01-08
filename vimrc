@@ -219,6 +219,8 @@ Plugin 'dandorman/vim-colors'
 Plugin 'vim-scripts/vim-auto-save'
 Plugin 'justincampbell/vim-eighties'
 Plugin 'sheerun/vim-polyglot'
+Plugin 'kana/vim-operator-user'
+Plugin 'haya14busa/vim-operator-flashy'
 
 call vundle#end()
 filetype plugin indent on    " required by Vundle
@@ -359,3 +361,8 @@ let g:unite_source_grep_max_candidates = 50
 let g:auto_save = 1
 let g:auto_save_silent = 1
 let g:auto_save_in_insert_mode = 0
+
+" Vim Operator flashy
+map y <Plug>(operator-flashy)
+nmap Y <Plug>(operator-flashy)$
+let g:operator#flashy#flash_time = 200
