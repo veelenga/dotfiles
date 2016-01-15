@@ -141,7 +141,7 @@ set autoindent
 set smartindent
 
 " show bad characters
-set listchars=tab:->,trail:·,extends:>,precedes:<
+set listchars=tab:->,trail:·,extends:>,precedes:<,spaces:·
 set list
 
 " search
@@ -197,7 +197,6 @@ Plugin 'tpope/vim-surround'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'elzr/vim-json'
 Plugin 'terryma/vim-multiple-cursors'
-Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'wlangstroth/vim-racket'
 Plugin 'lucapette/vim-ruby-doc'
 Plugin 'henrik/vim-ruby-runner'
@@ -239,10 +238,6 @@ let g:airline_theme='murmur'
 let NERDTreeMapJumpParent='h'
 let NERDTreeMapActivateNode='l'
 let NERDTreeWinSize=20
-let g:nerdtree_tabs_open_on_gui_startup=0
-let g:nerdtree_tabs_focus_on_files=1
-let g:nerdtree_tabs_autofind=1
-map <C-t> :NERDTreeTabsToggle<cr>
 
 " git gutter
 nmap ]h <Plug>GitGutterNextHunk
