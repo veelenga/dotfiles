@@ -141,7 +141,7 @@ set autoindent
 set smartindent
 
 " show bad characters
-set listchars=tab:->,trail:·,extends:>,precedes:<,spaces:·
+set listchars=tab:->,trail:·,extends:>,precedes:<,space:·
 set list
 
 " search
@@ -284,15 +284,14 @@ endif
 
 " easymotion
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
-
-" Bi-directional find motion
-" Jump to anywhere you want with minimal keystrokes, with just one key binding.
-" `s{char}{label}`
-map <Leader>f <Plug>(easymotion-s)
-" or
-" `s{char}{char}{label}`
-" Need one more keystroke, but on average, it may be more comfortable.
-nmap <Leader>f <Plug>(easymotion-s2)
+" move to {char}{char}
+nmap ; <Plug>(easymotion-overwin-f2)
+" Move to line
+map <Leader>L <Plug>(easymotion-bd-jk)
+nmap <Leader>L <Plug>(easymotion-overwin-line)
+" Move to word
+map  <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-overwin-w)
 
 " Turn on case insensitive feature
 let g:EasyMotion_smartcase = 1
