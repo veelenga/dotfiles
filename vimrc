@@ -9,6 +9,7 @@ nnoremap <leader>o jddko
 inoremap <leader>o <ESC>jddko
 nnoremap <leader>O kddO
 inoremap <leader>O <ESC>kddO
+nnoremap <leader>ee $
 " => ruby & rails
 " binding.pry
 nnoremap <leader>br obinding.pry<ESC>
