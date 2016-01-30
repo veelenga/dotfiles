@@ -142,7 +142,7 @@ set autoindent
 set smartindent
 
 " show bad characters
-set listchars=tab:->,trail:·,extends:>,precedes:<,space:·
+set listchars=tab:->,trail:·,extends:>,precedes:<
 set list
 
 " search
@@ -188,6 +188,7 @@ Plugin 'ervandew/supertab'
 Plugin 'scrooloose/syntastic'
 Plugin 'majutsushi/tagbar'
 Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'tpope/vim-endwise'
