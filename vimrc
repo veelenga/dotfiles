@@ -237,6 +237,8 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme='murmur'
 
 " nerdtree
+nnoremap <leader>t :NERDTreeToggle<CR>
+inoremap <leader>t <ESC>:NERDTreeToggle<CR>
 let NERDTreeMapJumpParent='h'
 let NERDTreeMapActivateNode='l'
 let NERDTreeWinSize=20
