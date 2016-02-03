@@ -222,6 +222,8 @@ Plugin 'justincampbell/vim-eighties'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'kana/vim-operator-user'
 Plugin 'haya14busa/vim-operator-flashy'
+Plugin 'danro/rename.vim'
+Plugin 'wesQ3/vim-windowswap'
 
 call vundle#end()
 filetype plugin indent on    " required by Vundle
