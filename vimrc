@@ -168,6 +168,9 @@ elseif has("gui_gtk") || has("gui_gtk2") || has("gui_gnome") || has("unix")
   nnoremap <leader>cdn :let @+=expand("%:p:h")<CR>
 endif
 
+set splitbelow
+set splitright
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PLUGIN OPTIONS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
