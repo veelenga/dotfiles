@@ -227,6 +227,7 @@ Plugin 'kana/vim-operator-user'
 Plugin 'haya14busa/vim-operator-flashy'
 Plugin 'danro/rename.vim'
 Plugin 'wesQ3/vim-windowswap'
+Plugin 'ctrlpvim/ctrlp.vim'
 
 call vundle#end()
 filetype plugin indent on    " required by Vundle
@@ -324,7 +325,6 @@ autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 
 " Unite
-nnoremap <C-P>    :Unite -buffer-name=files -start-insert file_rec/async:!<cr>
 nnoremap <space>/ :Unite -no-empty -no-resize grep<cr>
 nnoremap <space>s :Unite -quick-match buffer<cr>
 nnoremap <space>c :UniteClose<cr>
@@ -339,12 +339,12 @@ function! s:unite_settings()
 
   nmap <silent><buffer><expr> Enter unite#do_action('switch')
   nmap <silent><buffer><expr> <C-t> unite#do_action('tabswitch')
-  nmap <silent><buffer><expr> <C-h> unite#do_action('splitswitch')
+  nmap <silent><buffer><expr> <C-x> unite#do_action('splitswitch')
   nmap <silent><buffer><expr> <C-v> unite#do_action('vsplitswitch')
 
   imap <silent><buffer><expr> Enter unite#do_action('switch')
   imap <silent><buffer><expr> <C-t> unite#do_action('tabswitch')
-  imap <silent><buffer><expr> <C-h> unite#do_action('splitswitch')
+  imap <silent><buffer><expr> <C-x> unite#do_action('splitswitch')
   imap <silent><buffer><expr> <C-v> unite#do_action('vsplitswitch')
 
   map <buffer> <C-p> <Plug>(unite_toggle_auto_preview)
