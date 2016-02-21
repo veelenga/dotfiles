@@ -25,6 +25,9 @@ inoremap <leader>er <%  %><ESC>F i
 nnoremap <leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>:echo 'configuration reloaded'<CR>
 
+" quick quit
+nnoremap <Space>q :q!<CR>
+
 " tab navigation
 nnoremap H gT
 nnoremap L gt
@@ -228,6 +231,7 @@ Plugin 'haya14busa/vim-operator-flashy'
 Plugin 'danro/rename.vim'
 Plugin 'wesQ3/vim-windowswap'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'mhinz/vim-startify'
 
 call vundle#end()
 filetype plugin indent on    " required by Vundle
@@ -369,3 +373,25 @@ let g:auto_save_in_insert_mode = 0
 map y <Plug>(operator-flashy)
 nmap Y <Plug>(operator-flashy)$
 let g:operator#flashy#flash_time = 200
+
+" Startify
+let g:startify_session_dir = '~/.vim/session'
+let g:startify_enable_special         = 0
+let g:startify_files_number           = 10
+let g:startify_relative_path          = 1
+let g:startify_change_to_dir          = 1
+let g:startify_session_autoload       = 1
+let g:startify_session_persistence    = 1
+let g:startify_session_delete_buffers = 1
+let g:startify_list_order = ['files', 'dir', 'bookmarks', 'sessions']
+let g:startify_bookmarks = [
+  \ {'v': '~/.vimrc'},
+  \ {'z': '~/.zshrc'},
+  \ {'t': '~/.tmux.conf'}
+\ ]
+let g:startify_skiplist = [
+  \ 'COMMIT_EDITMSG',
+  \ 'bundle/.*/doc',
+\ ]
+autocmd User Startified setlocal buftype=
+let g:ctrlp_reuse_window = 'startify'
