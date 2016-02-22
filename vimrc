@@ -377,13 +377,22 @@ let g:operator#flashy#flash_time = 200
 " Startify
 let g:startify_session_dir = '~/.vim/session'
 let g:startify_enable_special         = 0
-let g:startify_files_number           = 10
+let g:startify_files_number           = 20
 let g:startify_relative_path          = 1
-let g:startify_change_to_dir          = 1
+let g:startify_change_to_dir          = 0
 let g:startify_session_autoload       = 1
 let g:startify_session_persistence    = 1
 let g:startify_session_delete_buffers = 1
-let g:startify_list_order = ['files', 'dir', 'bookmarks', 'sessions']
+let g:startify_list_order = [
+  \ ['   Recent files:'],
+  \ 'files',
+  \ ['   Recent files within this dir:'],
+  \ 'dir',
+  \ ['   Sessions:'],
+  \ 'sessions',
+  \ ['   Bookmarks:'],
+  \ 'bookmarks',
+\ ]
 let g:startify_bookmarks = [
   \ {'v': '~/.vimrc'},
   \ {'z': '~/.zshrc'},
@@ -391,7 +400,9 @@ let g:startify_bookmarks = [
 \ ]
 let g:startify_skiplist = [
   \ 'COMMIT_EDITMSG',
+  \ escape(fnamemodify(resolve($VIMRUNTIME), ':p'), '\') .'doc',
   \ 'bundle/.*/doc',
 \ ]
 autocmd User Startified setlocal buftype=
 let g:ctrlp_reuse_window = 'startify'
+autocmd BufEnter * if @% == "" | :Startify | endif
