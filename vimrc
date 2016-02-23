@@ -377,7 +377,7 @@ let g:operator#flashy#flash_time = 200
 " Startify
 let g:startify_session_dir = '~/.vim/session'
 let g:startify_enable_special         = 0
-let g:startify_files_number           = 20
+let g:startify_files_number           = 10
 let g:startify_relative_path          = 1
 let g:startify_change_to_dir          = 0
 let g:startify_session_autoload       = 1
@@ -394,6 +394,7 @@ let g:startify_list_order = [
   \ 'bookmarks',
 \ ]
 let g:startify_bookmarks = [
+  \ {'n': '~/.vim/notes'},
   \ {'v': '~/.vimrc'},
   \ {'z': '~/.zshrc'},
   \ {'t': '~/.tmux.conf'}
