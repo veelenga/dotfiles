@@ -374,6 +374,12 @@ map y <Plug>(operator-flashy)
 nmap Y <Plug>(operator-flashy)$
 let g:operator#flashy#flash_time = 200
 
+" Ctrlp
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\.git$|vendor\|\.hg$\|\.svn$\|\.doc\|public\/images\|public\/system\|data\|log\|tmp$\|humangrid$',
+  \ 'file': '\.exe$\|\.so$\|\.dat$'
+  \ }
+
 " Startify
 let g:startify_session_dir = '~/.vim/session'
 let g:startify_enable_special         = 0
