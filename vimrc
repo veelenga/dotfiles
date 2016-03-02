@@ -232,6 +232,7 @@ Plugin 'danro/rename.vim'
 Plugin 'wesQ3/vim-windowswap'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'mhinz/vim-startify'
+Plugin 'dzeban/vim-log-syntax'
 
 call vundle#end()
 filetype plugin indent on    " required by Vundle
