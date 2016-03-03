@@ -3,13 +3,15 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader = ","
 
-" custom usability hotkeys
-" => general movement
+" => general mappings
 nnoremap <leader>o jddko
 inoremap <leader>o <ESC>jddko
 nnoremap <leader>O kddO
 inoremap <leader>O <ESC>kddO
 nnoremap <leader>ee $
+" spelling quick fix
+nnoremap <Leader>fs 1z=
+
 " => ruby & rails
 " binding.pry
 nnoremap <leader>br obinding.pry<ESC>
@@ -19,7 +21,6 @@ nnoremap <leader>et o<%=  %><ESC>F i
 inoremap <leader>et <%=  %><ESC>F i
 nnoremap <leader>er o<%  %><ESC>F i
 inoremap <leader>er <%  %><ESC>F i
-" end of custom usability hotkeys
 
 " edit vimrc quickly
 nnoremap <leader>ev :vsplit $MYVIMRC<CR>
