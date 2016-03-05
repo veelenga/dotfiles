@@ -34,9 +34,11 @@ nnoremap H gT
 nnoremap L gt
 
 " copy-paste bindings
-vnoremap <C-c> "+yi
-vnoremap <C-x> "+cse16
-inoremap <C-v> <C-r><C-o>+
+if has("gui_gtk") || has("gui_gtk2") || has("gui_gnome") || has("unix")
+  vnoremap <C-c> "+yi
+  vnoremap <C-x> "+cse15
+  inoremap <C-v> <C-r><C-o>+
+endif
 
 let g:quickfix_is_open = 0
 function! QuickfixToggle()
@@ -89,10 +91,8 @@ imap <F12> <C-o><F12>
 
 " resizing windows
 if bufwinnr(1)
-  map + <C-W><
-  map - <C-W>>
-  "map < <C-W><
-  "map > <C-W>>
+  map - 4<C-W><
+  map = 4<C-W>>
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
