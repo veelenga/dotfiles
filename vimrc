@@ -68,12 +68,7 @@ augroup END
 " functional keys
 map <F1>  :RainbowParenthesesToggle<CR>
 map <F2>  :setlocal spell! spelllang=en_us<CR>
-map <F3>  :NERDTreeToggle<CR>
-map <F4>  :call QuickfixToggle()<CR>
-map <F5>  :make<CR>:copen<CR><CR><C-W><C-P>
-map <F6>  :make<CR>:copen<CR><CR>
-map <F9>  :make<CR>
-map <F10> :TagbarToggle<CR>
+map <F11> :TagbarToggle<CR>
 map <F12> :!ctags -R ./ <CR>
 
 imap <F1>  <C-o><F1>
