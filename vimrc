@@ -229,6 +229,7 @@ Plugin 'wesQ3/vim-windowswap'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'mhinz/vim-startify'
 Plugin 'dzeban/vim-log-syntax'
+Plugin 'mechatroner/rainbow_csv'
 
 call vundle#end()
 filetype plugin indent on    " required by Vundle
