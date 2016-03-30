@@ -249,7 +249,7 @@ nnoremap <leader>t :NERDTreeToggle<CR>
 inoremap <leader>t <ESC>:NERDTreeToggle<CR>
 let NERDTreeMapJumpParent='h'
 let NERDTreeMapActivateNode='l'
-let NERDTreeWinSize=20
+let NERDTreeWinSize=30
 
 " git gutter
 nmap ]h <Plug>GitGutterNextHunk
