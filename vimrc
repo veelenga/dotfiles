@@ -230,6 +230,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'mhinz/vim-startify'
 Plugin 'dzeban/vim-log-syntax'
 Plugin 'mechatroner/rainbow_csv'
+Plugin 'itchyny/vim-cursorword'
 
 call vundle#end()
 filetype plugin indent on    " required by Vundle
