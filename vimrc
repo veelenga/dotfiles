@@ -4,10 +4,10 @@
 let mapleader = ","
 
 " => general mappings
-nnoremap <leader>o jddko
-inoremap <leader>o <ESC>jddko
-nnoremap <leader>O kddO
-inoremap <leader>O <ESC>kddO
+nnoremap <leader>o jS
+inoremap <leader>o <ESC>jS
+nnoremap <leader>O kS
+inoremap <leader>O <ESC>kS
 nnoremap <leader>ee $
 " spelling quick fix
 nnoremap <Leader>fs 1z=
