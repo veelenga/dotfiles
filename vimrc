@@ -9,6 +9,10 @@ inoremap <leader>o <ESC>jS
 nnoremap <leader>O kS
 inoremap <leader>O <ESC>kS
 nnoremap <leader>ee $
+nnoremap <C-j> :m .+1<CR>==
+nnoremap <C-k> :m .-2<CR>==
+nnoremap <D-j> :m .+1<CR>==
+nnoremap <D-k> :m .-2<CR>==
 " spelling quick fix
 nnoremap <Leader>fs 1z=
 
