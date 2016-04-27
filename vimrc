@@ -134,7 +134,7 @@ autocmd BufNewFile,BufRead *.rs set makeprg=rustc\ %
 set lispwords+=public-method,override-method,private-method,syntax-case,syntax-rules
 
 " automatically remove trailing characters
-autocmd BufWritePre *.py,*.rb,*.sml,*.java,*.rkt,*.css,*.html,*.js,*.coffee,*.erb,*.haml  :%s/\s\+$//e
+"autocmd BufWritePre *.py,*.rb,*.sml,*.java,*.rkt,*.css,*.html,*.js,*.coffee,*.erb,*.haml  :%s/\s\+$//e
 
 " code formatting
 set tabstop=2
@@ -257,6 +257,8 @@ inoremap <leader>t <ESC>:NERDTreeToggle<CR>
 let NERDTreeMapJumpParent='h'
 let NERDTreeMapActivateNode='l'
 let NERDTreeWinSize=30
+" https://github.com/scrooloose/nerdtree/issues/21
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " git gutter
 nmap ]h <Plug>GitGutterNextHunk
