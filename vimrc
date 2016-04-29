@@ -9,6 +9,7 @@ inoremap <leader>o <ESC>jS
 nnoremap <leader>O kS
 inoremap <leader>O <ESC>kS
 nnoremap <leader>ee $
+nnoremap <leader>bb 0w
 nnoremap <C-j> :m .+1<CR>==
 nnoremap <C-k> :m .-2<CR>==
 nnoremap <D-j> :m .+1<CR>==
@@ -223,7 +224,7 @@ Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/neocomplcache.vim'
 Plugin 'tpope/vim-rails'
 Plugin 'dandorman/vim-colors'
-Plugin 'vim-scripts/vim-auto-save'
+Plugin '907th/vim-auto-save'
 Plugin 'justincampbell/vim-eighties'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'kana/vim-operator-user'
@@ -372,9 +373,11 @@ call unite#custom#profile('default', 'context', {
 let g:unite_source_grep_max_candidates = 50
 
 " Autosave
+" https://github.com/907th/vim-auto-save
 let g:auto_save = 1
 let g:auto_save_silent = 1
 let g:auto_save_in_insert_mode = 0
+let g:auto_save_events = ['InsertLeave']
 
 " Vim Operator flashy
 map y <Plug>(operator-flashy)
