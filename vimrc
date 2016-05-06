@@ -95,6 +95,17 @@ if bufwinnr(1)
   map = 4<C-W>>
 endif
 
+" Feature branch commit message
+noremap <leader>gp :call CommitPrefix()<CR>
+function! CommitPrefix()
+  let branch = system("git rev-parse --abbrev-ref HEAD")
+  let ticket = matchstr(branch, '[0-9]\+')
+  if strlen(ticket)
+    echo "Hello!"
+    exe "normal O" . "refs #" . ticket . " " | startinsert!
+  endif
+endfunction
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 " APPEARANCE AND BEHAVIOR
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -381,7 +392,7 @@ let g:unite_source_grep_max_candidates = 50
 let g:auto_save = 1
 let g:auto_save_silent = 1
 let g:auto_save_in_insert_mode = 0
-let g:auto_save_events = ['InsertLeave']
+let g:auto_save_events = ['InsertLeave', 'TextChanged']
 
 " Vim Operator flashy
 map y <Plug>(operator-flashy)
