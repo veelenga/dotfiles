@@ -146,7 +146,7 @@ autocmd BufNewFile,BufRead *.rs set makeprg=rustc\ %
 set lispwords+=public-method,override-method,private-method,syntax-case,syntax-rules
 
 " automatically remove trailing characters
-"autocmd BufWritePre *.py,*.rb,*.sml,*.java,*.rkt,*.css,*.html,*.js,*.coffee,*.erb,*.haml  :%s/\s\+$//e
+autocmd BufWritePre *.py,*.rb,*.sml,*.java,*.rkt,*.css,*.html,*.js,*.coffee,*.erb,*.haml :%s/\s\+$//e
 
 " code formatting
 set tabstop=2
@@ -189,9 +189,8 @@ set splitright
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PLUGIN OPTIONS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vundle support (plugin manager)
-set nocompatible              " be iMproved, required
-filetype off                  " required by Vundle
+set nocompatible " be iMproved, required
+filetype off     " required by Vundle
 
 " set the runtime path to include Vundle and initialize
 " Load vim-plug
@@ -201,54 +200,37 @@ endif
 
 call plug#begin()
 
-Plug 'gmarik/Vundle.vim'
 Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'kien/rainbow_parentheses.vim'
-Plug 'ervandew/supertab'
+Plug 'ajh17/VimCompletesMe'
 Plug 'scrooloose/syntastic'
-Plug 'majutsushi/tagbar'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'altercation/vim-colors-solarized'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-obsession'
-Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
 Plug 'elzr/vim-json'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'wlangstroth/vim-racket'
-Plug 'lucapette/vim-ruby-doc'
-Plug 'henrik/vim-ruby-runner'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'timonv/vim-cargo'
 Plug 'rhysd/vim-crystal'
-Plug 'Townk/vim-autoclose'
-Plug 'vim-scripts/HTML-AutoCloseTag'
-Plug 'mattn/emmet-vim'
+Plug 'jiangmiao/auto-pairs'
+Plug 'alvan/vim-closetag'
 Plug 'skammer/vim-css-color'
-Plug 'mattreduce/vim-mix'
-Plug 'godlygeek/tabular'
-Plug 'rhysd/clever-f.vim'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimproc.vim'
-Plug 'Shougo/neocomplcache.vim'
 Plug 'tpope/vim-rails'
-Plug 'dandorman/vim-colors'
+Plug 'flazz/vim-colorschemes'
 Plug '907th/vim-auto-save'
 Plug 'justincampbell/vim-eighties'
 Plug 'sheerun/vim-polyglot'
 Plug 'kana/vim-operator-user'
 Plug 'haya14busa/vim-operator-flashy'
 Plug 'danro/rename.vim'
-Plug 'wesQ3/vim-windowswap'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'mhinz/vim-startify'
-Plug 'dzeban/vim-log-syntax'
 Plug 'mechatroner/rainbow_csv'
 Plug 'itchyny/vim-cursorword'
 Plug 'elixir-lang/vim-elixir'
@@ -257,17 +239,24 @@ Plug 'scrooloose/nerdcommenter'
 call plug#end()
 filetype plugin indent on    " required by Vundle
 
-" powerline
+" Colorschemes
+if has('gui_running')
+  color codeschool
+else
+  color desert
+endif
+
+" Powerline
 set laststatus=2
 set t_Co=256
 
-" airline
+" Airline
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline_powerline_fonts = 1
 let g:airline_theme='murmur'
 
-" nerdtree
+" Nerdtree
 nnoremap <leader>t :NERDTreeToggle<CR>
 inoremap <leader>t <ESC>:NERDTreeToggle<CR>
 let NERDTreeMapJumpParent='h'
@@ -276,75 +265,25 @@ let NERDTreeWinSize=30
 " https://github.com/scrooloose/nerdtree/issues/21
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-" git gutter
+" Git gutter
 nmap ]h <Plug>GitGutterNextHunk
 nmap [h <Plug>GitGutterPrevHunk
-
 nmap <Leader>hs <Plug>GitGutterStageHunk
 nmap <Leader>hr <Plug>GitGutterRevertHunk
-
 nmap <Leader>hp <Plug>GitGutterPreviewHunk
 
-" Rainbow parentheses
-let g:rbpt_colorpairs = [
-  \ ['brown',       'RoyalBlue3'],
-  \ ['Darkblue',    'SeaGreen3'],
-  \ ['darkgray',    'DarkOrchid3'],
-  \ ['darkgreen',   'firebrick3'],
-  \ ['darkcyan',    'RoyalBlue3'],
-  \ ['darkred',     'SeaGreen3'],
-  \ ['darkmagenta', 'DarkOrchid3'],
-  \ ['brown',       'firebrick3'],
-  \ ['gray',        'RoyalBlue3'],
-  \ ['black',       'SeaGreen3'],
-  \ ['darkmagenta', 'DarkOrchid3'],
-  \ ['Darkblue',    'firebrick3'],
-  \ ['darkgreen',   'RoyalBlue3'],
-  \ ['darkcyan',    'SeaGreen3'],
-  \ ['darkred',     'DarkOrchid3'],
-  \ ['red',         'firebrick3'],
-\ ]
-let g:rbpt_max = 16
-let g:rbpt_loadcmd_toggle = 0
-
-autocmd BufNewFile,BufRead *.rkt,*.lisp :RainbowParenthesesToggle
-
-" vim colors solarized
-set background=dark
-colorscheme solarized
-" and then use favourite colors
-if has('gui_running')
-  color codeschool
-else
-  color desert
-endif
-
-" easymotion
+" Easymotion
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
-" move to {char}{char}
 nmap ; <Plug>(easymotion-overwin-f2)
-" Move to line
 map <Leader>L <Plug>(easymotion-bd-jk)
 nmap <Leader>L <Plug>(easymotion-overwin-line)
-" Move to word
 map  <Leader>w <Plug>(easymotion-bd-w)
 nmap <Leader>w <Plug>(easymotion-overwin-w)
-
-" Turn on case insensitive feature
+" turn on case insensitive feature
 let g:EasyMotion_smartcase = 1
-
-" JK motions: Line motions
+" jk motions: Line motions
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
-
-" Vim-cargo
-let g:cargo_command = "Dispatch cargo {cmd}"
-
-" Emmet-vim
-let g:user_emmet_install_global = 1
-
-" Vim-markdown
-let g:vim_markdown_folding_disabled=1
 
 " Ruby + Rails
 autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
@@ -355,12 +294,9 @@ autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 nnoremap <space>/ :Unite -no-empty -no-resize grep<cr>
 nnoremap <space>s :Unite -quick-match buffer<cr>
 nnoremap <space>c :UniteClose<cr>
-" Custom mappings for the unite buffer
+" custom mappings for the unite buffer
 autocmd FileType unite call s:unite_settings()
 function! s:unite_settings()
-  " play nice with supertab
-  let b:SuperTabDisabled=1
-  " enable navigation
   imap <buffer> <C-j>   <Plug>(unite_select_next_line)
   imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
 
@@ -392,7 +328,6 @@ let g:unite_source_grep_max_candidates = 50
 let g:auto_save = 1
 let g:auto_save_silent = 1
 let g:auto_save_in_insert_mode = 0
-let g:auto_save_events = ['InsertLeave', 'TextChanged']
 
 " Vim Operator flashy
 map y <Plug>(operator-flashy)
@@ -435,6 +370,5 @@ let g:startify_skiplist = [
   \ escape(fnamemodify(resolve($VIMRUNTIME), ':p'), '\') .'doc',
   \ 'bundle/.*/doc',
 \ ]
-autocmd User Startified setlocal buftype=
 let g:ctrlp_reuse_window = 'startify'
-autocmd BufEnter * if @% == "" | :Startify | endif
+nnoremap  <leader>st :Startify<CR>
