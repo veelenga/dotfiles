@@ -340,6 +340,8 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\.exe$\|\.so$\|\.dat$'
 \ }
 
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+
 " Startify
 let g:startify_session_dir = '~/.vim/session'
 let g:startify_enable_special         = 0
