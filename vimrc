@@ -96,7 +96,6 @@ if bufwinnr(1)
 endif
 
 " Feature branch commit message
-noremap <leader>gp :call CommitPrefix()<CR>
 function! CommitPrefix()
   let branch = system("git rev-parse --abbrev-ref HEAD")
   let ticket = matchstr(branch, '[0-9]\+')
@@ -105,6 +104,35 @@ function! CommitPrefix()
     exe "normal O" . "refs #" . ticket . " " | startinsert!
   endif
 endfunction
+noremap <leader>gp :call CommitPrefix()<CR>
+
+" crp - copy relative path of %
+" cap - copy absolute path of %
+" cfn - copy file name of %
+" cdn - copy directory name of %
+if has("mac") || has("gui_macvim") || has("gui_mac")
+  nnoremap <leader>crp :let @*=expand("%")<CR>
+  nnoremap <leader>cap :let @*=expand("%:p")<CR>
+  nnoremap <leader>cfn :let @*=expand("%:t")<CR>
+  nnoremap <leader>cdn :let @*=expand("%:p:h")<CR>
+elseif has("gui_gtk") || has("gui_gtk2") || has("gui_gnome") || has("unix")
+  nnoremap <leader>crp :let @+=expand("%")<CR>
+  nnoremap <leader>cap :let @+=expand("%:p")<CR>
+  nnoremap <leader>cfn :let @+=expand("%:t")<CR>
+  nnoremap <leader>cdn :let @+=expand("%:p:h")<CR>
+endif
+
+
+function! s:nice_next(cmd)
+  let view = winsaveview()
+  execute "normal! " . a:cmd
+  if view.topline != winsaveview().topline
+    normal! zz
+  endif
+endfunction
+
+nnoremap <silent> n :call <SID>nice_next('n')<cr>
+nnoremap <silent> N :call <SID>nice_next('N')<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 " APPEARANCE AND BEHAVIOR
@@ -167,22 +195,6 @@ set ignorecase
 
 set keywordprg=trans\ :uk
 
-" crp - copy relative path of %
-" cap - copy absolute path of %
-" cfn - copy file name of %
-" cdn - copy directory name of %
-if has("mac") || has("gui_macvim") || has("gui_mac")
-  nnoremap <leader>crp :let @*=expand("%")<CR>
-  nnoremap <leader>cap :let @*=expand("%:p")<CR>
-  nnoremap <leader>cfn :let @*=expand("%:t")<CR>
-  nnoremap <leader>cdn :let @*=expand("%:p:h")<CR>
-elseif has("gui_gtk") || has("gui_gtk2") || has("gui_gnome") || has("unix")
-  nnoremap <leader>crp :let @+=expand("%")<CR>
-  nnoremap <leader>cap :let @+=expand("%:p")<CR>
-  nnoremap <leader>cfn :let @+=expand("%:t")<CR>
-  nnoremap <leader>cdn :let @+=expand("%:p:h")<CR>
-endif
-
 set splitbelow
 set splitright
 
@@ -203,7 +215,7 @@ call plug#begin()
 Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'ajh17/VimCompletesMe'
+Plug 'ervandew/supertab'
 Plug 'scrooloose/syntastic'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -215,6 +227,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'elzr/vim-json'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'rhysd/vim-crystal'
+Plug 'rhysd/clever-f.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'alvan/vim-closetag'
 Plug 'skammer/vim-css-color'
@@ -374,3 +387,8 @@ let g:startify_skiplist = [
 \ ]
 let g:ctrlp_reuse_window = 'startify'
 nnoremap  <leader>st :Startify<CR>
+
+" Clever-f.vim
+let g:clever_f_fix_key_direction = 1
+let g:clever_f_show_prompt = 1
+let g:clever_f_chars_match_any_signs = ';'
