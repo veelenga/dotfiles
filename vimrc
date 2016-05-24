@@ -33,6 +33,7 @@ nnoremap <leader>sv :source $MYVIMRC<CR>:echo 'configuration reloaded'<CR>
 
 " quick quit
 nnoremap <Space>q :q!<CR>
+nnoremap <Space>w :tabclose<CR>
 
 " tab navigation
 nnoremap H gT
