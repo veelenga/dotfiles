@@ -33,7 +33,14 @@ nnoremap <leader>sv :source $MYVIMRC<CR>:echo 'configuration reloaded'<CR>
 
 " quick quit
 nnoremap <Space>q :q!<CR>
-nnoremap <Space>w :tabclose<CR>
+nnoremap <Space>w :call QuitTab()<CR>
+function! QuitTab()
+  try
+    tabclose
+  catch /E784/ " Can't close last tab
+    qall
+  endtry
+endfunction
 
 " tab navigation
 nnoremap H gT
@@ -122,7 +129,6 @@ elseif has("gui_gtk") || has("gui_gtk2") || has("gui_gnome") || has("unix")
   nnoremap <leader>cfn :let @+=expand("%:t")<CR>
   nnoremap <leader>cdn :let @+=expand("%:p:h")<CR>
 endif
-
 
 function! s:nice_next(cmd)
   let view = winsaveview()
@@ -235,6 +241,7 @@ Plug 'skammer/vim-css-color'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimproc.vim'
 Plug 'tpope/vim-rails'
+Plug 'vim-ruby/vim-ruby'
 Plug 'flazz/vim-colorschemes'
 Plug '907th/vim-auto-save'
 Plug 'justincampbell/vim-eighties'
