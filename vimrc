@@ -10,8 +10,6 @@ nnoremap <leader>O kS
 inoremap <leader>O <ESC>kS
 nnoremap <leader>ee $
 nnoremap <leader>bb ^
-nnoremap <C-j> :m .+1<CR>==
-nnoremap <C-k> :m .-2<CR>==
 nnoremap <D-j> :m .+1<CR>==
 nnoremap <D-k> :m .-2<CR>==
 " spelling quick fix
@@ -27,16 +25,17 @@ inoremap <leader>et <%=  %><ESC>F i
 nnoremap <leader>er o<%  %><ESC>F i
 inoremap <leader>er <%  %><ESC>F i
 
-" edit vimrc quickly
+" special files
 nnoremap <leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>:echo 'configuration reloaded'<CR>
+nnoremap <leader>n  :vsplit ~/.vim/notes<CR>
 
 " quick quit
 nnoremap <Space>q :q!<CR>
 nnoremap <Space>w :call QuitTab()<CR>
 function! QuitTab()
   try
-    tabclose
+    tabclose!
   catch /E784/ " Can't close last tab
     qall
   endtry
@@ -395,6 +394,7 @@ let g:startify_skiplist = [
 \ ]
 let g:ctrlp_reuse_window = 'startify'
 nnoremap  <leader>st :Startify<CR>
+autocmd User Startified set buftype=
 
 " Clever-f.vim
 let g:clever_f_fix_key_direction = 1
