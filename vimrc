@@ -52,17 +52,6 @@ if has("gui_gtk") || has("gui_gtk2") || has("gui_gnome") || has("unix")
   inoremap <C-v> <C-r><C-o>+
 endif
 
-let g:quickfix_is_open = 0
-function! QuickfixToggle()
-  if g:quickfix_is_open
-    cclose
-    let g:quickfix_is_open = 0
-  else
-    copen
-    let g:quickfix_is_open = 1
-  endif
-endfunction
-
 " Restores cursor position between editing sessions.
 " http://vim.wikia.com/wiki/Restore_cursor_to_file_position_in_previous_editing_session
 function! ResCur()
@@ -80,8 +69,6 @@ augroup END
 " functional keys
 map <F1>  :RainbowParenthesesToggle<CR>
 map <F2>  :setlocal spell! spelllang=en_us<CR>
-map <F11> :TagbarToggle<CR>
-map <F12> :!ctags -R ./ <CR>
 
 imap <F1>  <C-o><F1>
 imap <F2>  <C-o><F2>
