@@ -94,7 +94,6 @@ function! CommitPrefix()
   let branch = system("git rev-parse --abbrev-ref HEAD")
   let ticket = matchstr(branch, '[0-9]\+')
   if strlen(ticket)
-    echo "Hello!"
     exe "normal O" . "refs #" . ticket . " " | startinsert!
   endif
 endfunction
@@ -115,24 +114,6 @@ elseif has("gui_gtk") || has("gui_gtk2") || has("gui_gnome") || has("unix")
   nnoremap <leader>cfn :let @+=expand("%:t")<CR>
   nnoremap <leader>cdn :let @+=expand("%:p:h")<CR>
 endif
-
-" Improved n/N - center line after page scroll
-function! s:nice_next(cmd)
-    let topline  = line('w0')
-    let v:errmsg = ""
-    execute "silent! normal! " . a:cmd
-    if v:errmsg =~ 'E38[45]:.*'
-        echohl Error | unsilent echom v:errmsg | echohl None
-        let v:errmsg = ""
-        return
-    endif
-    if topline != line('w0')
-        normal! zz
-    endif
-endfun
-
-nnoremap <silent> n :call <SID>nice_next('n')<cr>
-nnoremap <silent> N :call <SID>nice_next('N')<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 " APPEARANCE AND BEHAVIOR
@@ -249,6 +230,7 @@ Plug 'mechatroner/rainbow_csv'
 Plug 'itchyny/vim-cursorword'
 Plug 'elixir-lang/vim-elixir'
 Plug 'scrooloose/nerdcommenter'
+Plug 'wincent/loupe'
 
 call plug#end()
 filetype plugin indent on    " required by Vundle
