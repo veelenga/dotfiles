@@ -179,6 +179,27 @@ set keywordprg=trans\ :uk
 set splitbelow
 set splitright
 
+" disable annotying ballooneval
+if has('gui_running')
+  set noballooneval
+end
+
+" netrw settings
+augroup netrw_mapping
+    autocmd!
+    autocmd filetype netrw call NetrwMapping()
+augroup END
+
+function! NetrwMapping()
+    map <buffer> l <Enter>
+    map <buffer> h -
+endfunction
+
+nnoremap <leader>t :Lexplore<CR>
+
+" do not display info on the top of window
+let g:netrw_banner = 0
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PLUGIN OPTIONS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -193,21 +214,18 @@ endif
 
 call plug#begin()
 
-Plug 'PotatoesMaster/i3-vim-syntax'
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+"Plug 'scrooloose/nerdtree'
+"Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ervandew/supertab'
-Plug 'scrooloose/syntastic'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 Plug 'airblade/vim-gitgutter'
-Plug 'elzr/vim-json'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'rhysd/vim-crystal'
 Plug 'rhysd/clever-f.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'alvan/vim-closetag'
@@ -226,9 +244,7 @@ Plug 'danro/rename.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'mhinz/vim-startify'
-Plug 'mechatroner/rainbow_csv'
 Plug 'itchyny/vim-cursorword'
-Plug 'elixir-lang/vim-elixir'
 Plug 'scrooloose/nerdcommenter'
 Plug 'wincent/loupe'
 
@@ -253,13 +269,13 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme='murmur'
 
 " Nerdtree
-nnoremap <leader>t :NERDTreeToggle<CR>
-inoremap <leader>t <ESC>:NERDTreeToggle<CR>
-let NERDTreeMapJumpParent='h'
-let NERDTreeMapActivateNode='l'
-let NERDTreeWinSize=30
-" https://github.com/scrooloose/nerdtree/issues/21
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+"nnoremap <leader>t :NERDTreeToggle<CR>
+"inoremap <leader>t <ESC>:NERDTreeToggle<CR>
+"let NERDTreeMapJumpParent='h'
+"let NERDTreeMapActivateNode='l'
+"let NERDTreeWinSize=30
+"" https://github.com/scrooloose/nerdtree/issues/21
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Git gutter
 nmap ]h <Plug>GitGutterNextHunk
