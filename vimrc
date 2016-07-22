@@ -26,9 +26,10 @@ nnoremap <leader>er o<%  %><ESC>F i
 inoremap <leader>er <%  %><ESC>F i
 
 " special files
-nnoremap <leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>:echo 'configuration reloaded'<CR>
+nnoremap <leader>v  :vsplit $MYVIMRC<CR>
 nnoremap <leader>n  :vsplit ~/.vim/notes<CR>
+nnoremap <leader>s  :vsplit ~/.vim/snippets<CR>
 
 " quick quit
 nnoremap <Space>q :q!<CR>
@@ -195,8 +196,6 @@ function! NetrwMapping()
     map <buffer> h -
 endfunction
 
-nnoremap <leader>t :Lexplore<CR>
-
 " do not display info on the top of window
 let g:netrw_banner = 0
 
@@ -214,8 +213,8 @@ endif
 
 call plug#begin()
 
-"Plug 'scrooloose/nerdtree'
-"Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ervandew/supertab'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -247,6 +246,7 @@ Plug 'mhinz/vim-startify'
 Plug 'itchyny/vim-cursorword'
 Plug 'scrooloose/nerdcommenter'
 Plug 'wincent/loupe'
+"Plug 'ramele/agrep'
 
 call plug#end()
 filetype plugin indent on    " required by Vundle
@@ -269,13 +269,13 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme='murmur'
 
 " Nerdtree
-"nnoremap <leader>t :NERDTreeToggle<CR>
-"inoremap <leader>t <ESC>:NERDTreeToggle<CR>
-"let NERDTreeMapJumpParent='h'
-"let NERDTreeMapActivateNode='l'
-"let NERDTreeWinSize=30
-"" https://github.com/scrooloose/nerdtree/issues/21
-"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+nnoremap <leader>t :NERDTreeToggle<CR>
+inoremap <leader>t <ESC>:NERDTreeToggle<CR>
+let NERDTreeMapJumpParent='h'
+let NERDTreeMapActivateNode='l'
+let NERDTreeWinSize=30
+" https://github.com/scrooloose/nerdtree/issues/21
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Git gutter
 nmap ]h <Plug>GitGutterNextHunk
