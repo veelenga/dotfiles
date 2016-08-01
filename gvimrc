@@ -1,4 +1,4 @@
-set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 12px
+set guifont=Inconsolata\ for\ Powerline:h14
 set guioptions-=T " Removes top toolbar
 set guioptions-=r " Removes right hand scroll bar
 set guioptions-=m " Removes menu

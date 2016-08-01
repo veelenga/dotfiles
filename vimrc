@@ -246,6 +246,8 @@ Plug 'mhinz/vim-startify'
 Plug 'itchyny/vim-cursorword'
 Plug 'scrooloose/nerdcommenter'
 Plug 'wincent/loupe'
+Plug 'kana/vim-textobj-user'
+Plug 'nelstrom/vim-textobj-rubyblock'
 "Plug 'ramele/agrep'
 
 call plug#end()
@@ -392,3 +394,21 @@ autocmd User Startified set buftype=
 let g:clever_f_fix_key_direction = 1
 let g:clever_f_show_prompt = 1
 let g:clever_f_chars_match_any_signs = ';'
+
+
+" Vim textobj user https://github.com/whatyouhide/vim-textobj-erb
+let s:whitespace = '\(\s\|\n\)*'
+let s:left_modifiers = '\(-\|=\{1,2}\|#\)\?'
+let s:right_modifiers = '\-\?'
+let s:left = '<%' . s:left_modifiers . s:whitespace
+let s:right = s:whitespace . s:right_modifiers . '%>'
+call textobj#user#plugin('erb', {
+\   '-': {
+\     'pattern': [s:left, s:right],
+\     'select-a': 'aE',
+\     'select-i': 'iE'
+\   },
+\ })
+
+" Vim-textobj-rubyblock
+runtime macros/matchit.vim
