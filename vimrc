@@ -156,7 +156,21 @@ autocmd BufNewFile,BufRead *.rs set makeprg=rustc\ %
 set lispwords+=public-method,override-method,private-method,syntax-case,syntax-rules
 
 " automatically remove trailing characters
-autocmd BufWritePre *.py,*.rb,*.sml,*.java,*.rkt,*.css,*.html,*.js,*.coffee,*.erb,*.haml :%s/\s\+$//e
+" autocmd BufWritePre *.py,*.rb,*.sml,*.java,*.rkt,*.css,*.html,*.js,*.coffee,*.erb,*.haml :%s/\s\+$//e
+" http://vimcasts.org/episodes/tidying-whitespace/
+function! <SID>StripTrailingWhitespaces()
+  "Preparation: save last search, and cursor position.
+  let _s=@/
+  let l = line(".")
+  let c = col(".")
+  " Do the business:
+  %s/\s\+$//e
+  " Clean up: restore previous search history, and cursor position
+  let @/=_s
+  call cursor(l, c)
+endfunction
+
+nnoremap <leader>tw :call <SID>StripTrailingWhitespaces()<CR>
 
 " code formatting
 set tabstop=2
@@ -248,6 +262,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'wincent/loupe'
 Plug 'kana/vim-textobj-user'
 Plug 'nelstrom/vim-textobj-rubyblock'
+Plug 'yggdroot/indentline'
 "Plug 'ramele/agrep'
 
 call plug#end()
