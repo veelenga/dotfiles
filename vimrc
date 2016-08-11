@@ -68,8 +68,9 @@ augroup resCur
 augroup END
 
 " functional keys
-map <F1>  :RainbowParenthesesToggle<CR>
-map <F2>  :setlocal spell! spelllang=en_us<CR>
+map <F1> :RainbowParenthesesToggle<CR>
+map <F2> :setlocal spell! spelllang=en_us<CR>
+map <F8> :TagbarToggle<CR>
 
 imap <F1>  <C-o><F1>
 imap <F2>  <C-o><F2>
@@ -194,6 +195,9 @@ set keywordprg=trans\ :uk
 set splitbelow
 set splitright
 
+set foldenable
+set conceallevel=0
+
 " disable annotying ballooneval
 if has('gui_running')
   set noballooneval
@@ -263,6 +267,8 @@ Plug 'wincent/loupe'
 Plug 'kana/vim-textobj-user'
 Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'yggdroot/indentline'
+Plug 'majutsushi/tagbar'
+Plug 'plasticboy/vim-markdown'
 "Plug 'ramele/agrep'
 
 call plug#end()
@@ -410,7 +416,6 @@ let g:clever_f_fix_key_direction = 1
 let g:clever_f_show_prompt = 1
 let g:clever_f_chars_match_any_signs = ';'
 
-
 " Vim textobj user https://github.com/whatyouhide/vim-textobj-erb
 let s:whitespace = '\(\s\|\n\)*'
 let s:left_modifiers = '\(-\|=\{1,2}\|#\)\?'
@@ -427,3 +432,8 @@ call textobj#user#plugin('erb', {
 
 " Vim-textobj-rubyblock
 runtime macros/matchit.vim
+
+" Vim-markdown
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_emphasis_multiline = 0
+let g:vim_markdown_folding_level = 2
