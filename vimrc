@@ -159,7 +159,7 @@ set lispwords+=public-method,override-method,private-method,syntax-case,syntax-r
 " automatically remove trailing characters
 " autocmd BufWritePre *.py,*.rb,*.sml,*.java,*.rkt,*.css,*.html,*.js,*.coffee,*.erb,*.haml :%s/\s\+$//e
 " http://vimcasts.org/episodes/tidying-whitespace/
-function! <SID>StripTrailingWhitespaces()
+function! StripTrailingWhitespaces()
   "Preparation: save last search, and cursor position.
   let _s=@/
   let l = line(".")
@@ -171,7 +171,7 @@ function! <SID>StripTrailingWhitespaces()
   call cursor(l, c)
 endfunction
 
-nnoremap <leader>tw :call <SID>StripTrailingWhitespaces()<CR>
+nnoremap <leader>sw :call StripTrailingWhitespaces()<CR>
 
 " code formatting
 set tabstop=2
@@ -269,7 +269,10 @@ Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'yggdroot/indentline'
 Plug 'majutsushi/tagbar'
 Plug 'plasticboy/vim-markdown'
-"Plug 'ramele/agrep'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'metakirby5/codi.vim'
+Plug 'ramele/agrep'
 
 call plug#end()
 filetype plugin indent on    " required by Vundle
@@ -437,3 +440,21 @@ runtime macros/matchit.vim
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_emphasis_multiline = 0
 let g:vim_markdown_folding_level = 2
+
+" Ultisnips
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
+" Agrep
+nnoremap <Space>g :Agrep -R '
+let agrep_default_flags = '-I --exclude-dir={.git,log,tmp}'
+if !exists('s:agrep_cmd')
+  au BufWinEnter Agrep setlocal nornu | setlocal nowrap
+  let s:agrep_cmd = 1
+  nnoremap <ESC> :Aclose<cr>
+endif
