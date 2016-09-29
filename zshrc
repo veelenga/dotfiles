@@ -67,6 +67,7 @@ cd $GIT_REPOS
 
 alias repos='cd $GIT_REPOS'
 alias vimrc='vim ~/.vimrc'
+alias vim=/usr/local/bin/vim
 alias vi='vim'
 
 tmux attach &> /dev/null
