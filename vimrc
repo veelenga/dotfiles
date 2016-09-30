@@ -451,10 +451,11 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
 
 " Agrep
-nnoremap <Space>g :Agrep -R '
 let agrep_default_flags = '-I --exclude-dir={.git,log,tmp}'
 if !exists('s:agrep_cmd')
   au BufWinEnter Agrep setlocal nornu | setlocal nowrap
   let s:agrep_cmd = 1
   nnoremap <ESC> :Aclose<cr>
 endif
+nnoremap <leader>gg :Agrep -r '
+nnoremap <leader>gw :Agrep -r '<cword>' .
