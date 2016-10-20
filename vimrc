@@ -142,6 +142,9 @@ set autowriteall
 " reload file automatically
 set autoread
 
+set path+=**
+set wildmenu
+
 " make programs
 autocmd BufNewFile,BufRead *.rb set makeprg=ruby\ %
 autocmd BufNewFile,BufRead *.py set makeprg=python\ %
@@ -273,6 +276,8 @@ Plug 'plasticboy/vim-markdown'
 Plug 'honza/vim-snippets'
 Plug 'metakirby5/codi.vim'
 Plug 'ramele/agrep'
+Plug 'isRuslan/vim-es6'
+Plug 'stefanoverna/vim-i18n'
 
 call plug#end()
 filetype plugin indent on    " required by Vundle
@@ -374,7 +379,7 @@ let g:operator#flashy#flash_time = 200
 
 " Ctrlp
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|vendor$\|doc$\|public$\|log$\|tmp$\|upload$\|uploads$',
+  \ 'dir':  '\.git$\|doc$\|public$\|log$\|tmp$\|upload$\|uploads$',
   \ 'file': '\.exe$\|\.so$\|\.dat$'
 \ }
 
@@ -455,7 +460,7 @@ let agrep_default_flags = '-I --exclude-dir={.git,log,tmp}'
 if !exists('s:agrep_cmd')
   au BufWinEnter Agrep setlocal nornu | setlocal nowrap
   let s:agrep_cmd = 1
-  nnoremap <ESC> :Aclose<cr>
+  "nnoremap <ESC> :Aclose<cr>
 endif
 nnoremap <leader>gg :Agrep -r '
 nnoremap <leader>gw :Agrep -r '<cword>' .
