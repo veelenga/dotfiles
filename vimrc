@@ -117,6 +117,8 @@ elseif has("gui_gtk") || has("gui_gtk2") || has("gui_gnome") || has("unix")
   nnoremap <leader>cdn :let @+=expand("%:p:h")<CR>
 endif
 
+map q: :q
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 " APPEARANCE AND BEHAVIOR
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -201,11 +203,6 @@ set splitright
 set foldenable
 set conceallevel=0
 
-" disable annotying ballooneval
-if has('gui_running')
-  set noballooneval
-end
-
 " netrw settings
 augroup netrw_mapping
     autocmd!
@@ -219,6 +216,9 @@ endfunction
 
 " do not display info on the top of window
 let g:netrw_banner = 0
+
+set undofile
+set undodir=~/.vim/undo/
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PLUGIN OPTIONS
