@@ -220,6 +220,8 @@ let g:netrw_banner = 0
 set undofile
 set undodir=~/.vim/undo/
 
+set complete-=i
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PLUGIN OPTIONS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -272,6 +274,8 @@ Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'yggdroot/indentline'
 Plug 'majutsushi/tagbar'
 Plug 'plasticboy/vim-markdown'
+"Plug 'Valloric/YouCompleteMe'
+Plug 'ternjs/tern_for_vim'
 "Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'metakirby5/codi.vim'
@@ -300,6 +304,7 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme='murmur'
 
 " Nerdtree
+map <leader>fd :NERDTreeFind<cr>
 nnoremap <leader>t :NERDTreeToggle<CR>
 inoremap <leader>t <ESC>:NERDTreeToggle<CR>
 let NERDTreeMapJumpParent='h'
