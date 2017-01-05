@@ -238,7 +238,7 @@ call plug#begin()
 
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'ervandew/supertab'
+"Plug 'ervandew/supertab'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Lokaltog/vim-easymotion'
@@ -274,14 +274,11 @@ Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'yggdroot/indentline'
 Plug 'majutsushi/tagbar'
 Plug 'plasticboy/vim-markdown'
-"Plug 'Valloric/YouCompleteMe'
-Plug 'ternjs/tern_for_vim'
-"Plug 'SirVer/ultisnips'
+Plug 'Valloric/YouCompleteMe'
+Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'metakirby5/codi.vim'
 Plug 'ramele/agrep'
-Plug 'isRuslan/vim-es6'
-Plug 'stefanoverna/vim-i18n'
+Plug 'othree/javascript-libraries-syntax.vim'
 
 call plug#end()
 filetype plugin indent on    " required by Vundle
@@ -453,9 +450,23 @@ let g:vim_markdown_folding_level = 2
 
 " Ultisnips
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsExpandTrigger = "<nop>"
+let g:ulti_expand_or_jump_res = 0
+let g:endwise_no_mappings = 1
+function! ExpandSnippetOrCarriageReturn()
+    let snippet = UltiSnips#ExpandSnippetOrJump()
+    if g:ulti_expand_or_jump_res > 0
+        return snippet
+    else
+        return "\<CR>"
+    endif
+endfunction
+inoremap <expr> <CR> pumvisible() ? "\<C-R>=ExpandSnippetOrCarriageReturn()\<CR>" : "\<CR>\<C-R>=EndwiseDiscretionary()\<CR>"
+let g:UltiSnipsJumpForwardTrigger='<c-b>'
+let g:UltiSnipsJumpBackwardTrigger='<c-z>'
+let g:UltiSnipsJumpForwardTrigger='<c-j>'
+let g:UltiSnipsJumpBackwardTrigger='<c-k>'
+inoremap <c-x><c-k> <c-x><c-k>
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
@@ -469,3 +480,6 @@ if !exists('s:agrep_cmd')
 endif
 nnoremap <leader>gg :Agrep -r '
 nnoremap <leader>gw :Agrep -r '<cword>' .
+
+" Auto-pair
+let g:AutoPairsShortcutBackInsert = '<C-b>'
