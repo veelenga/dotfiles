@@ -119,6 +119,9 @@ endif
 
 map q: :q
 
+vnoremap < <gv
+vnoremap > >gv
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 " APPEARANCE AND BEHAVIOR
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -222,6 +225,8 @@ set undodir=~/.vim/undo/
 
 set complete-=i
 
+set exrc
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PLUGIN OPTIONS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -231,7 +236,7 @@ filetype off     " required by Vundle
 " set the runtime path to include Vundle and initialize
 " Load vim-plug
 if empty(glob("~/.vim/autoload/plug.vim"))
-    execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+  execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
 endif
 
 call plug#begin()
@@ -251,32 +256,33 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'rhysd/clever-f.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'alvan/vim-closetag'
-Plug 'skammer/vim-css-color'
+"Plug 'skammer/vim-css-color'
 Plug 'Shougo/unite.vim'
-Plug 'Shougo/vimproc.vim'
+"Plug 'Shougo/vimproc.vim'
 Plug 'tpope/vim-rails'
 Plug 'vim-ruby/vim-ruby'
 Plug 'flazz/vim-colorschemes'
 Plug '907th/vim-auto-save'
 Plug 'justincampbell/vim-eighties'
 Plug 'sheerun/vim-polyglot'
-Plug 'kana/vim-operator-user'
-Plug 'haya14busa/vim-operator-flashy'
+"Plug 'kana/vim-operator-user'
+"Plug 'haya14busa/vim-operator-flashy'
 Plug 'danro/rename.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'mhinz/vim-startify'
 Plug 'itchyny/vim-cursorword'
 Plug 'scrooloose/nerdcommenter'
-Plug 'wincent/loupe'
+"Plug 'wincent/loupe'
 Plug 'kana/vim-textobj-user'
-Plug 'nelstrom/vim-textobj-rubyblock'
+"Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'yggdroot/indentline'
-Plug 'majutsushi/tagbar'
-Plug 'plasticboy/vim-markdown'
+"Plug 'majutsushi/tagbar'
+"Plug 'plasticboy/vim-markdown'
 Plug 'Valloric/YouCompleteMe'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'vim-syntastic/syntastic'
 Plug 'ramele/agrep'
 Plug 'othree/javascript-libraries-syntax.vim'
 
@@ -373,6 +379,8 @@ let g:unite_source_grep_max_candidates = 50
 let g:auto_save = 1
 let g:auto_save_silent = 1
 let g:auto_save_in_insert_mode = 0
+set updatetime=1000
+let g:auto_save_events = ["CursorHold", "InsertLeave"]
 
 " Vim Operator flashy
 map y <Plug>(operator-flashy)
@@ -448,6 +456,10 @@ let g:vim_markdown_conceal = 0
 let g:vim_markdown_emphasis_multiline = 0
 let g:vim_markdown_folding_level = 2
 
+" YouCompleteMe
+autocmd CompleteDone * pclose
+set completeopt-=preview
+
 " Ultisnips
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger = "<nop>"
@@ -483,3 +495,13 @@ nnoremap <leader>gw :Agrep -r '<cword>' .
 
 " Auto-pair
 let g:AutoPairsShortcutBackInsert = '<C-b>'
+
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_check_on_open = 1
+let g:syntastic_enable_sign=1
+
+let g:syntastic_javascript_checkers = ['jshint']
