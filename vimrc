@@ -266,7 +266,6 @@ Plug '907th/vim-auto-save'
 Plug 'justincampbell/vim-eighties'
 Plug 'sheerun/vim-polyglot'
 "Plug 'kana/vim-operator-user'
-"Plug 'haya14busa/vim-operator-flashy'
 Plug 'danro/rename.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'FelikZ/ctrlp-py-matcher'
@@ -381,11 +380,6 @@ let g:auto_save_silent = 1
 let g:auto_save_in_insert_mode = 0
 set updatetime=1000
 let g:auto_save_events = ["CursorHold", "InsertLeave"]
-
-" Vim Operator flashy
-map y <Plug>(operator-flashy)
-nmap Y <Plug>(operator-flashy)$
-let g:operator#flashy#flash_time = 200
 
 " Ctrlp
 let g:ctrlp_custom_ignore = {
