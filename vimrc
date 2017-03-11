@@ -243,7 +243,6 @@ call plug#begin()
 
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-"Plug 'ervandew/supertab'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Lokaltog/vim-easymotion'
@@ -256,28 +255,21 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'rhysd/clever-f.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'alvan/vim-closetag'
-"Plug 'skammer/vim-css-color'
 Plug 'Shougo/unite.vim'
-"Plug 'Shougo/vimproc.vim'
 Plug 'tpope/vim-rails'
 Plug 'vim-ruby/vim-ruby'
 Plug 'flazz/vim-colorschemes'
 Plug '907th/vim-auto-save'
 Plug 'justincampbell/vim-eighties'
 Plug 'sheerun/vim-polyglot'
-"Plug 'kana/vim-operator-user'
 Plug 'danro/rename.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'mhinz/vim-startify'
 Plug 'itchyny/vim-cursorword'
 Plug 'scrooloose/nerdcommenter'
-"Plug 'wincent/loupe'
 Plug 'kana/vim-textobj-user'
-"Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'yggdroot/indentline'
-"Plug 'majutsushi/tagbar'
-"Plug 'plasticboy/vim-markdown'
 Plug 'Valloric/YouCompleteMe'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -378,8 +370,8 @@ let g:unite_source_grep_max_candidates = 50
 let g:auto_save = 1
 let g:auto_save_silent = 1
 let g:auto_save_in_insert_mode = 0
-set updatetime=1000
-let g:auto_save_events = ["CursorHold", "InsertLeave"]
+set updatetime=500
+let g:auto_save_events = ['CursorHold', 'InsertLeave', 'CompleteDone']
 
 " Ctrlp
 let g:ctrlp_custom_ignore = {
@@ -451,8 +443,11 @@ let g:vim_markdown_emphasis_multiline = 0
 let g:vim_markdown_folding_level = 2
 
 " YouCompleteMe
-autocmd CompleteDone * pclose
+"autocmd CompleteDone * pclose
 set completeopt-=preview
+set shortmess+=c
+let g:ycm_register_as_syntastic_checker = 0
+let g:clang_debug = 0
 
 " Ultisnips
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
@@ -486,6 +481,7 @@ if !exists('s:agrep_cmd')
 endif
 nnoremap <leader>gg :Agrep -r '
 nnoremap <leader>gw :Agrep -r '<cword>' .
+let g:agrep_results_win_sp_mod = 'vs'
 
 " Auto-pair
 let g:AutoPairsShortcutBackInsert = '<C-b>'
@@ -499,3 +495,8 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_enable_sign=1
 
 let g:syntastic_javascript_checkers = ['jshint']
+
+" Ruby
+let g:ruby_indent_access_modifier_style = 'indent'
+let g:ruby_indent_assignment_style = 'variable'
+let g:ruby_indent_block_style = 'do'
