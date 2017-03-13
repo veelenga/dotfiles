@@ -59,6 +59,8 @@ bindkey '^w' backward-kill-word
 bindkey '^r' history-incremental-search-backward
 bindkey '^f' end-of-line
 bindkey '^a' beginning-of-line
+bindkey '^[[1;9C' forward-word
+bindkey '^[[1;9D' backward-word
 
 export GIT_REPOS=~/Dev/repos
 export KEYTIMEOUT=1
