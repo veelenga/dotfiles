@@ -139,7 +139,8 @@ filetype plugin on
 
 set nowrap
 set noswapfile
-set number
+set nonumber
+set relativenumber
 
 " save automatically
 set autowriteall
