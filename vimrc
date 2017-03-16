@@ -13,7 +13,7 @@ nnoremap <leader>bb ^
 nnoremap <D-j> :m .+1<CR>==
 nnoremap <D-k> :m .-2<CR>==
 " spelling quick fix
-nnoremap <Leader>fs 1z=
+nnoremap <leader>fs 1z=
 
 " => ruby & rails
 " binding.pry
@@ -105,17 +105,10 @@ noremap <leader>gp :call CommitPrefix()<CR>
 " cap - copy absolute path of %
 " cfn - copy file name of %
 " cdn - copy directory name of %
-if has("mac") || has("gui_macvim") || has("gui_mac")
-  nnoremap <leader>crp :let @*=expand("%")<CR>
-  nnoremap <leader>cap :let @*=expand("%:p")<CR>
-  nnoremap <leader>cfn :let @*=expand("%:t")<CR>
-  nnoremap <leader>cdn :let @*=expand("%:p:h")<CR>
-elseif has("gui_gtk") || has("gui_gtk2") || has("gui_gnome") || has("unix")
-  nnoremap <leader>crp :let @+=expand("%")<CR>
-  nnoremap <leader>cap :let @+=expand("%:p")<CR>
-  nnoremap <leader>cfn :let @+=expand("%:t")<CR>
-  nnoremap <leader>cdn :let @+=expand("%:p:h")<CR>
-endif
+nnoremap <leader>crp :let @*=expand("%").':'.line(".")<CR>:echo(@*)<CR>
+nnoremap <leader>cap :let @*=expand("%:p").':'.line(".")<CR>:echo(@*)<CR>
+nnoremap <leader>cfn :let @*=expand("%:t").':'.line(".")<CR>:echo(@*)<CR>
+nnoremap <leader>cdn :let @*=expand("%:p:h")<CR>:echo(@*)<CR>
 
 map q: :q
 
