@@ -323,9 +323,12 @@ map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 
 " Ruby + Rails
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
 autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
-autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+let g:ruby_indent_block_style = 'do'
+let g:ruby_indent_assignment_style = 'variable'
+let g:ruby_indent_access_modifier_style = 'indent'
 
 " Unite
 nnoremap <space>/ :Unite -no-empty -no-resize grep<cr>
@@ -486,12 +489,6 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_check_on_open = 1
 let g:syntastic_enable_sign=1
-
+let g:syntastic_check_on_open = 1
 let g:syntastic_javascript_checkers = ['jshint']
-
-" Ruby
-let g:ruby_indent_access_modifier_style = 'indent'
-let g:ruby_indent_assignment_style = 'variable'
-let g:ruby_indent_block_style = 'do'
