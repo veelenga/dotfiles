@@ -176,6 +176,8 @@ endfunction
 nnoremap <leader>sw :call StripTrailingWhitespaces()<CR>
 
 " code formatting
+set noeol
+set binary
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
@@ -195,7 +197,7 @@ set ignorecase
 set keywordprg=trans\ :uk
 
 set splitbelow
-set splitright
+"set splitleft
 
 set foldenable
 set conceallevel=0
@@ -246,7 +248,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'rhysd/clever-f.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'alvan/vim-closetag'
 Plug 'Shougo/unite.vim'
