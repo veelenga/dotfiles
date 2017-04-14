@@ -45,7 +45,6 @@ plugins=(rails git ruby common-aliases crystal bundler zsh-autosuggestions)
 
 # User configuration
 
-
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$PATH:/usr/local/heroku/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 source $ZSH/oh-my-zsh.sh
@@ -65,7 +64,8 @@ bindkey '^[[1;9D' backward-word
 export GIT_REPOS=~/Dev/repos
 export KEYTIMEOUT=1
 
-cd $GIT_REPOS
+autoload -Uz compinit && compinit
+setopt COMPLETE_ALIASES
 
 alias repos='cd $GIT_REPOS'
 alias vimrc='vim ~/.vimrc'
@@ -76,3 +76,4 @@ tmux attach &> /dev/null
 if [[ ! $TERM =~ screen ]]; then
   exec tmux new -s vel
 fi
+eval $(/usr/libexec/path_helper -s)
