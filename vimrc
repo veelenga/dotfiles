@@ -177,7 +177,6 @@ nnoremap <leader>sw :call StripTrailingWhitespaces()<CR>
 
 " code formatting
 set noeol
-set binary
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
