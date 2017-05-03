@@ -270,6 +270,8 @@ Plug 'honza/vim-snippets'
 Plug 'vim-syntastic/syntastic'
 Plug 'ramele/agrep'
 Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'rhysd/tempclone.vim'
+Plug 'github/hub'
 
 call plug#end()
 filetype plugin indent on    " required by Vundle
