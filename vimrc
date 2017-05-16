@@ -112,8 +112,10 @@ nnoremap <leader>cdn :let @*=expand("%:p:h")<CR>:echo(@*)<CR>
 
 map q: :q
 
-vnoremap < <gv
-vnoremap > >gv
+vnoremap <Tab> >gv
+vnoremap <S-Tab> <gv
+nnoremap <Tab> >>
+nnoremap <S-Tab> <<
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 " APPEARANCE AND BEHAVIOR
@@ -132,8 +134,8 @@ filetype plugin on
 
 set nowrap
 set noswapfile
-set nonumber
 set relativenumber
+set number
 
 " save automatically
 set autowriteall
