@@ -186,7 +186,7 @@ values."
    ;; auto-save the file in-place, `cache' to auto-save the file to another
    ;; file stored in the cache directory and `nil' to disable auto-saving.
    ;; (default 'cache)
-   dotspacemacs-auto-save-file-location 'cache
+   dotspacemacs-auto-save-file-location 'original
    ;; Maximum number of rollback slots to keep in the cache. (default 5)
    dotspacemacs-max-rollback-slots 5
    ;; If non nil, `helm' will try to minimize the space it uses. (default nil)
@@ -309,7 +309,18 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (spacemacs/toggle-truncate-lines-on)
-  )
+  (spacemacs/toggle-indent-guide-globally-on)
+
+  (defun my-save-if-bufferfilename ()
+    (if (buffer-file-name)
+        (progn
+          (save-buffer)
+          )
+      (message "no file is associated to this buffer: do nothing")
+      )
+   )
+  (add-hook 'evil-insert-state-exit-hook 'my-save-if-bufferfilename)
+)
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
