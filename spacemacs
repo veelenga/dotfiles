@@ -327,6 +327,11 @@ you should place your code here."
       )
    )
   (add-hook 'evil-insert-state-exit-hook 'my-save-if-bufferfilename)
+
+  ;; ignore folders during grep search
+  (setq projectile-globally-ignored-directories
+        '(".idea" ".eunit" ".git" ".hg" ".fslckout" ".bzr" "_darcs" ".tox"
+          ".svn" "build" "log" "humangrid" "doc" "temp" "public" "script" "migrate"))
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
