@@ -47,10 +47,9 @@ values."
      javascript
      ruby
      ruby-on-rails
-     elixir
      spell-checking
-     version-control
      evil-commentary
+     elixir
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom
@@ -165,7 +164,7 @@ values."
    ;; and TAB or <C-m> and RET.
    ;; In the terminal, these pairs are generally indistinguishable, so this only
    ;; works in the GUI. (default nil)
-   dotspacemacs-distinguish-gui-tab nil
+   dotspacemacs-distinguish-gui-tab t
    ;; If non nil `Y' is remapped to `y$' in Evil states. (default nil)
    dotspacemacs-remap-Y-to-y$ nil
    ;; If non-nil, the shift mappings `<' and `>' retain visual state if used
@@ -316,7 +315,7 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (spacemacs/toggle-truncate-lines-on)
-  (add-hook 'text-mode-hook 'spacemacs/toggle-visual-line-navigation-on)
+  (global-visual-line-mode t)
   (spacemacs/toggle-indent-guide-globally-on)
 
   (defun my-save-if-bufferfilename ()
