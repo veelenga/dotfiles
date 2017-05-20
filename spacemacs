@@ -321,6 +321,7 @@ you should place your code here."
   (global-visual-line-mode t)
   (spacemacs/toggle-indent-guide-globally-on)
   (setq create-lockfiles nil)
+  (setq vc-follow-symlinks t)
 
   (defun my-save-if-bufferfilename ()
     (if (buffer-file-name)
