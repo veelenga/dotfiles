@@ -52,6 +52,7 @@ values."
      elixir
      crystal
      version-control
+     emacs-lisp
      vimscript
      (shell :variables
             shell-default-height 30
