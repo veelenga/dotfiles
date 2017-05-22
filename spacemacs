@@ -318,13 +318,13 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
-  (spacemacs/toggle-truncate-lines-on)
+
   (global-visual-line-mode t)
   (spacemacs/toggle-indent-guide-globally-on)
   (setq create-lockfiles nil)
   (setq vc-follow-symlinks t)
 
-  (defun my-save-if-bufferfilename ()
+  (defun save-if-bufferfilename ()
     (if (buffer-file-name)
         (progn
           (save-buffer)
@@ -332,7 +332,7 @@ you should place your code here."
       (message "no file is associated to this buffer: do nothing")
       )
    )
-  (add-hook 'evil-insert-state-exit-hook 'my-save-if-bufferfilename)
+  (add-hook 'evil-insert-state-exit-hook 'save-if-bufferfilename)
 
   (setq projectile-globally-ignored-directories
         '(".idea" ".eunit" ".git" ".hg" ".fslckout" ".bzr" "_darcs" ".tox"
