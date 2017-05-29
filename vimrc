@@ -266,14 +266,13 @@ Plug 'itchyny/vim-cursorword'
 Plug 'scrooloose/nerdcommenter'
 Plug 'kana/vim-textobj-user'
 Plug 'yggdroot/indentline'
-Plug 'Valloric/YouCompleteMe'
+"Plug 'Valloric/YouCompleteMe'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'vim-syntastic/syntastic'
 Plug 'ramele/agrep'
 Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'rhysd/tempclone.vim'
-Plug 'github/hub'
+Plug 'isaacsloan/vim-slang'
 
 call plug#end()
 filetype plugin indent on    " required by Vundle
@@ -495,3 +494,9 @@ set statusline+=%*
 let g:syntastic_enable_sign=1
 let g:syntastic_check_on_open = 1
 let g:syntastic_javascript_checkers = ['jshint']
+
+" Closetag
+let g:closetag_filenames = "*.html,*.xhtml,*.html.erb"
+
+" Indentline
+let g:indentLine_faster = 1
