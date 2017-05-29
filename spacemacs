@@ -325,6 +325,7 @@ you should place your code here."
 
   (global-visual-line-mode t)
   (spacemacs/toggle-indent-guide-globally-on)
+  (spacemacs/toggle-automatic-symbol-highlight-on)
   (setq create-lockfiles nil)
   (setq vc-follow-symlinks t)
 
