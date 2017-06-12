@@ -31,29 +31,30 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
-     markdown
-     vimscript
-     yaml
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     auto-completion
-     better-defaults
-     git
-     helm
+     clojure
+     crystal
+     elixir
+     emacs-lisp
      html
      javascript
+     markdown
      ruby
      ruby-on-rails
-     spell-checking
-     evil-commentary
-     elixir
-     crystal
-     version-control
-     emacs-lisp
      vimscript
+     yaml
+
+     auto-completion
+     better-defaults
+     evil-commentary
+     git
+     helm
+     spell-checking
+     version-control
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom
