@@ -42,6 +42,7 @@ values."
      emacs-lisp
      html
      javascript
+     lua
      markdown
      ruby
      ruby-on-rails
@@ -344,6 +345,21 @@ you should place your code here."
   (spacemacs/set-leader-keys "f RET" 'curly-copy-loc)
   (spacemacs/set-leader-keys "f '" 'copy-project-filepath)
   (spacemacs/set-leader-keys "f ;" 'copy-project-filepath-and-line)
+
+  (defun setup-indent (n)
+    (setq c-basic-offset n)
+    (setq coffee-tab-width n)
+    (setq javascript-indent-level n)
+    (setq js-indent-level n)
+    (setq js2-basic-offset n)
+    (setq web-mode-markup-indent-offset n)
+    (setq web-mode-css-indent-offset n)
+    (setq web-mode-code-indent-offset n)
+    (setq css-indent-offset n))
+
+  (setup-indent 2)
+
+  (add-to-list 'auto-mode-alist '("\\.slang\\'" . slim-mode))
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -356,7 +372,7 @@ you should place your code here."
  '(evil-want-Y-yank-to-eol nil)
  '(package-selected-packages
    (quote
-    (play-crystal curly package-lint super-save focus-autosave-mode mode-icons ranger evil-commentary alchemist xterm-color shell-pop org-projectile org-present gntp org-download ob-elixir multi-term htmlize gnuplot flycheck-mix flycheck-credo eshell-z eshell-prompt-extras esh-help elixir-mode mmm-mode markdown-toc markdown-mode gh-md vimrc-mode dactyl-mode web-mode web-beautify unfill tagedit smeargle slim-mode scss-mode sass-mode rvm ruby-tools ruby-test-mode rspec-mode robe rbenv pug-mode projectile-rails rake inflections orgit mwim minitest magit-gitflow livid-mode skewer-mode simple-httpd less-css-mode json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc helm-themes helm-swoop helm-projectile helm-mode-manager helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag haml-mode gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter fuzzy flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck feature-mode evil-magit magit magit-popup git-commit with-editor emmet-mode diff-hl company-web web-completion-data company-tern dash-functional tern company-statistics company coffee-mode chruby bundler inf-ruby auto-yasnippet yasnippet auto-dictionary ace-jump-helm-line ac-ispell auto-complete yaml-mode ws-butler winum which-key wgrep volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline smex restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint ivy-hydra info+ indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-make helm helm-core google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump popup f s diminish define-word counsel-projectile projectile pkg-info epl counsel swiper ivy column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash async aggressive-indent adaptive-wrap ace-window ace-link avy))))
+    (sdlang-mode lua-mode clj-refactor edn paredit cider queue clojure-snippets peg cider-eval-sexp-fu clojure-mode play-crystal curly package-lint super-save focus-autosave-mode mode-icons ranger evil-commentary alchemist xterm-color shell-pop org-projectile org-present gntp org-download ob-elixir multi-term htmlize gnuplot flycheck-mix flycheck-credo eshell-z eshell-prompt-extras esh-help elixir-mode mmm-mode markdown-toc markdown-mode gh-md vimrc-mode dactyl-mode web-mode web-beautify unfill tagedit smeargle slim-mode scss-mode sass-mode rvm ruby-tools ruby-test-mode rspec-mode robe rbenv pug-mode projectile-rails rake inflections orgit mwim minitest magit-gitflow livid-mode skewer-mode simple-httpd less-css-mode json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc helm-themes helm-swoop helm-projectile helm-mode-manager helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag haml-mode gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter fuzzy flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck feature-mode evil-magit magit magit-popup git-commit with-editor emmet-mode diff-hl company-web web-completion-data company-tern dash-functional tern company-statistics company coffee-mode chruby bundler inf-ruby auto-yasnippet yasnippet auto-dictionary ace-jump-helm-line ac-ispell auto-complete yaml-mode ws-butler winum which-key wgrep volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline smex restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint ivy-hydra info+ indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-make helm helm-core google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump popup f s diminish define-word counsel-projectile projectile pkg-info epl counsel swiper ivy column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash async aggressive-indent adaptive-wrap ace-window ace-link avy))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
