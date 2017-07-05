@@ -370,6 +370,10 @@ you should place your code here."
   (define-key evil-insert-state-map  (kbd "s-v") (kbd "+"))
   (define-key evil-ex-completion-map (kbd "s-v") (kbd "+"))
   (define-key evil-ex-search-keymap  (kbd "s-v") (kbd "+"))
+
+  ; vim-like word movement
+  ; https://github.com/syl20bnr/spacemacs/issues/8298
+  (defalias 'forward-evil-word 'forward-evil-symbol)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
