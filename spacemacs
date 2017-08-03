@@ -31,7 +31,6 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
-     sql
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -47,6 +46,7 @@ values."
      markdown
      ruby
      ruby-on-rails
+     sql
      vimscript
      yaml
 
@@ -145,13 +145,15 @@ values."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(codeschool
-                         spacemacs-dark)
+                         spacemacs-dark
+                         spacemacs-light
+                         )
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("Inconsolata for Powerline"
-                               :size 14
+   dotspacemacs-default-font '("Monaco"
+                               :size 12
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -337,9 +339,13 @@ you should place your code here."
 
   (super-save-mode +1)
 
+  (setq projectile-enable-caching t)
+  (setq projectile-indexing-method 'native)
+  (setq projectile-completion-system 'grizzl)
+  (setq projectile-file-exists-remote-cache-expire nil)
   (setq projectile-globally-ignored-directories
         '(".idea" ".eunit" ".git" ".hg" ".fslckout" ".bzr" "_darcs" ".tox"
-          ".svn" "build" "log" "doc" "temp" "public" "script" "migrate"))
+          ".svn" "build" "log" "doc" "temp" "tmp" "public" "script" "migrate"))
 
   (defun copy-project-filepath () (interactive) (curly-copy-loc "f"))
   (defun copy-project-filepath-and-line () (interactive) (curly-copy-loc "f:l"))
@@ -363,17 +369,11 @@ you should place your code here."
 
   (add-to-list 'auto-mode-alist '("\\.slang\\'" . slim-mode))
 
-  ; distinguish system & emacs clipboard
-  ; https://github.com/syl20bnr/spacemacs/issues/5750
-  (setq x-select-enable-clipboard nil)
-  (define-key evil-visual-state-map (kbd "s-c") (kbd "\"+y"))
-  (define-key evil-insert-state-map  (kbd "s-v") (kbd "+"))
-  (define-key evil-ex-completion-map (kbd "s-v") (kbd "+"))
-  (define-key evil-ex-search-keymap  (kbd "s-v") (kbd "+"))
-
   ; vim-like word movement
   ; https://github.com/syl20bnr/spacemacs/issues/8298
   (defalias 'forward-evil-word 'forward-evil-symbol)
+
+  (evil-leader/set-key "q q" 'spacemacs/frame-killer)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -386,7 +386,7 @@ you should place your code here."
  '(evil-want-Y-yank-to-eol nil)
  '(package-selected-packages
    (quote
-    (sql-indent palette sdlang-mode lua-mode clj-refactor edn paredit cider queue clojure-snippets peg cider-eval-sexp-fu clojure-mode play-crystal curly package-lint super-save focus-autosave-mode mode-icons ranger evil-commentary alchemist xterm-color shell-pop org-projectile org-present gntp org-download ob-elixir multi-term htmlize gnuplot flycheck-mix flycheck-credo eshell-z eshell-prompt-extras esh-help elixir-mode mmm-mode markdown-toc markdown-mode gh-md vimrc-mode dactyl-mode web-mode web-beautify unfill tagedit smeargle slim-mode scss-mode sass-mode rvm ruby-tools ruby-test-mode rspec-mode robe rbenv pug-mode projectile-rails rake inflections orgit mwim minitest magit-gitflow livid-mode skewer-mode simple-httpd less-css-mode json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc helm-themes helm-swoop helm-projectile helm-mode-manager helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag haml-mode gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter fuzzy flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck feature-mode evil-magit magit magit-popup git-commit with-editor emmet-mode diff-hl company-web web-completion-data company-tern dash-functional tern company-statistics company coffee-mode chruby bundler inf-ruby auto-yasnippet yasnippet auto-dictionary ace-jump-helm-line ac-ispell auto-complete yaml-mode ws-butler winum which-key wgrep volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline smex restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint ivy-hydra info+ indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-make helm helm-core google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump popup f s diminish define-word counsel-projectile projectile pkg-info epl counsel swiper ivy column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash async aggressive-indent adaptive-wrap ace-window ace-link avy))))
+    (flycheck-mix flycheck-credo flycheck rubocop crystal-mode cider-eval-sexp-fu sql-indent palette sdlang-mode lua-mode clj-refactor edn paredit queue clojure-snippets peg play-crystal curly package-lint super-save focus-autosave-mode mode-icons ranger evil-commentary alchemist xterm-color shell-pop org-projectile org-present gntp org-download ob-elixir multi-term htmlize gnuplot eshell-z eshell-prompt-extras esh-help elixir-mode mmm-mode markdown-toc markdown-mode gh-md vimrc-mode dactyl-mode web-mode web-beautify unfill tagedit smeargle slim-mode scss-mode sass-mode rvm ruby-tools ruby-test-mode rspec-mode robe rbenv pug-mode projectile-rails rake inflections orgit mwim minitest magit-gitflow livid-mode skewer-mode simple-httpd less-css-mode json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc helm-themes helm-swoop helm-projectile helm-mode-manager helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag haml-mode gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter fuzzy flyspell-correct-helm flyspell-correct pos-tip feature-mode evil-magit magit magit-popup git-commit with-editor emmet-mode diff-hl company-web web-completion-data company-tern dash-functional tern company-statistics company coffee-mode chruby bundler inf-ruby auto-yasnippet yasnippet auto-dictionary ace-jump-helm-line ac-ispell auto-complete yaml-mode ws-butler winum which-key wgrep volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline smex restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint ivy-hydra info+ indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-make helm helm-core google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump popup f s diminish define-word counsel-projectile projectile pkg-info epl counsel swiper ivy column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash async aggressive-indent adaptive-wrap ace-window ace-link avy))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
