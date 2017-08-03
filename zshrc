@@ -43,11 +43,16 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(rails git ruby common-aliases crystal bundler zsh-autosuggestions)
 
-# User configuration
-
-export PATH="$PATH:$HOME/.rvm/bin"
-export PATH="$PATH:/usr/local/heroku/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 source $ZSH/oh-my-zsh.sh
+autoload -Uz compinit && compinit
+setopt COMPLETE_ALIASES
+
+tmux attach &> /dev/null
+if [[ ! $TERM =~ screen ]]; then exec tmux new -s vel; fi
+eval $(/usr/libexec/path_helper -s)
+
+export PATH="/usr/local/bin:/usr/local/heroku/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:$HOME/.rvm/bin"
+export KEYTIMEOUT=1
 
 bindkey -v
 bindkey '^P' up-history
@@ -61,19 +66,7 @@ bindkey '^a' beginning-of-line
 bindkey '^[[1;9C' forward-word
 bindkey '^[[1;9D' backward-word
 
-export GIT_REPOS=~/Dev/repos
-export KEYTIMEOUT=1
-
-autoload -Uz compinit && compinit
-setopt COMPLETE_ALIASES
-
-alias repos='cd $GIT_REPOS'
-alias vimrc='vim ~/.vimrc'
-alias vim=/usr/local/bin/vim
+alias repos='~/Dev/repos'
 alias vi='vim'
-
-tmux attach &> /dev/null
-if [[ ! $TERM =~ screen ]]; then
-  exec tmux new -s vel
-fi
-eval $(/usr/libexec/path_helper -s)
+alias ems='emacs --daemon'
+alias emc='emacsclient .'
