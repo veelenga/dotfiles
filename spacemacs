@@ -353,6 +353,10 @@ you should place your code here."
   (spacemacs/set-leader-keys "f RET" 'curly-copy-loc)
   (spacemacs/set-leader-keys "f '" 'copy-project-filepath)
   (spacemacs/set-leader-keys "f ;" 'copy-project-filepath-and-line)
+  (spacemacs/set-leader-keys "q q" 'spacemacs/frame-killer)
+
+  (defun find-notes() (interactive) (find-file "~/.vim/notes"))
+  (spacemacs/set-leader-keys "f e n" 'find-notes)
 
   (defun setup-indent (n)
     (setq c-basic-offset n)
@@ -372,8 +376,6 @@ you should place your code here."
   ; vim-like word movement
   ; https://github.com/syl20bnr/spacemacs/issues/8298
   (defalias 'forward-evil-word 'forward-evil-symbol)
-
-  (evil-leader/set-key "q q" 'spacemacs/frame-killer)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
