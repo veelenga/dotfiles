@@ -51,7 +51,7 @@ tmux attach &> /dev/null
 if [[ ! $TERM =~ screen ]]; then exec tmux new -s vel; fi
 eval $(/usr/libexec/path_helper -s)
 
-export PATH="/usr/local/bin:/usr/local/heroku/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:$HOME/.rvm/bin"
+export PATH="$HOME/.local/bin:/usr/local/bin:/usr/local/heroku/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:$HOME/.rvm/bin"
 export KEYTIMEOUT=1
 
 bindkey -v
@@ -70,3 +70,6 @@ alias repos='~/Dev/repos'
 alias vi='vim'
 alias ems='emacs --daemon'
 alias emc='emacsclient .'
+
+# git branch copy
+alias gbc='git branch | grep \* | cut -d" " -f2 | tr -d "\n" | pbcopy'
