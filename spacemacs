@@ -376,12 +376,16 @@ you should place your code here."
 
   (add-to-list 'auto-mode-alist '("\\.slang\\'" . slim-mode))
 
-  ; vim-like word movement
-  ; https://github.com/syl20bnr/spacemacs/issues/8298
+  ;; vim-like word movement
+  ;; https://github.com/syl20bnr/spacemacs/issues/8298
   (defalias 'forward-evil-word 'forward-evil-symbol)
 
-  ; http://haskell.github.io/haskell-mode/manual/latest/Autoformating.html
+  ;; http://haskell.github.io/haskell-mode/manual/latest/Autoformating.html
   (custom-set-variables '(haskell-stylish-on-save t))
+
+  ;; https://github.com/syl20bnr/spacemacs/issues/5615
+  '(version-control :variables version-control-diff-side 'left)
+  (setq git-gutter-fr+-side 'left-fringe)
 
   (defgroup spacemacs-centered-buffer-mode nil
   "Minor mode to center buffer in its window."
