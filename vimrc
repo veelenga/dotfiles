@@ -273,6 +273,7 @@ Plug 'vim-syntastic/syntastic'
 Plug 'ramele/agrep'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'isaacsloan/vim-slang'
+Plug 'rhysd/vim-crystal'
 
 call plug#end()
 filetype plugin indent on    " required by Vundle
@@ -491,9 +492,10 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_enable_sign=1
+let g:syntastic_enable_sign = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_crystal_checkers = ['ameba']
 
 " Closetag
 let g:closetag_filenames = "*.html,*.xhtml,*.html.erb"
