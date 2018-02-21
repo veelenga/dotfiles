@@ -55,7 +55,11 @@ values."
      vimscript
      yaml
 
-     auto-completion
+     (auto-completion :variables
+                      auto-completion-return-key-behavior 'complete
+                      auto-completion-tab-key-behavior 'cycle
+                      auto-completion-complete-with-key-sequence-delay 1
+                      auto-completion-private-snippets-directory nil)
      better-defaults
      evil-commentary
      git
@@ -365,7 +369,7 @@ It should only modify the values of Spacemacs settings."
    ;;                       text-mode
    ;;   :size-limit-kb 1000)
    ;; (default nil)
-   dotspacemacs-line-numbers t
+   dotspacemacs-line-numbers 'relative
    dotspacemacs-mode-line-theme 'spacemacs
 
    ;; Code folding method. Possible values are `evil' and `origami'.
@@ -493,10 +497,10 @@ you should place your code here."
 
   (setup-indent 2)
 
-  ;; (global-linum-mode nil)
-  ;; (linum-relative-toggle)
-
   (add-to-list 'auto-mode-alist '("\\.slang\\'" . slim-mode))
+
+  ;; https://emacs.stackexchange.com/questions/21338/html-tag-auto-open-close-expand-quote-problem
+  (setq web-mode-auto-close-style 2)
 
   (with-eval-after-load 'flycheck-inline (flycheck-inline-mode))
   (require 'flycheck-ameba)
@@ -512,54 +516,6 @@ you should place your code here."
   ;; https://github.com/syl20bnr/spacemacs/issues/5615
   '(version-control :variables version-control-diff-side 'left)
   (setq git-gutter-fr+-side 'left-fringe)
-
-  (defgroup spacemacs-centered-buffer-mode nil
-  "Minor mode to center buffer in its window."
-  :group 'convenience)
-
-  (defcustom spacemacs-centered-buffer-mode-min-fringe-width 50
-    "Minimal fringe width. `centered-buffer-mode' will be disabled if one of windows displaying it becomes too narrow."
-    :type 'integer
-    :group 'spacemacs-centered-buffer-mode)
-
-  (defcustom spacemacs-centered-buffer-mode-min-content-width 400
-    "Minimal width of the centered buffer content."
-    :type 'integer
-    :group 'spacemacs-centered-buffer-mode)
-
-  (defcustom spacemacs-centered-buffer-mode-max-content-width 800
-    "Maximal width of the centered buffer content before it stops starching."
-    :type 'integer
-    :group 'spacemacs-centered-buffer-mode)
-
-  (defcustom spacemacs-centered-buffer-mode-safety-gap-width 20
-    "Add extra width to the modified buffer to make sure
-  that differed modifications won't cause an overflow."
-    :type 'integer
-    :group 'spacemacs-centered-buffer-mode)
-
-  (defcustom spacemacs-centered-buffer-mode-fringe-color
-    (face-background 'default)
-    "Color of the fringes."
-    :type 'color
-    :group 'spacemacs-centered-buffer-mode)
-
-  (defcustom spacemacs-centered-buffer-mode-deferred-update nil
-    "Defer buffer re-centering if t. If set to t it may improve input latency."
-    :type 'boolean
-    :group 'spacemacs-centered-buffer-mode)
-
-  (defcustom spacemacs-centered-buffer-mode-only-grow nil
-    "If t ignore reduction of the centered buffer width.
-  NOTE: Useful with some types of line wrappings but also
-  can be mush slower with huge buffers."
-    :type 'boolean
-    :group 'spacemacs-centered-buffer-mode)
-
-  (defcustom spacemacs-centered-buffer-mode-visual-line-mode t
-    "If t also enable `visual-line-mode' when `centered-buffer-mode' is enabled."
-    :type 'boolean
-    :group 'spacemacs-centered-buffer-mode)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -597,8 +553,7 @@ This function is called at the very end of Spacemacs initialization."
  '(evil-want-Y-yank-to-eol nil)
  '(haskell-stylish-on-save t t)
  '(package-selected-packages
-   (quote
-    (carbon-now-sh quelpa package-build tide typescript-mode intero hlint-refactor hindent helm-hoogle haskell-snippets company-ghci company-ghc ghc haskell-mode company-cabal cmm-mode crystal-mode flycheck-mix flycheck-credo flycheck rubocop sql-indent palette sdlang-mode lua-mode clj-refactor edn paredit queue peg curly package-lint super-save focus-autosave-mode mode-icons ranger evil-commentary alchemist xterm-color shell-pop org-projectile org-present gntp org-download ob-elixir multi-term htmlize gnuplot eshell-z eshell-prompt-extras esh-help elixir-mode mmm-mode markdown-toc markdown-mode gh-md vimrc-mode dactyl-mode web-mode web-beautify unfill tagedit smeargle slim-mode scss-mode sass-mode rvm ruby-tools ruby-test-mode rspec-mode robe rbenv pug-mode projectile-rails rake inflections orgit mwim minitest magit-gitflow livid-mode skewer-mode simple-httpd less-css-mode json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc helm-themes helm-swoop helm-projectile helm-mode-manager helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag haml-mode gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter fuzzy flyspell-correct-helm flyspell-correct pos-tip feature-mode evil-magit magit magit-popup git-commit with-editor emmet-mode diff-hl company-web web-completion-data company-tern dash-functional tern company-statistics company coffee-mode chruby bundler inf-ruby auto-yasnippet yasnippet auto-dictionary ace-jump-helm-line ac-ispell auto-complete yaml-mode ws-butler winum which-key wgrep volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline smex restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint ivy-hydra info+ indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-make helm helm-core google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump popup f s diminish define-word counsel-projectile projectile pkg-info epl counsel swiper ivy column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash async aggressive-indent adaptive-wrap ace-window ace-link avy))))
+   '(csv-mode quelpa package-build tide typescript-mode intero hlint-refactor hindent helm-hoogle haskell-snippets company-ghci company-ghc ghc haskell-mode company-cabal cmm-mode crystal-mode flycheck-mix flycheck-credo flycheck rubocop sql-indent palette sdlang-mode lua-mode clj-refactor edn paredit queue peg curly package-lint super-save focus-autosave-mode mode-icons ranger evil-commentary alchemist xterm-color shell-pop org-projectile org-present gntp org-download ob-elixir multi-term htmlize gnuplot eshell-z eshell-prompt-extras esh-help elixir-mode mmm-mode markdown-toc markdown-mode gh-md vimrc-mode dactyl-mode web-mode web-beautify unfill tagedit smeargle slim-mode scss-mode sass-mode rvm ruby-tools ruby-test-mode rspec-mode robe rbenv pug-mode projectile-rails rake inflections orgit mwim minitest magit-gitflow livid-mode skewer-mode simple-httpd less-css-mode json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc helm-themes helm-swoop helm-projectile helm-mode-manager helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag haml-mode gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter fuzzy flyspell-correct-helm flyspell-correct pos-tip feature-mode evil-magit magit magit-popup git-commit with-editor emmet-mode diff-hl company-web web-completion-data company-tern dash-functional tern company-statistics company coffee-mode chruby bundler inf-ruby auto-yasnippet yasnippet auto-dictionary ace-jump-helm-line ac-ispell auto-complete yaml-mode ws-butler winum which-key wgrep volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline smex restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint ivy-hydra info+ indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-make helm helm-core google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump popup f s diminish define-word counsel-projectile projectile pkg-info epl counsel swiper ivy column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash async aggressive-indent adaptive-wrap ace-window ace-link avy)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
