@@ -75,6 +75,7 @@ values."
    '(
      super-save
      play-crystal
+     osx-clipboard
      (curly :location (recipe :fetcher github :repo "veelenga/curly.el"))
      (ameba :location (recipe :fetcher github :repo "veelenga/ameba.el"))
      (carbon-now-sh :location (recipe :fetcher github :repo "veelenga/carbon-now-sh.el"))
@@ -504,23 +505,7 @@ you should place your code here."
   (defalias 'forward-evil-word 'forward-evil-symbol)
 
   (setq-default git-gutter:modified-sign "*")
-
-  (defun copy-to-clipboard ()
-    "Copies selection to x-clipboard."
-    (interactive)
-    (if (display-graphic-p)
-        (progn
-          (message "Yanked region to x-clipboard!")
-          (call-interactively 'clipboard-kill-ring-save))
-      (if (region-active-p)
-          (progn
-            (shell-command-on-region (region-beginning) (region-end) "pbcopy")
-            (message "Yanked region to clipboard!")
-            (deactivate-mark))
-        (message "No region active; can't yank to clipboard!"))))
-  (evil-leader/set-key "o y" 'copy-to-clipboard)
   )
-
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
 (defun dotspacemacs/emacs-custom-settings ()
@@ -536,7 +521,7 @@ This function is called at the very end of Spacemacs initialization."
  '(haskell-stylish-on-save t)
  '(package-selected-packages
    (quote
-    (railscasts-theme emamux yasnippet-snippets yaml-mode web-mode tide typescript-mode paradox nameless mwim helm-swoop helm-company git-timemachine editorconfig dumb-jump counsel-projectile counsel swiper ivy company iedit smartparens flycheck helm helm-core yasnippet magit magit-popup ghub with-editor rake epl simple-httpd dash use-package org-plus-contrib xterm-color ws-butler winum which-key web-beautify volatile-highlights vmd-mode vimrc-mode vi-tilde-fringe uuidgen unfill toc-org tagedit symon super-save string-inflection sql-indent spinner spaceline-all-the-icons smeargle slim-mode shell-pop scss-mode sass-mode rvm ruby-tools ruby-test-mode ruby-refactor ruby-hash-syntax rubocop rspec-mode robe restart-emacs rbenv rainbow-delimiters pug-mode projectile-rails popwin play-crystal persp-mode password-generator overseer org-bullets open-junk-file ob-elixir neotree multi-term move-text mmm-mode minitest markdown-toc magit-gitflow macrostep lorem-ipsum livid-mode linum-relative link-hint less-css-mode json-mode js2-refactor js-doc indent-guide impatient-mode hydra hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-purpose helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-css-scss helm-c-yasnippet helm-ag google-translate golden-ratio gitconfig-mode gitattributes-mode git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md fuzzy font-lock+ flyspell-correct-helm flycheck-mix flycheck-credo flx-ido fill-column-indicator feature-mode fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-mc evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-commentary evil-cleverparens evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help emmet-mode elisp-slime-nav diminish diff-hl define-word dactyl-mode curly csv-mode crystal-mode company-web company-tern company-statistics column-enforce-mode coffee-mode clean-aindent-mode chruby centered-cursor-mode carbon-now-sh bundler browse-at-remote bind-key auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile async ameba alchemist aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell))))
+    (osx-clipboard railscasts-theme emamux yasnippet-snippets yaml-mode web-mode tide typescript-mode paradox nameless mwim helm-swoop helm-company git-timemachine editorconfig dumb-jump counsel-projectile counsel swiper ivy company iedit smartparens flycheck helm helm-core yasnippet magit magit-popup ghub with-editor rake epl simple-httpd dash use-package org-plus-contrib xterm-color ws-butler winum which-key web-beautify volatile-highlights vmd-mode vimrc-mode vi-tilde-fringe uuidgen unfill toc-org tagedit symon super-save string-inflection sql-indent spinner spaceline-all-the-icons smeargle slim-mode shell-pop scss-mode sass-mode rvm ruby-tools ruby-test-mode ruby-refactor ruby-hash-syntax rubocop rspec-mode robe restart-emacs rbenv rainbow-delimiters pug-mode projectile-rails popwin play-crystal persp-mode password-generator overseer org-bullets open-junk-file ob-elixir neotree multi-term move-text mmm-mode minitest markdown-toc magit-gitflow macrostep lorem-ipsum livid-mode linum-relative link-hint less-css-mode json-mode js2-refactor js-doc indent-guide impatient-mode hydra hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-purpose helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-css-scss helm-c-yasnippet helm-ag google-translate golden-ratio gitconfig-mode gitattributes-mode git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md fuzzy font-lock+ flyspell-correct-helm flycheck-mix flycheck-credo flx-ido fill-column-indicator feature-mode fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-mc evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-commentary evil-cleverparens evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help emmet-mode elisp-slime-nav diminish diff-hl define-word dactyl-mode curly csv-mode crystal-mode company-web company-tern company-statistics column-enforce-mode coffee-mode clean-aindent-mode chruby centered-cursor-mode carbon-now-sh bundler browse-at-remote bind-key auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile async ameba alchemist aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
