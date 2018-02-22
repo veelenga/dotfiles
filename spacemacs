@@ -62,6 +62,7 @@ values."
      ;; syntax-checking
      (version-control :variables
                       version-control-global-margin t
+                      version-control-diff-tool 'git-gutter
                       version-control-diff-side 'left)
      (markdown :variables markdown-live-preview-engine 'vmd)
      )
@@ -501,6 +502,8 @@ you should place your code here."
   ;; vim-like word movement
   ;; https://github.com/syl20bnr/spacemacs/issues/8298
   (defalias 'forward-evil-word 'forward-evil-symbol)
+
+  (setq-default git-gutter:modified-sign "*")
 
   (defun copy-to-clipboard ()
     "Copies selection to x-clipboard."
