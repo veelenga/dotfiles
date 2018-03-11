@@ -51,7 +51,6 @@ tmux attach &> /dev/null
 if [[ ! $TERM =~ screen ]]; then exec tmux new -s vel; fi
 eval $(/usr/libexec/path_helper -s)
 
-export PATH="$HOME/.local/bin:/usr/local/bin:/usr/local/heroku/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:$HOME/.rvm/bin"
 export KEYTIMEOUT=1
 
 bindkey -v
