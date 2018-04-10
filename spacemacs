@@ -498,8 +498,10 @@ you should place your code here."
 
   (add-to-list 'auto-mode-alist '("\\.slang\\'" . slim-mode))
 
-  ;; https://emacs.stackexchange.com/questions/21338/html-tag-auto-open-close-expand-quote-problem
-  (setq web-mode-auto-close-style 2)
+  (setq web-mode-enable-auto-closing t)
+
+  ;; https://github.com/syl20bnr/spacemacs/issues/9563#issuecomment-330905391
+  (require 'tramp)
 
   (with-eval-after-load 'flycheck-inline (flycheck-inline-mode))
   (require 'flycheck-ameba)
