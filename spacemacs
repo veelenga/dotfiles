@@ -514,6 +514,9 @@ you should place your code here."
   (defalias 'forward-evil-word 'forward-evil-symbol)
 
   (setq-default git-gutter:modified-sign "*")
+
+  ;; https://github.com/syl20bnr/spacemacs/issues/5609#issuecomment-202406149
+  (unless (display-graphic-p) (setq linum-relative-format "%3s "))
   )
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
