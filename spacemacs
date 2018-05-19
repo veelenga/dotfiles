@@ -505,10 +505,9 @@ you should place your code here."
   (require 'tramp)
 
   (with-eval-after-load 'flycheck-inline (flycheck-inline-mode))
-  (with-eval-after-load 'flycheck
-    '(add-hook 'flycheck-mode-hook 'flycheck-popup-tip-mode))
   (require 'flycheck-ameba)
   (add-hook 'ameba-mode 'flycheck-ameba)
+  (add-hook 'flycheck-mode-hook 'flycheck-popup-tip-mode)
 
   ;; vim-like word movement
   ;; https://github.com/syl20bnr/spacemacs/issues/8298
