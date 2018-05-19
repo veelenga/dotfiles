@@ -469,7 +469,8 @@ you should place your code here."
   (setq projectile-switch-project-action 'projectile-find-file)
   (setq projectile-globally-ignored-directories
         '(".idea" ".eunit" ".git" ".hg" ".fslckout" ".bzr" "_darcs" ".tox"
-          ".svn" "build" "log" "doc" "temp" "tmp" "public" "script" "migrate" "dist"))
+          ".svn" "build" "log" "doc" "temp" "tmp" "public" "script" "migrate"
+          "dist" "node_modules"))
 
   (defun copy-project-filepath () (interactive) (curly-copy-loc "f"))
   (defun copy-project-filepath-and-line () (interactive) (curly-copy-loc "f:l"))
