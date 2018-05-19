@@ -77,9 +77,9 @@ values."
      super-save
      play-crystal
      flycheck-popup-tip
+     carbon-now-sh
      (curly :location (recipe :fetcher github :repo "veelenga/curly.el"))
      (ameba :location (recipe :fetcher github :repo "veelenga/ameba.el"))
-     (carbon-now-sh :location (recipe :fetcher github :repo "veelenga/carbon-now-sh.el"))
      )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
