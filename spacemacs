@@ -46,7 +46,7 @@ values."
      emacs-lisp
      html
      javascript
-     ruby
+     (ruby :variables ruby-version-manager 'rvm)
      ruby-on-rails
      sql
      typescript
