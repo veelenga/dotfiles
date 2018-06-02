@@ -77,6 +77,7 @@ This function should only modify configuration layer settings."
      flycheck-popup-tip
      carbon-now-sh
      (curly :location (recipe :fetcher github :repo "veelenga/curly.el"))
+     (crystal-snippets :location (recipe :fetched github :repo "veelenga/crystal-snippets"))
      )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
