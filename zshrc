@@ -71,4 +71,4 @@ alias ems='emacs --daemon'
 alias emc='emacsclient .'
 
 alias gbc='git branch | grep \* | cut -d" " -f2 | tr -d "\n" | pbcopy'
-alias gpg='pkill -9 gpg-agent && gpg-agent --daemon'
+alias gpg-kill='pkill -9 gpg-agent; gpg-agent --daemon'
