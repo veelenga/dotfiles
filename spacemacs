@@ -483,7 +483,6 @@ you should place your code here."
   (setq mode-require-final-newline t)
   (setq-default truncate-lines t)
 
-  ;(setq super-save-auto-save-when-idle t)
   (setq auto-save-default nil)
   (super-save-mode +1)
 
@@ -533,6 +532,7 @@ you should place your code here."
   (require 'flycheck-ameba)
   (add-hook 'ameba-mode 'flycheck-ameba)
   (add-hook 'flycheck-mode-hook 'flycheck-popup-tip-mode)
+  (setq crystal-enable-auto-format t)
 
   ;; vim-like word movement
   ;; https://github.com/syl20bnr/spacemacs/issues/8298
@@ -556,7 +556,6 @@ you should place your code here."
     (require 'evil-terminal-cursor-changer)
     (terminal-focus-reporting-mode)
     (evil-terminal-cursor-changer-activate))
-
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
