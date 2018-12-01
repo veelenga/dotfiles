@@ -93,13 +93,18 @@ endif
 
 " Feature branch commit message
 function! CommitPrefix()
+  if (strlen(getline(".")))
+    return
+  endif
+
   let branch = system("git rev-parse --abbrev-ref HEAD")
   let ticket = matchstr(branch, '[0-9]\+')
   if strlen(ticket)
-    exe "normal O" . "refs #" . ticket . " " | startinsert!
+    exe "normal O" . "PRINS-" . ticket . " " | startinsert
   endif
 endfunction
-noremap <leader>gp :call CommitPrefix()<CR>
+
+au FileType gitcommit call CommitPrefix()
 
 " crp - copy relative path of %
 " cap - copy absolute path of %
