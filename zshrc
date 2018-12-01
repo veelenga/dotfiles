@@ -41,15 +41,15 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(rails git ruby common-aliases crystal bundler zsh-autosuggestions)
+plugins=(rails git ruby common-aliases crystal bundler zsh-autosuggestions docker-compose)
 
 source $ZSH/oh-my-zsh.sh
 autoload -Uz compinit && compinit
-setopt COMPLETE_ALIASES
+# setopt COMPLETE_ALIASES
 
-tmux attach &> /dev/null
-if [[ ! $TERM =~ screen ]]; then exec tmux new -s vel; fi
-eval $(/usr/libexec/path_helper -s)
+#tmux attach &> /dev/null
+#if [[ ! $TERM =~ screen ]]; then exec tmux new -s vel; fi
+#eval $(/usr/libexec/path_helper -s)
 
 export KEYTIMEOUT=1
 
