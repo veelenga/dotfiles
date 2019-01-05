@@ -504,6 +504,7 @@ you should place your code here."
   (spacemacs/set-leader-keys "f '" 'copy-project-filepath)
   (spacemacs/set-leader-keys "f ;" 'copy-project-filepath-and-line)
   (spacemacs/set-leader-keys "q q" 'spacemacs/frame-killer)
+  (defalias 'W 'save-buffer)
 
   (defun find-notes() (interactive) (find-file "~/.vim/notes.org"))
   (spacemacs/set-leader-keys "f e n" 'find-notes)
