@@ -61,7 +61,8 @@ This function should only modify configuration layer settings."
      helm
      multiple-cursors
      spell-checking
-     syntax-checking
+     (syntax-checking :variables
+                      syntax-checking-use-original-bitmaps t)
      osx
      (version-control :variables
                       version-control-global-margin t
@@ -206,8 +207,9 @@ It should only modify the values of Spacemacs settings."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(wombat
+   dotspacemacs-themes '(jbeans
                          gruber-darker
+                         wombat
                          default)
 
    ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
@@ -550,6 +552,8 @@ you should place your code here."
   (add-to-list 'auto-mode-alist '("\\.slang\\'" . slim-mode))
 
   (setq web-mode-enable-auto-closing t)
+  (setq ns-use-srgb-colorspace nil)
+  (setq powerline-default-separator 'utf-8)
 
   ;; https://github.com/syl20bnr/spacemacs/issues/9563#issuecomment-330905391
   (require 'tramp)
