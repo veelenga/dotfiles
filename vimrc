@@ -100,7 +100,7 @@ function! CommitPrefix()
   let branch = system("git rev-parse --abbrev-ref HEAD")
   let ticket = matchstr(branch, '[0-9]\+')
   if strlen(ticket)
-    exe "normal O" . "PRINS-" . ticket . " " | startinsert
+    exe "normal O" . "CT-" . ticket . " " | startinsert
   endif
 endfunction
 
