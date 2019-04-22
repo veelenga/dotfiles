@@ -514,7 +514,6 @@ you should place your code here."
   (super-save-mode +1)
 
   (setq projectile-enable-caching t)
-  (setq projectile-indexing-method 'native)
   (setq projectile-file-exists-remote-cache-expire nil)
   (setq projectile-switch-project-action 'projectile-find-file)
   (setq projectile-globally-ignored-directories
