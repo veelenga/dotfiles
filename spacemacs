@@ -54,6 +54,7 @@ This function should only modify configuration layer settings."
      vimscript
      yaml
 
+     neotree
      auto-completion
      better-defaults
      evil-commentary
@@ -553,6 +554,7 @@ you should place your code here."
   (setq web-mode-enable-auto-closing t)
   (setq ns-use-srgb-colorspace nil)
   (setq powerline-default-separator 'utf-8)
+  (setq neo-vc-integration '(face))
 
   ;; https://github.com/syl20bnr/spacemacs/issues/9563#issuecomment-330905391
   (require 'tramp)
