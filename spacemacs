@@ -86,7 +86,7 @@ This function should only modify configuration layer settings."
      copy-as-format
      (emacs-doom-themes :location (recipe :fetcher github :repo "hlissner/emacs-doom-themes"))
      (curly :location (recipe :fetcher github :repo "veelenga/curly.el"))
-     (curly :location (recipe :fetcher github :repo "veelenga/ameba.el"))
+     (ameba :location (recipe :fetcher github :repo "veelenga/ameba.el"))
      )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
