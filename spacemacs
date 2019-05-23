@@ -83,10 +83,10 @@ This function should only modify configuration layer settings."
      xclip
      evil-terminal-cursor-changer
      terminal-focus-reporting
+     flycheck-ameba
      copy-as-format
      (emacs-doom-themes :location (recipe :fetcher github :repo "hlissner/emacs-doom-themes"))
      (curly :location (recipe :fetcher github :repo "veelenga/curly.el"))
-     (ameba :location (recipe :fetcher github :repo "veelenga/ameba.el"))
      )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -562,8 +562,7 @@ you should place your code here."
   (require 'tramp)
 
   (with-eval-after-load 'flycheck-inline (flycheck-inline-mode))
-  (require 'flycheck-ameba)
-  (add-hook 'ameba-mode 'flycheck-ameba)
+  (flycheck-ameba-setup)
   (add-hook 'flycheck-mode-hook 'flycheck-popup-tip-mode)
   (setq crystal-enable-auto-format t)
 
