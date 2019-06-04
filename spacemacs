@@ -561,6 +561,7 @@ you should place your code here."
 
   (with-eval-after-load 'flycheck-inline (flycheck-inline-mode))
   (flycheck-ameba-setup)
+  (doom-modeline-mode)
   (add-hook 'flycheck-mode-hook 'flycheck-popup-tip-mode)
   (setq crystal-enable-auto-format t)
 
