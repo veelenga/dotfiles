@@ -72,4 +72,4 @@ alias emc='emacsclient .'
 
 alias gbc='git branch | grep \* | cut -d" " -f2 | tr -d "\n" | pbcopy'
 alias gpg-kill='pkill -9 gpg-agent; gpg-agent --daemon'
-alias rds-dev='rails db:environment:set RAILS_ENV=development; rake db:drop; rake db:create; rake db:migrate; bundle exec rake dataload:all --trace; rake db:seed'
+alias rds-dev='rails db:environment:set RAILS_ENV=development && rake db:drop && rake db:create && rake db:migrate && bundle exec rake dataload:all --trace && rake db:seed'
