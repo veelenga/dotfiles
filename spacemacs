@@ -46,12 +46,14 @@ This function should only modify configuration layer settings."
      emacs-lisp
      html
      javascript
+     (javascript :variables node-add-modules-path t javascript-backend 'lsp)
      (ruby :variables ruby-version-manager 'rvm)
      ruby-on-rails
      sql
      typescript
      vimscript
      yaml
+     lsp
 
      neotree
      auto-completion
@@ -87,6 +89,7 @@ This function should only modify configuration layer settings."
      copy-as-format
      beacon
      ido-completing-read+
+     exec-path-from-shell
      (emacs-doom-themes :location (recipe :fetcher github :repo "hlissner/emacs-doom-themes"))
      (curly :location (recipe :fetcher github :repo "veelenga/curly.el"))
      )
@@ -509,6 +512,13 @@ you should place your code here."
   (spacemacs/toggle-automatic-symbol-highlight-on)
   (add-hook 'prog-mode-hook (lambda () (toggle-truncate-lines 1)))
 
+  (add-hook 'js2-mode-hook #'lsp)
+
+  (use-package lsp-ui :commands lsp-ui-mode)
+  (use-package company-lsp :commands company-lsp)
+  (use-package helm-lsp :commands helm-lsp-workspace-symbol)
+  (use-package lsp-treemacs :commands lsp-treemacs-errors-list)
+
   (setq create-lockfiles nil)
   (setq vc-follow-symlinks t)
   (setq mode-require-final-newline t)
@@ -624,7 +634,7 @@ This function is called at the very end of Spacemacs initialization."
      ("XXXX" . "#dc752f")))
  '(linum-format " %3i ")
  '(package-selected-packages
-   '(ido-completing-read+ nginx-mode beacon doom flycheck-ameba yasnippet-snippets yaml-mode xclip ws-butler writeroom-mode winum which-key web-mode web-beautify volatile-highlights vmd-mode vimrc-mode vi-tilde-fringe uuidgen use-package unfill toc-org tide terminal-focus-reporting tagedit symon symbol-overlay super-save string-inflection sql-indent spaceline-all-the-icons smeargle slim-mode seeing-is-believing scss-mode sass-mode rvm ruby-tools ruby-test-mode ruby-refactor ruby-hash-syntax rubocop rspec-mode robe reveal-in-osx-finder restart-emacs rbenv rainbow-delimiters pug-mode projectile-rails prettier-js popwin play-crystal persp-mode password-generator paradox overseer osx-trash osx-dictionary osx-clipboard org-bullets open-junk-file ob-elixir ob-crystal neotree nameless mwim move-text mmm-mode minitest markdown-toc magit-svn magit-gitflow macrostep lorem-ipsum livid-mode link-hint launchctl json-navigator js2-refactor js-doc jbeans-theme inf-crystal indent-guide impatient-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-purpose helm-projectile helm-mode-manager helm-make helm-gitignore helm-git-grep helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag gruber-darker-theme google-translate golden-ratio gitignore-templates gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md fuzzy font-lock+ flyspell-correct-helm flycheck-pos-tip flycheck-popup-tip flycheck-package flycheck-mix flycheck-crystal flycheck-credo flx-ido fill-column-indicator feature-mode fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-terminal-cursor-changer evil-surround evil-numbers evil-mc evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-commentary evil-cleverparens evil-args evil-anzu eval-sexp-fu emmet-mode emacs-doom-themes elisp-slime-nav editorconfig dumb-jump dotenv-mode doom-themes doom-modeline dockerfile-mode docker diminish diff-hl dactyl-mode curly csv-mode counsel-projectile copy-as-format company-web company-tern company-statistics column-enforce-mode clean-aindent-mode chruby centered-cursor-mode carbon-now-sh bundler browse-at-remote auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile ameba alchemist aggressive-indent ace-window ace-link ace-jump-helm-line ac-ispell))
+   '(lsp-mode vterm ido-completing-read+ nginx-mode beacon doom flycheck-ameba yasnippet-snippets yaml-mode xclip ws-butler writeroom-mode winum which-key web-mode web-beautify volatile-highlights vmd-mode vimrc-mode vi-tilde-fringe uuidgen use-package unfill toc-org tide terminal-focus-reporting tagedit symon symbol-overlay super-save string-inflection sql-indent spaceline-all-the-icons smeargle slim-mode seeing-is-believing scss-mode sass-mode rvm ruby-tools ruby-test-mode ruby-refactor ruby-hash-syntax rubocop rspec-mode robe reveal-in-osx-finder restart-emacs rbenv rainbow-delimiters pug-mode projectile-rails prettier-js popwin play-crystal persp-mode password-generator paradox overseer osx-trash osx-dictionary osx-clipboard org-bullets open-junk-file ob-elixir ob-crystal neotree nameless mwim move-text mmm-mode minitest markdown-toc magit-svn magit-gitflow macrostep lorem-ipsum livid-mode link-hint launchctl json-navigator js2-refactor js-doc jbeans-theme inf-crystal indent-guide impatient-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-purpose helm-projectile helm-mode-manager helm-make helm-gitignore helm-git-grep helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag gruber-darker-theme google-translate golden-ratio gitignore-templates gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md fuzzy font-lock+ flyspell-correct-helm flycheck-pos-tip flycheck-popup-tip flycheck-package flycheck-mix flycheck-crystal flycheck-credo flx-ido fill-column-indicator feature-mode fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-terminal-cursor-changer evil-surround evil-numbers evil-mc evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-commentary evil-cleverparens evil-args evil-anzu eval-sexp-fu emmet-mode emacs-doom-themes elisp-slime-nav editorconfig dumb-jump dotenv-mode doom-themes doom-modeline dockerfile-mode docker diminish diff-hl dactyl-mode curly csv-mode counsel-projectile copy-as-format company-web company-tern company-statistics column-enforce-mode clean-aindent-mode chruby centered-cursor-mode carbon-now-sh bundler browse-at-remote auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile ameba alchemist aggressive-indent ace-window ace-link ace-jump-helm-line ac-ispell))
  '(pdf-view-midnight-colors '("#b2b2b2" . "#292b2e")))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
