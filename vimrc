@@ -180,7 +180,7 @@ function! StripTrailingWhitespaces()
   call cursor(l, c)
 endfunction
 
-nnoremap <leader>sw :call StripTrailingWhitespaces()<CR>
+" nnoremap <leader>sw :call StripTrailingWhitespaces()<CR>
 
 " code formatting
 set noeol
@@ -497,10 +497,10 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_enable_sign = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_javascript_checkers = ['jshint']
-let g:syntastic_crystal_checkers = ['ameba']
+" let g:syntastic_enable_sign = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_javascript_checkers = ['jshint']
+" let g:syntastic_crystal_checkers = ['ameba']
 
 " Closetag
 let g:closetag_filenames = "*.html,*.xhtml,*.html.erb"
