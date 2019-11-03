@@ -6,6 +6,8 @@
 
 (setq
  display-line-numbers-type 'relative
+ projectile-enable-caching t
+ projectile-completion-system 'ivy
  projectile-project-search-path '("~/Dev/repos"))
 
 ;; Keybindings to toggle prev/next buffers
@@ -25,3 +27,7 @@
 ;; terminal-focus-reporting
 (unless (display-graphic-p)
   (terminal-focus-reporting-mode))
+
+;; rvm
+(add-hook! enh-ruby-mode
+  (rvm-activate-corresponding-ruby))
