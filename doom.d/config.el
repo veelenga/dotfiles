@@ -34,8 +34,7 @@
 )
 
 ;; ivy - https://github.com/abo-abo/swiper
-(use-package! ivy
-  :config
+(after! ivy
   (define-key ivy-minibuffer-map (kbd "C-u") 'ivy-scroll-down-command)
   (define-key ivy-minibuffer-map (kbd "C-d") 'ivy-scroll-up-command))
 
