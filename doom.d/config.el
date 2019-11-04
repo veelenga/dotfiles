@@ -1,15 +1,11 @@
 ;;; .doom.d/config.el -*- lexical-binding: t; -*-
 
-;; Place your private configuration here
-
 (setq
  doom-font (font-spec :family "Ubuntu Mono derivative Powerline" :size 18)
  display-line-numbers-type 'relative
  projectile-enable-caching t
  projectile-completion-system 'ivy
  projectile-project-search-path '("~/Dev/repos"))
-
-(map! :ne "M-/" #'comment-or-uncomment-region)
 
 ;; Integration with tmux movement
 (unless (display-graphic-p)
