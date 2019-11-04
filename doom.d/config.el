@@ -44,7 +44,6 @@
   (defun copy-project-filepath () (interactive) (curly-copy-loc "f"))
   (defun copy-project-filepath-and-line () (interactive) (curly-copy-loc "f:l"))
 
-  (map! :ne "SPC f RET")
   (map! :ne "SPC f RET" 'curly-copy-loc)
   (map! :ne "SPC f '" 'copy-project-filepath)
   (map! :ne "SPC f ;" 'copy-project-filepath-and-line))
