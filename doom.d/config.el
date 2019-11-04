@@ -11,6 +11,28 @@
 
 (map! :ne "M-/" #'comment-or-uncomment-region)
 
+;; Integration with tmux movement
+(unless (display-graphic-p)
+  (defun windmove-emacs-or-tmux(dir tmux-cmd)
+    (interactive)
+    (if (ignore-errors (funcall (intern (concat "windmove-" dir))))
+      nil                       ;; Moving within emacs
+      (shell-command tmux-cmd)) ;; At edges, send command to tmux
+  )
+
+  (map! :ne "C-k" '(lambda () (interactive) (windmove-emacs-or-tmux "up"  "tmux select-pane -U")))
+  (map! :ne "C-j" '(lambda () (interactive) (windmove-emacs-or-tmux "down"  "tmux select-pane -D")))
+  (map! :ne "C-l" '(lambda () (interactive) (windmove-emacs-or-tmux "right" "tmux select-pane -R")))
+  (map! :ne "C-h" '(lambda () (interactive) (windmove-emacs-or-tmux "left"  "tmux select-pane -L")))
+
+  ;; Related config in tmux.conf
+  ; is_editor='echo "#{pane_current_command}" | grep -iqE "(^|\/)g?(view|n?vim?)(diff)?$|emacs.*$"'
+  ; bind -n C-h if-shell "$is_editor" "send-keys C-h" "select-pane -L"
+  ; bind -n C-j if-shell "$is_editor" "send-keys C-j" "select-pane -D"
+  ; bind -n C-k if-shell "$is_editor" "send-keys C-k" "select-pane -U"
+  ; bind -n C-l if-shell "$is_editor" "send-keys C-l" "select-pane -R"
+)
+
 ;; curly - https://github.com/veelenga/curly.el
 (use-package! curly
   :config
