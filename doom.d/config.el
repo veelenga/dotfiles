@@ -2,8 +2,6 @@
 
 ;; Place your private configuration here
 
-(super-save-mode +1)
-
 (setq
  doom-font (font-spec :family "Ubuntu Mono derivative Powerline" :size 18)
  display-line-numbers-type 'relative
@@ -13,7 +11,7 @@
 
 (map! :ne "M-/" #'comment-or-uncomment-region)
 
-;; veelenga/curly.el
+;; curly - https://github.com/veelenga/curly.el
 (use-package! curly
   :config
   (defun copy-project-filepath () (interactive) (curly-copy-loc "f"))
@@ -24,9 +22,16 @@
   (map! :ne "SPC f '" 'copy-project-filepath)
   (map! :ne "SPC f ;" 'copy-project-filepath-and-line))
 
-;; terminal-focus-reporting
+;; super-save - https://github.com/bbatsov/super-save
+(use-package! super-save
+  :config
+  (super-save-mode +1))
+
+;; terminal-focus-reporting - https://github.com/veelenga/terminal-focus-reporting
 (unless (display-graphic-p)
-  (terminal-focus-reporting-mode))
+  (use-package! terminal-focus-reporting
+    :config
+    (terminal-focus-reporting-mode)))
 
 ;; rvm
 (add-hook! enh-ruby-mode
