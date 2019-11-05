@@ -64,3 +64,16 @@
 ;; rvm
 (add-hook! enh-ruby-mode
   (rvm-activate-corresponding-ruby))
+
+;; lsp
+(after! lsp-ui
+  (map! :ne "SPC m d" #'lsp-find-definition)
+  (map! :ne "SPC m R" #'lsp-rename)
+  (map! :ne "SPC m m" #'lsp-ui-imenu)
+  (setq
+    lsp-ui-flycheck-enable nil
+    lsp-ui-sideline-show-diagnostics nil
+    lsp-ui-sideline-update-mode 'line
+    lsp-ui-sideline-show-code-actions nil
+    lsp-ui-doc-include-signature nil)
+  (flycheck-add-next-checker 'javascript-eslint))
