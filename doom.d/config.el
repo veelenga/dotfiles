@@ -1,11 +1,13 @@
 ;;; .doom.d/config.el -*- lexical-binding: t; -*-
 
 (setq
- doom-font (font-spec :family "Ubuntu Mono derivative Powerline" :size 18)
+ doom-font (font-spec :family "Ubuntu Mono derivative Powerline" :size 16)
  display-line-numbers-type 'relative
  projectile-enable-caching t
  projectile-completion-system 'ivy
  projectile-project-search-path '("~/Dev/repos"))
+
+(load-theme 'wombat t)
 
 ;; Integration with tmux movement
 (unless (display-graphic-p)
