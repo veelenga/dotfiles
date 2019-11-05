@@ -31,8 +31,8 @@
   ; bind -n C-l if-shell "$is_editor" "send-keys C-l" "select-pane -R"
 
   ;; Mouse scroll support
-  ;; (global-set-key [mouse-4] (lambda () (interactive) (scroll-down 1)))
-  ;; (global-set-key [mouse-5] (lambda () (interactive) (scroll-up 1)))
+  (global-set-key [mouse-4] (lambda () (interactive) (scroll-down 1)))
+  (global-set-key [mouse-5] (lambda () (interactive) (scroll-up 1)))
 )
 
 ;; ivy - https://github.com/abo-abo/swiper
