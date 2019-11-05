@@ -9,6 +9,10 @@
 
 (load-theme 'wombat t)
 
+(map! :leader
+  (:prefix-map ("/" . "search")
+    :desc "Search project" "/" #'+default/search-project))
+
 ;; Integration with tmux movement
 (unless (display-graphic-p)
   (defun windmove-emacs-or-tmux(dir tmux-cmd)
