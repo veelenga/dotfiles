@@ -6,6 +6,7 @@
  projectile-enable-caching t
  projectile-completion-system 'ivy
  projectile-project-search-path '("~/Dev/repos"))
+(set-face-attribute 'region nil :background "#fdff00")
 
 (load-theme 'wombat t)
 
@@ -96,3 +97,11 @@
     lsp-ui-sideline-show-code-actions nil
     lsp-ui-doc-include-signature nil)
   (flycheck-add-next-checker 'javascript-eslint))
+
+;; js2-mode
+(add-hook! js2-mode
+  (setq js2-basic-offset 2 js-indent-level 2))
+
+;; hl-line-mode
+(after! hl-line
+  (set-face-underline 'highlight nil))
