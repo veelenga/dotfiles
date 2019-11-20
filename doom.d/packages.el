@@ -10,4 +10,5 @@
 (package! terminal-focus-reporting)
 (package! curly :recipe (:host github :repo "veelenga/curly.el"))
 (package! rvm)
+(package! zenburn-theme)
 (disable-packages! evil-snipe)

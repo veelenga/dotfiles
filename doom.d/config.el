@@ -8,7 +8,7 @@
  projectile-project-search-path '("~/Dev/repos"))
 (set-face-attribute 'region nil :background "#fdff00")
 
-(load-theme 'wombat t)
+(load-theme 'zenburn t)
 
 ;; Remapping built-in bindings
 (map! :leader
@@ -90,12 +90,6 @@
   (map! :ne "SPC m d" #'lsp-find-definition)
   (map! :ne "SPC m R" #'lsp-rename)
   (map! :ne "SPC m m" #'lsp-ui-imenu)
-  (setq
-    lsp-ui-flycheck-enable nil
-    lsp-ui-sideline-show-diagnostics nil
-    lsp-ui-sideline-update-mode 'line
-    lsp-ui-sideline-show-code-actions nil
-    lsp-ui-doc-include-signature nil)
   (flycheck-add-next-checker 'javascript-eslint))
 
 ;; js2-mode
