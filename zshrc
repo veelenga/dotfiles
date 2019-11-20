@@ -52,6 +52,7 @@ autoload -Uz compinit && compinit
 #eval $(/usr/libexec/path_helper -s)
 
 export KEYTIMEOUT=1
+export TERM=xterm-256color
 
 bindkey -v
 bindkey '^P' up-history
