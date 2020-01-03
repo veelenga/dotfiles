@@ -11,4 +11,6 @@
 (package! curly :recipe (:host github :repo "veelenga/curly.el"))
 (package! rvm)
 (package! zenburn-theme)
+(package! ameba)
 (disable-packages! evil-snipe)
+(disable-packages! lsp-ui)

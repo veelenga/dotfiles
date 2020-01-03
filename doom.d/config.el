@@ -86,11 +86,9 @@
   (rvm-activate-corresponding-ruby))
 
 ;; lsp
-(after! lsp-ui
+(after! lsp-mode
   (map! :ne "SPC m d" #'lsp-find-definition)
-  (map! :ne "SPC m R" #'lsp-rename)
-  (map! :ne "SPC m m" #'lsp-ui-imenu)
-  (flycheck-add-next-checker 'javascript-eslint))
+  (map! :ne "SPC m R" #'lsp-rename))
 
 ;; js2-mode
 (add-hook! js2-mode
