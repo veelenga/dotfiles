@@ -1,11 +1,17 @@
 ;;; .doom.d/config.el -*- lexical-binding: t; -*-
 
+(defalias 'forward-evil-word 'forward-evil-symbol)
+
 (setq
  doom-font (font-spec :family "Ubuntu Mono derivative Powerline" :size 16)
  display-line-numbers-type 'relative
  projectile-enable-caching t
  projectile-completion-system 'ivy
- projectile-project-search-path '("~/Dev/repos"))
+ projectile-project-search-path '("~/Dev/repos")
+ gc-cons-threshold 100000000
+ read-process-output-max (* 1024 1024)
+ lsp-prefer-capf t
+ lsp-idle-delay 0.500)
 (set-face-attribute 'region nil :background "#fdff00")
 
 (load-theme 'zenburn t)
