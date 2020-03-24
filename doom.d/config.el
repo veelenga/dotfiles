@@ -96,6 +96,10 @@
   (map! :ne "SPC m d" #'lsp-find-definition)
   (map! :ne "SPC m R" #'lsp-rename))
 
+;; crystal-mode
+(after! crystal-mode
+  (add-hook 'before-save-hook #'crystal-tool-format))
+
 ;; js2-mode
 (add-hook! js2-mode
   (setq js2-basic-offset 2 js-indent-level 2))
