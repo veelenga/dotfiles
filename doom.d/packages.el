@@ -14,3 +14,4 @@
 (package! ameba)
 (disable-packages! evil-snipe)
 (disable-packages! lsp-ui)
+(disable-packages! company-lsp)
