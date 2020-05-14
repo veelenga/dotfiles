@@ -11,6 +11,7 @@
  gc-cons-threshold 100000000
  read-process-output-max (* 1024 1024)
  lsp-prefer-capf t
+ lsp-auto-configure nil
  lsp-idle-delay 0.500)
 (set-face-attribute 'region nil :background "#fdff00")
 
