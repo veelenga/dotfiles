@@ -17,6 +17,20 @@
 
 (load-theme 'zenburn t)
 
+(defun setup-indent (n)
+  (setq c-basic-offset n)
+  (setq coffee-tab-width n)
+  (setq javascript-indent-level n)
+  (setq typescript-indent-level n)
+  (setq js-indent-level n)
+  (setq js2-basic-offset n)
+  (setq web-mode-markup-indent-offset n)
+  (setq web-mode-css-indent-offset n)
+  (setq web-mode-code-indent-offset n)
+  (setq css-indent-offset n))
+
+(setup-indent 2)
+
 ;; Remapping built-in bindings
 (map! :leader
   :desc "M-x" "SPC" #'execute-extended-command ;; Default: "SPC :"
