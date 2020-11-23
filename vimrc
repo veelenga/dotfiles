@@ -92,19 +92,20 @@ if bufwinnr(1)
 endif
 
 " Feature branch commit message
-function! CommitPrefix()
+function! CommitPrefix(name)
   if (strlen(getline(".")))
     return
   endif
 
   let branch = system("git rev-parse --abbrev-ref HEAD")
-  let ticket = matchstr(branch, '[0-9]\+')
-  if strlen(ticket)
-    exe "normal O" . "CT-" . ticket . " " | startinsert
+  let match = matchstr(branch, a:name . '\([a-z]\+-[0-9]\+\)')
+  if strlen(match)
+    let ticket = toupper(substitute(match, a:name, '', 'g'))
+    exe "normal O" . ticket . " " | startinsert
   endif
 endfunction
 
-au FileType gitcommit call CommitPrefix()
+au FileType gitcommit call CommitPrefix('ve-')
 
 " crp - copy relative path of %
 " cap - copy absolute path of %
