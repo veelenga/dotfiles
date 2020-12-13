@@ -96,11 +96,7 @@
   :config
   (super-save-mode +1))
 
-;; terminal-focus-reporting - https://github.com/veelenga/terminal-focus-reporting
-(unless (display-graphic-p)
-  (use-package! terminal-focus-reporting
-    :config
-    (terminal-focus-reporting-mode)))
+(add-function :after after-focus-change-function (lambda () (save-some-buffers t)))
 
 ;; rvm
 (add-hook! enh-ruby-mode
