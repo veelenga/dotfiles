@@ -108,7 +108,7 @@
   (map! :ne "SPC m R" #'lsp-rename))
 
 ;; crystal-mode
-(after! crystal-mode
+(add-hook! crystal-mode
   (add-hook 'before-save-hook #'crystal-tool-format))
 
 ;; js2-mode
