@@ -109,7 +109,7 @@
 
 ;; crystal-mode
 (add-hook! crystal-mode
-  (add-hook 'before-save-hook #'crystal-tool-format))
+  (add-hook 'before-save-hook #'crystal-tool-format nil t))
 
 ;; js2-mode
 (add-hook! js2-mode
