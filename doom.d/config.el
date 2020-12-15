@@ -95,6 +95,11 @@
   :config
   (super-save-mode +1))
 
+;; zoom - https://github.com/cyrus-and/zoom
+(use-package! zoom
+  :config
+  (zoom-mode))
+
 (add-function :after after-focus-change-function (lambda () (save-some-buffers t)))
 
 ;; rvm

@@ -12,6 +12,7 @@
 (package! zenburn-theme)
 (package! ameba)
 (package! evil-terminal-cursor-changer)
+(package! zoom-window)
 (disable-packages! evil-snipe)
 (disable-packages! lsp-ui)
 (disable-packages! company-lsp)
