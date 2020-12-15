@@ -11,6 +11,7 @@
 (package! rvm)
 (package! zenburn-theme)
 (package! ameba)
+(package! evil-terminal-cursor-changer)
 (disable-packages! evil-snipe)
 (disable-packages! lsp-ui)
 (disable-packages! company-lsp)
