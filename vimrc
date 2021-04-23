@@ -105,7 +105,7 @@ function! CommitPrefix(name)
   endif
 endfunction
 
-au FileType gitcommit call CommitPrefix('ve-')
+au FileType gitcommit au! BufEnter COMMIT_EDITMSG call CommitPrefix('ve-')
 
 " crp - copy relative path of %
 " cap - copy absolute path of %
