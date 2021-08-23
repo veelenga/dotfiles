@@ -10,6 +10,7 @@
  projectile-project-search-path '("~/Dev/repos")
  gc-cons-threshold 100000000
  read-process-output-max (* 1024 1024)
+ lsp-restart 'auto-restart
  lsp-prefer-capf t
  lsp-idle-delay 0.500)
 (set-face-attribute 'region nil :background "#fdff00")
