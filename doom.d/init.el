@@ -95,6 +95,10 @@
        ;;upload            ; map local to remote projects via ssh/ftp
        ;;wakatime
 
+       :os
+       (:if IS-MAC macos)  ; improve compatibility with macOS
+       (tty +osc)          ; improve the terminal Emacs experience
+
        :lang
        ;;agda              ; types of types of types of types...
        ;;assembly          ; assembly for fun or debugging
@@ -112,7 +116,7 @@
        ;;ess               ; emacs speaks statistics
        ;;faust             ; dsp, but you get to keep your soul
        ;;fsharp            ; ML stands for Microsoft's Language
-       ;;go                ; the hipster dialect
+       go                  ; the hipster dialect
        ;;(haskell +intero) ; a language that's lazier than I am
        ;;hy                ; readability of scheme w/ speed of python
        ;;idris             ;
