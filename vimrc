@@ -272,8 +272,6 @@ Plug 'itchyny/vim-cursorword'
 Plug 'scrooloose/nerdcommenter'
 Plug 'kana/vim-textobj-user'
 Plug 'yggdroot/indentline'
-"Plug 'Valloric/YouCompleteMe'
-Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'vim-syntastic/syntastic'
 Plug 'ramele/agrep'
@@ -448,36 +446,6 @@ runtime macros/matchit.vim
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_emphasis_multiline = 0
 let g:vim_markdown_folding_level = 2
-
-" YouCompleteMe
-"autocmd CompleteDone * pclose
-set completeopt-=preview
-set shortmess+=c
-let g:ycm_register_as_syntastic_checker = 0
-let g:clang_debug = 0
-
-" Ultisnips
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger = "<nop>"
-let g:ulti_expand_or_jump_res = 0
-let g:endwise_no_mappings = 1
-function! ExpandSnippetOrCarriageReturn()
-    let snippet = UltiSnips#ExpandSnippetOrJump()
-    if g:ulti_expand_or_jump_res > 0
-        return snippet
-    else
-        return "\<CR>"
-    endif
-endfunction
-inoremap <expr> <CR> pumvisible() ? "\<C-R>=ExpandSnippetOrCarriageReturn()\<CR>" : "\<CR>\<C-R>=EndwiseDiscretionary()\<CR>"
-let g:UltiSnipsJumpForwardTrigger='<c-b>'
-let g:UltiSnipsJumpBackwardTrigger='<c-z>'
-let g:UltiSnipsJumpForwardTrigger='<c-j>'
-let g:UltiSnipsJumpBackwardTrigger='<c-k>'
-inoremap <c-x><c-k> <c-x><c-k>
-
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
 
 " Agrep
 let agrep_default_flags = '-I --exclude-dir={.git,log,tmp}'
