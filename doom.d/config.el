@@ -14,6 +14,7 @@
  lsp-prefer-capf t
  lsp-idle-delay 0.500)
 (set-face-attribute 'region nil :background "#fdff00")
+(setq-default show-trailing-whitespace t)
 
 ;; (load-theme 'zenburn t)
 
@@ -105,9 +106,9 @@
   (load-theme 'kaolin-ocean t))
 
 ;; zoom - https://github.com/cyrus-and/zoom
-(use-package! zoom
-  :config
-  (zoom-mode))
+;; (use-package! zoom
+;;   :config
+;;   (zoom-mode))
 
 (add-function :after after-focus-change-function (lambda () (save-some-buffers t)))
 
