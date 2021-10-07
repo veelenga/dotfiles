@@ -105,12 +105,7 @@
   :config
   (load-theme 'kaolin-ocean t))
 
-;; zoom - https://github.com/cyrus-and/zoom
-;; (use-package! zoom
-;;   :config
-;;   (zoom-mode))
-
-(add-function :after after-focus-change-function (lambda () (save-some-buffers t)))
+;; (add-function :after after-focus-change-function (lambda () (save-some-buffers t)))
 
 ;; rvm
 (add-hook! enh-ruby-mode
@@ -128,11 +123,6 @@
 ;; js2-mode
 (add-hook! js2-mode
   (setq js2-basic-offset 2 js-indent-level 2))
-
-;; cursor
-(unless (display-graphic-p)
-  (require 'evil-terminal-cursor-changer)
-  (evil-terminal-cursor-changer-activate))
 
 ;; hl-line-mode
 (after! hl-line
