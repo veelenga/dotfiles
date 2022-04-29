@@ -16,8 +16,6 @@
 (set-face-attribute 'region nil :background "#fdff00")
 (setq-default show-trailing-whitespace t)
 
-;; (load-theme 'zenburn t)
-
 (defun setup-indent (n)
   (setq c-basic-offset n)
   (setq coffee-tab-width n)
@@ -65,6 +63,8 @@
   (map! :ne "C-l" '(lambda () (interactive) (windmove-emacs-or-tmux "right" "tmux select-pane -R")))
   (map! :ne "C-h" '(lambda () (interactive) (windmove-emacs-or-tmux "left"  "tmux select-pane -L")))
 
+  (map! :ne "C-x s" '(lambda () (interactive) (windmove-emacs-or-tmux "up"  "tmux last-window")))
+
   ;; Related config in tmux.conf
   ; is_editor='echo "#{pane_current_command}" | grep -iqE "(^|\/)g?(view|n?vim?)(diff)?$|emacs.*$"'
   ; bind -n C-h if-shell "$is_editor" "send-keys C-h" "select-pane -L"
@@ -101,9 +101,7 @@
   :config
   (super-save-mode +1))
 
-(use-package kaolin-themes
-  :config
-  (load-theme 'kaolin-ocean t))
+(load-theme 'doom-monokai-pro t)
 
 ;; (add-function :after after-focus-change-function (lambda () (save-some-buffers t)))
 
@@ -123,6 +121,21 @@
 ;; js2-mode
 (add-hook! js2-mode
   (setq js2-basic-offset 2 js-indent-level 2))
+
+;; web-mode
+;; (add-hook! web-mode (prettier-mode))
+
+;; go-mode
+(add-hook 'go-mode-hook #'lsp-deferred)
+(add-hook 'go-mode-hook
+  (lambda ()
+    (add-hook 'before-save-hook 'gofmt-before-save)
+    (setq tab-width 4)
+    (setq indent-tabs-mode 1)))
+
+;; doom-modeline
+(add-hook! doom-modeline
+  (setq doom-modeline-buffer-file-name-style 'truncate-all))
 
 ;; hl-line-mode
 (after! hl-line
