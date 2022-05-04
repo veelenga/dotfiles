@@ -101,6 +101,8 @@
   :config
   (super-save-mode +1))
 
+
+(global-whitespace-mode +1)
 (load-theme 'doom-monokai-pro t)
 
 ;; (add-function :after after-focus-change-function (lambda () (save-some-buffers t)))
@@ -129,7 +131,10 @@
 (add-hook 'go-mode-hook #'lsp-deferred)
 (add-hook 'go-mode-hook
   (lambda ()
-    (add-hook 'before-save-hook 'gofmt-before-save)
+    (whitespace-mode t)
+    (super-save-mode 0)
+    (add-hook 'after-save-hook 'gofmt-before-save)
+    (add-hook 'before-save-hook #'lsp-organize-imports t t)
     (setq tab-width 4)
     (setq indent-tabs-mode 1)))
 
