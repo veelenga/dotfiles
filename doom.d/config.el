@@ -15,20 +15,7 @@
  lsp-idle-delay 0.500)
 (set-face-attribute 'region nil :background "#fdff00")
 (setq-default show-trailing-whitespace t)
-
-(defun setup-indent (n)
-  (setq c-basic-offset n)
-  (setq coffee-tab-width n)
-  (setq javascript-indent-level n)
-  (setq typescript-indent-level n)
-  (setq js-indent-level n)
-  (setq js2-basic-offset n)
-  (setq web-mode-markup-indent-offset n)
-  (setq web-mode-css-indent-offset n)
-  (setq web-mode-code-indent-offset n)
-  (setq css-indent-offset n))
-
-(setup-indent 2)
+(global-so-long-mode nil)
 
 ;; Remapping built-in bindings
 (map! :leader
@@ -124,15 +111,23 @@
 (add-hook! js2-mode
   (setq js2-basic-offset 2 js-indent-level 2))
 
-;; web-mode
-;; (add-hook! web-mode (prettier-mode))
+(add-hook 'typescript-tsx-mode-hook
+  (lambda()
+    (whitespace-mode t)
+    (prettier-mode)
+))
+
+(add-hook 'typescript-mode-hook
+  (lambda()
+    (whitespace-mode t)
+    (prettier-mode)
+))
 
 ;; go-mode
 (add-hook 'go-mode-hook #'lsp-deferred)
 (add-hook 'go-mode-hook
   (lambda ()
     (whitespace-mode t)
-    (super-save-mode 0)
     (add-hook 'after-save-hook 'gofmt-before-save)
     (add-hook 'before-save-hook #'lsp-organize-imports t t)
     (setq tab-width 4)
