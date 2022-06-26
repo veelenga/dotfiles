@@ -79,16 +79,6 @@
   (map! :ne "SPC f '" 'copy-project-filepath)
   (map! :ne "SPC f ;" 'copy-project-filepath-and-line))
 
-(with-eval-after-load 'evil-maps
-  (define-key evil-motion-state-map (kbd "C-o") 'better-jumper-jump-backward)
-  (define-key evil-motion-state-map (kbd "C-i") 'better-jumper-jump-forward))
-
-;; super-save - https://github.com/bbatsov/super-save
-(use-package! super-save
-  :config
-  (super-save-mode +1))
-
-
 (global-whitespace-mode +1)
 (load-theme 'doom-monokai-pro t)
 
