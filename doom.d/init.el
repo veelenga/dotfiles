@@ -68,6 +68,9 @@
        ;;shell             ; a terminal REPL for Emacs
        ;;term              ; terminals in Emacs
        ;;vterm             ; another terminals in Emacs
+       :checkers
+       flycheck          ; tasing you for every semicolon you forget
+       flyspell          ; tasing you for misspelling mispelling
 
        :tools
        ;;ansible
@@ -77,13 +80,10 @@
        ;;editorconfig      ; let someone else argue about tabs vs spaces
        ;;ein               ; tame Jupyter notebooks with emacs
        (eval +overlay)     ; run code, run (also, repls)
-       flycheck          ; tasing you for every semicolon you forget
-       flyspell          ; tasing you for misspelling mispelling
        ;;gist              ; interacting with github gists
        (lookup           ; helps you navigate your code and documentation
         +docsets)        ; ...or in Dash docsets locally
        lsp
-       macos             ; MacOS-specific commands
        magit             ; a git porcelain for Emacs
        ;;make              ; run make tasks from Emacs
        ;;pass              ; password manager for nerds
@@ -98,6 +98,7 @@
        :os
        (:if IS-MAC macos)  ; improve compatibility with macOS
        (tty +osc)          ; improve the terminal Emacs experience
+       macos             ; MacOS-specific commands
 
        :lang
        ;;agda              ; types of types of types of types...
