@@ -79,7 +79,6 @@
   (map! :ne "SPC f '" 'copy-project-filepath)
   (map! :ne "SPC f ;" 'copy-project-filepath-and-line))
 
-(global-whitespace-mode +1)
 (load-theme 'doom-monokai-pro t)
 
 ;; (add-function :after after-focus-change-function (lambda () (save-some-buffers t)))

@@ -97,8 +97,8 @@
 
        :os
        (:if IS-MAC macos)  ; improve compatibility with macOS
-       (tty +osc)          ; improve the terminal Emacs experience
-       macos             ; MacOS-specific commands
+       tty                 ; improve the terminal Emacs experience
+       macos               ; MacOS-specific commands
 
        :lang
        ;;agda              ; types of types of types of types...
