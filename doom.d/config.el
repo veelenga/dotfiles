@@ -135,6 +135,13 @@
 (add-hook! doom-modeline
   (setq doom-modeline-buffer-file-name-style 'truncate-all))
 
+;; tree-sitter
+(use-package! tree-sitter
+  :config
+  (require 'tree-sitter-langs)
+  (global-tree-sitter-mode)
+  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
+
 ;; hl-line-mode
 (after! hl-line
   (set-face-underline 'highlight nil))

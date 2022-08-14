@@ -12,6 +12,8 @@
 (package! ameba)
 (package! prettier)
 (package! graphql-mode)
+(package! tree-sitter)
+(package! tree-sitter-langs)
 (disable-packages! evil-snipe)
 (disable-packages! lsp-ui)
 (disable-packages! eglot)
