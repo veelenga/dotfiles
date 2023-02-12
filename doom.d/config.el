@@ -16,6 +16,7 @@
 (set-face-attribute 'region nil :background "#fdff00")
 (setq-default show-trailing-whitespace t)
 (global-so-long-mode nil)
+(setq web-mode-enable-auto-closing t)
 
 ;; Remapping built-in bindings
 (map! :leader
