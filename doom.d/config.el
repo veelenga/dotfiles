@@ -11,7 +11,7 @@
  gc-cons-threshold 100000000
  read-process-output-max (* 1024 1024)
  lsp-restart 'auto-restart
- lsp-prefer-capf t
+ lsp-file-watch-threshold 3000
  lsp-idle-delay 0.500)
 (set-face-attribute 'region nil :background "#fdff00")
 (setq-default show-trailing-whitespace t)
@@ -22,7 +22,7 @@
 (map! :leader
   :desc "M-x" "SPC" #'execute-extended-command ;; Default: "SPC :"
 
-  (:when (featurep! :ui workspaces)
+  (:when (modulep! :ui workspaces)
     (:prefix-map ("l" . "workspace") ;; Default: "SPC TAB ..."
       :desc "Switch to 1st workspace"   "1"   #'+workspace/switch-to-0
       :desc "Switch to 2nd workspace"   "2"   #'+workspace/switch-to-1
