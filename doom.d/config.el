@@ -90,7 +90,7 @@
   (map! :ne "SPC f '" 'copy-project-filepath)
   (map! :ne "SPC f ;" 'copy-project-filepath-and-line))
 
-(load-theme 'doom-monokai-pro t)
+(load-theme 'doom-nord t)
 
 ;; rvm
 (add-hook! enh-ruby-mode
