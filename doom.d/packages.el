@@ -15,7 +15,6 @@
 (package! tree-sitter)
 (package! tree-sitter-langs)
 (disable-packages! evil-snipe)
-(disable-packages! lsp-ui)
 (disable-packages! eglot)
 (disable-packages! helm-lsp)
 (disable-packages! company-lsp)
