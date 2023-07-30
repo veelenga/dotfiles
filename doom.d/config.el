@@ -69,16 +69,14 @@
   :ensure t
   :init (ivy-mode 1)
   :bind (("C-c C-r" . 'ivy-resume)
-	 ("C-x b" . 'ivy-switch-buffer))
+    ("C-x b" . 'ivy-switch-buffer))
   :config (setq ivy-use-virtual-buffers t
-		;;enable-recursive-minibuffers nil
-		ivy-use-selectable-prompt t
-		ivy-display-style 'fancy
-		ivy-count-format "(%d/%d) "
-		ivy-wrap t)
+    ivy-use-selectable-prompt t
+    ivy-display-style 'fancy
+    ivy-count-format "(%d/%d) "
+    ivy-wrap t)
   (define-key ivy-minibuffer-map (kbd "C-u") 'ivy-scroll-down-command)
-  (define-key ivy-minibuffer-map (kbd "C-d") 'ivy-scroll-up-command)
-  )
+  (define-key ivy-minibuffer-map (kbd "C-d") 'ivy-scroll-up-command))
 
 ;; curly - https://github.com/veelenga/curly.el
 (use-package! curly
