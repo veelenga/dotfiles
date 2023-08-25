@@ -105,24 +105,24 @@
 
 (add-hook 'js2-mode
   (lambda()
-    ;; (prettier-mode)
+    (prettier-mode)
     (setq js2-basic-offset 2 js-indent-level 2)
 ))
 
-;; (add-hook 'rjsx-mode
-;;   (lambda()
-;;     (prettier-mode)
-;; ))
+(add-hook 'rjsx-mode
+  (lambda()
+    (prettier-mode)
+))
 
-;; (add-hook 'typescript-tsx-mode-hook
-;;   (lambda()
-;;     (prettier-mode)
-;; ))
+(add-hook 'typescript-tsx-mode-hook
+  (lambda()
+    (prettier-mode)
+))
 
-;; (add-hook 'typescript-mode-hook
-;;   (lambda()
-;;     (prettier-mode)
-;; ))
+(add-hook 'typescript-mode-hook
+  (lambda()
+    (prettier-mode)
+))
 
 ;; go-mode
 (add-hook 'go-mode-hook #'lsp-deferred)
