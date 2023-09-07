@@ -17,6 +17,7 @@
 (setq-default show-trailing-whitespace t)
 (global-so-long-mode nil)
 (setq web-mode-enable-auto-closing t)
+(global-set-key [escape] 'minibuffer-keyboard-quit)
 
 ;; Remapping built-in bindings
 (map! :leader
@@ -75,6 +76,8 @@
     ivy-display-style 'fancy
     ivy-count-format "(%d/%d) "
     ivy-wrap t)
+  (define-key ivy-minibuffer-map (kbd "C-n") 'ivy-next-line)
+  (define-key ivy-minibuffer-map (kbd "C-p") 'ivy-previous-line)
   (define-key ivy-minibuffer-map (kbd "C-u") 'ivy-scroll-down-command)
   (define-key ivy-minibuffer-map (kbd "C-d") 'ivy-scroll-up-command))
 
