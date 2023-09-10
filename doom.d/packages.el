@@ -6,7 +6,7 @@
 ;; (package! another-package :recipe (:host github :repo "username/repo"))
 ;; (package! builtin-package :disable t)
 
-(package! super-save)
+;; (package! super-save)
 (package! curly :recipe (:host github :repo "veelenga/curly.el"))
 (package! rvm)
 (package! ameba)
@@ -17,8 +17,8 @@
 (package! graphql-mode)
 (package! tree-sitter)
 (package! tree-sitter-langs)
-(disable-packages! evil-snipe)
-;;(disable-packages! lsp-ui)
-(disable-packages! eglot)
+
 (disable-packages! helm-lsp)
-;; (disable-packages! company-lsp)
+(disable-packages! evil-snipe)
+(disable-packages! eglot)
+;; (disable-packages! lsp-ui)
