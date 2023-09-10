@@ -21,6 +21,9 @@
 (global-set-key [escape] 'minibuffer-keyboard-quit)
 (load-theme 'doom-nord t)
 
+;; https://github.com/veelenga/terminal-focus-reporting.el
+(add-function :after after-focus-change-function (lambda () (save-some-buffers t)))
+
 ;; Remapping built-in bindings
 (map! :leader
   :desc "M-x" "SPC" #'execute-extended-command ;; Default: "SPC :"
