@@ -12,7 +12,7 @@
 (package! ameba)
 
 ;; https://github.com/jscheid/prettier.el/pull/124
-;;(package! prettier)
+;; (package! prettier)
 
 (package! graphql-mode)
 (package! tree-sitter)
@@ -21,4 +21,3 @@
 (disable-packages! helm-lsp)
 (disable-packages! evil-snipe)
 (disable-packages! eglot)
-;; (disable-packages! lsp-ui)

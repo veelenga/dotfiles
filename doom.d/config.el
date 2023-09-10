@@ -81,33 +81,15 @@
   (map! :ne "SPC f ;" 'copy-project-filepath-and-line))
 
 ;; rvm
-(add-hook! enh-ruby-mode
-  (rvm-activate-corresponding-ruby))
+(add-hook! enh-ruby-mode (rvm-activate-corresponding-ruby))
 
 ;; crystal-mode
-(add-hook! crystal-mode
-  (add-hook 'before-save-hook #'crystal-tool-format nil t))
+(add-hook! crystal-mode (add-hook 'before-save-hook #'crystal-tool-format nil t))
 
-;; (add-hook 'js2-mode
-;;   (lambda()
-;;     (prettier-mode)
-;;     (setq js2-basic-offset 2 js-indent-level 2)
-;; ))
-
-;; (add-hook 'rjsx-mode
-;;   (lambda()
-;;     (prettier-mode)
-;; ))
-
-;; (add-hook 'typescript-tsx-mode-hook
-;;   (lambda()
-;;     (prettier-mode)
-;; ))
-
-;; (add-hook 'typescript-mode-hook
-;;   (lambda()
-;;     (prettier-mode)
-;; ))
+;; enable prettier-mode
+(add-hook 'js2-mode-hook (lambda() (prettier-mode)))
+(add-hook 'typescript-tsx-mode-hook (lambda() (prettier-mode)))
+(add-hook 'typescript-mode-hook (lambda() (prettier-mode)))
 
 ;; go-mode
 (add-hook 'go-mode-hook #'lsp-deferred)
