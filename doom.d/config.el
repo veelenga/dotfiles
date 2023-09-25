@@ -103,21 +103,3 @@
     (add-hook 'before-save-hook #'lsp-organize-imports t t)
     (setq tab-width 4)
     (setq indent-tabs-mode 1)))
-
-(use-package centaur-tabs
-  :init (setq centaur-tabs-enable-key-bindings t)
-  :config (setq
-    centaur-tabs-style "bar"
-    centaur-tabs-height 32
-    centaur-tabs-set-icons t
-    centaur-tabs-set-modified-marker t
-    centaur-tabs-show-navigation-buttons t
-    centaur-tabs-enable-key-bindings t
-    centaur-tabs-show-count nil
-  )
-  (centaur-tabs-change-fonts (face-attribute 'default :font) 110)
-  (centaur-tabs-headline-match)
-  :bind
-  (:map evil-normal-state-map
-        ("g t" . centaur-tabs-forward)
-        ("g T" . centaur-tabs-backward)))
