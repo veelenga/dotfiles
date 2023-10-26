@@ -15,7 +15,13 @@
  lsp-file-watch-threshold 3000
  lsp-idle-delay 0.500)
 
-(set-face-attribute 'region nil :background "#fdff00")
+;; https://www.nordtheme.com/
+(set-face-attribute 'region nil :background "#EBCB8B")
+(set-face-foreground 'line-number "#2E3440")
+(set-face-background 'line-number "#4C566A")
+(set-face-foreground 'line-number-current-line "#4C566A")
+(set-face-background 'line-number-current-line "#EBCB8B")
+
 (setq-default show-trailing-whitespace t)
 (global-so-long-mode nil)
 (global-set-key [escape] 'minibuffer-keyboard-quit)
@@ -98,7 +104,6 @@
 (add-hook 'go-mode-hook #'lsp-deferred)
 (add-hook 'go-mode-hook
   (lambda ()
-    (whitespace-mode t)
     (add-hook 'after-save-hook 'gofmt-before-save)
     (add-hook 'before-save-hook #'lsp-organize-imports t t)
     (setq tab-width 4)
