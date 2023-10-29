@@ -16,16 +16,16 @@
  lsp-idle-delay 0.500)
 
 ;; https://www.nordtheme.com/
+(load-theme 'doom-nord t)
 (set-face-attribute 'region nil :background "#EBCB8B")
 (set-face-foreground 'line-number "#2E3440")
 (set-face-background 'line-number "#4C566A")
 (set-face-foreground 'line-number-current-line "#4C566A")
 (set-face-background 'line-number-current-line "#EBCB8B")
 
-(setq-default show-trailing-whitespace t)
 (global-so-long-mode nil)
+(setq-default show-trailing-whitespace t)
 (global-set-key [escape] 'minibuffer-keyboard-quit)
-(load-theme 'doom-nord t)
 
 ;; https://github.com/veelenga/terminal-focus-reporting.el
 (add-function :after after-focus-change-function (lambda () (save-some-buffers t)))
