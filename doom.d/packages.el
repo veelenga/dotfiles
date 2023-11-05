@@ -10,10 +10,8 @@
 (package! curly :recipe (:host github :repo "veelenga/curly.el"))
 (package! rvm)
 (package! ameba)
-
-;; https://github.com/jscheid/prettier.el/pull/124
-;; (package! prettier)
-
+(package! prettier)
+(package! rubocopfmt)
 (package! graphql-mode)
 (package! tree-sitter)
 (package! tree-sitter-langs)

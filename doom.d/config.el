@@ -92,6 +92,9 @@
 ;; rvm
 (add-hook! enh-ruby-mode (rvm-activate-corresponding-ruby))
 
+;; autoformat in ruby mode
+(add-hook 'ruby-mode-hook #'rubocopfmt-mode)
+
 ;; crystal-mode
 (add-hook! crystal-mode (add-hook 'before-save-hook #'crystal-tool-format nil t))
 
