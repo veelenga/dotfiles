@@ -67,7 +67,21 @@
 
 (use-package ellama
   :init
-  (setopt ellama-keymap-prefix "C-c l"))
+  (setopt ellama-keymap-prefix "C-c l")
+    (require 'llm-ollama)
+  (setopt ellama-provider
+    (make-llm-ollama
+     :chat-model "llama2:13b"
+     :embedding-model "llama2:13b"))
+  )
+
+(use-package! copilot
+  :hook (prog-mode . copilot-mode)
+  :bind (:map copilot-completion-map
+              ("<tab>" . 'copilot-accept-completion)
+              ("TAB" . 'copilot-accept-completion)
+              ("C-TAB" . 'copilot-accept-completion-by-word)
+              ("C-<tab>" . 'copilot-accept-completion-by-word)))
 
 (use-package ivy
   :ensure t

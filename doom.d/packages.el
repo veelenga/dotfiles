@@ -17,6 +17,9 @@
 (package! tree-sitter-langs)
 (package! ellama)
 
+(package! copilot
+  :recipe (:host github :repo "copilot-emacs/copilot.el" :files ("*.el" "dist")))
+
 (disable-packages! helm-lsp)
 (disable-packages! evil-snipe)
 (disable-packages! eglot)
