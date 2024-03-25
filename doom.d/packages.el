@@ -15,6 +15,7 @@
 (package! graphql-mode)
 (package! tree-sitter)
 (package! tree-sitter-langs)
+(package! ellama)
 
 (disable-packages! helm-lsp)
 (disable-packages! evil-snipe)

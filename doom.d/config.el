@@ -64,6 +64,10 @@
   (global-set-key [mouse-5] (lambda () (interactive) (scroll-up 1)))
 )
 
+(use-package ellama
+  :init
+  (setopt ellama-keymap-prefix "C-c l"))
+
 (use-package ivy
   :ensure t
   :init (ivy-mode 1)
