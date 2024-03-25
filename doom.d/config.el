@@ -22,6 +22,7 @@
 (set-face-background 'line-number "#4C566A")
 (set-face-foreground 'line-number-current-line "#4C566A")
 (set-face-background 'line-number-current-line "#EBCB8B")
+(set-face-attribute 'region nil :background "#666")
 
 (global-so-long-mode nil)
 (setq-default show-trailing-whitespace t)
