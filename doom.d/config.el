@@ -71,8 +71,8 @@
     (require 'llm-ollama)
   (setopt ellama-provider
     (make-llm-ollama
-     :chat-model "llama2:13b"
-     :embedding-model "llama2:13b"))
+     :chat-model "codellama:13b"
+     :embedding-model "codellama:13b"))
   )
 
 (use-package! copilot
