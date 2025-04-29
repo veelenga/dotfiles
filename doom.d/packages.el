@@ -13,9 +13,9 @@
 (package! prettier)
 (package! rubocopfmt)
 (package! graphql-mode)
-(package! tree-sitter)
-(package! tree-sitter-langs)
-(package! ellama)
+;;(package! tree-sitter)
+;;(package! tree-sitter-langs)
+;;(package! ellama)
 
 (package! copilot
   :recipe (:host github :repo "copilot-emacs/copilot.el" :files ("*.el" "dist")))

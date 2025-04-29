@@ -19,6 +19,7 @@
 (load-theme 'doom-nord t)
 (set-face-attribute 'region nil :background "#666")
 
+(global-display-line-numbers-mode 1)
 (global-so-long-mode nil)
 (setq-default show-trailing-whitespace t)
 (global-set-key [escape] 'minibuffer-keyboard-quit)
@@ -26,11 +27,11 @@
 ;; https://github.com/veelenga/terminal-focus-reporting.el
 (add-function :after after-focus-change-function (lambda () (save-some-buffers t)))
 
-;; Remapping built-in bindings
-(map! :leader
-  :desc "M-x" "SPC" #'execute-extended-command ;; Default: "SPC :"
-  (:prefix-map ("/" . "search")
-    :desc "Search project" "/" #'+default/search-project)) ;; Default: "SPC / p"
+(after! evil
+  (map! :leader
+    :desc "M-x" "SPC" #'execute-extended-command
+    (:prefix-map ("/" . "search")
+      :desc "Search project" "/" #'+default/search-project)))
 
 ;; Integration with tmux movement
 (unless (display-graphic-p)
