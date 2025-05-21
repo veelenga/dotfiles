@@ -61,16 +61,6 @@
   (global-set-key [mouse-5] (lambda () (interactive) (scroll-up 1)))
 )
 
-(use-package ellama
-  :init
-  (setopt ellama-keymap-prefix "C-c l")
-    (require 'llm-ollama)
-  (setopt ellama-provider
-    (make-llm-ollama
-     :chat-model "codellama:13b"
-     :embedding-model "codellama:13b"))
-  )
-
 (use-package! copilot
   :hook (prog-mode . copilot-mode)
   :bind (:map copilot-completion-map
@@ -81,7 +71,7 @@
               ("C-TAB" . 'copilot-accept-completion-by-word)
               ("C-<tab>" . 'copilot-accept-completion-by-word)))
 
-(use-package ivy
+(use-package! ivy
   :ensure t
   :init (ivy-mode 1)
   :bind (("C-c C-r" . 'ivy-resume)
@@ -95,16 +85,6 @@
   (define-key ivy-minibuffer-map (kbd "C-p") 'ivy-previous-line)
   (define-key ivy-minibuffer-map (kbd "C-u") 'ivy-scroll-down-command)
   (define-key ivy-minibuffer-map (kbd "C-d") 'ivy-scroll-up-command))
-
-;; curly - https://github.com/veelenga/curly.el
-(use-package! curly
-  :config
-  (defun copy-project-filepath () (interactive) (curly-copy-loc "f"))
-  (defun copy-project-filepath-and-line () (interactive) (curly-copy-loc "f:l"))
-
-  (map! :ne "SPC f RET" 'curly-copy-loc)
-  (map! :ne "SPC f '" 'copy-project-filepath)
-  (map! :ne "SPC f ;" 'copy-project-filepath-and-line))
 
 ;; rvm
 (add-hook! enh-ruby-mode (rvm-activate-corresponding-ruby))

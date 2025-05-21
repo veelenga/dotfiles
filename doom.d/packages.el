@@ -7,15 +7,11 @@
 ;; (package! builtin-package :disable t)
 
 ;; (package! super-save)
-(package! curly :recipe (:host github :repo "veelenga/curly.el"))
 (package! rvm)
 (package! ameba)
 (package! prettier)
 (package! rubocopfmt)
 (package! graphql-mode)
-;;(package! tree-sitter)
-;;(package! tree-sitter-langs)
-;;(package! ellama)
 
 (package! copilot
   :recipe (:host github :repo "copilot-emacs/copilot.el" :files ("*.el" "dist")))
