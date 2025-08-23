@@ -16,6 +16,12 @@
 (package! copilot
   :recipe (:host github :repo "copilot-emacs/copilot.el" :files ("*.el" "dist")))
 
+(package! claudemacs :recipe (:host github :repo "cpoile/claudemacs"))
+(package! eat
+  :recipe (:host codeberg
+           :repo "akib/emacs-eat"
+           :files ("*.el" "*.c" "*.h" "Makefile")))
+
 (disable-packages! helm-lsp)
 (disable-packages! evil-snipe)
 (disable-packages! eglot)

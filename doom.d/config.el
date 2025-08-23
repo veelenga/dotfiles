@@ -28,6 +28,10 @@
 (add-function :after after-focus-change-function (lambda () (save-some-buffers t)))
 
 (after! evil
+  ;; Use jk as escape sequence
+  (setq-default evil-escape-key-sequence "jk")
+  (setq-default evil-escape-delay 0.25)
+
   (map! :leader
     :desc "M-x" "SPC" #'execute-extended-command
     (:prefix-map ("/" . "search")
@@ -70,6 +74,32 @@
               ("TAB" . 'copilot-accept-completion)
               ("C-TAB" . 'copilot-accept-completion-by-word)
               ("C-<tab>" . 'copilot-accept-completion-by-word)))
+
+(use-package! claudemacs
+  :config
+  (setq claudemacs-prefer-projectile-root t)
+  (add-hook 'claudemacs-mode-hook
+            (lambda () (evil-local-mode -1) (turn-off-evil-mode)))
+
+  (add-hook 'buffer-list-update-hook
+            (lambda ()
+              (when (and (buffer-name)
+                         (string-match-p "claudemacs\\|claude" (buffer-name)))
+                (evil-local-mode -1)
+                (turn-off-evil-mode)))))
+
+(use-package! eat
+  :config
+  (setq eat-term-scrollback-size 400000)
+  (add-hook 'eat-mode-hook (lambda ()
+                             (evil-local-mode -1)
+                             (turn-off-evil-mode)
+                             (setq-local evil-normal-state-cursor 'box)
+                             (setq-local evil-emacs-state-cursor 'box)))
+
+  (add-hook 'eat-exec-hook (lambda (&rest _)
+                             (evil-local-mode -1)
+                             (turn-off-evil-mode))))
 
 (use-package! ivy
   :ensure t
