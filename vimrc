@@ -49,7 +49,7 @@ nnoremap L gt
 " copy-paste bindings
 if has("gui_gtk") || has("gui_gtk2") || has("gui_gnome") || has("unix")
   vnoremap <C-c> "+yi
-  vnoremap <C-x> "+cse15
+  vnoremap <C-x> "+cs
   inoremap <C-v> <C-r><C-o>+
 endif
 
@@ -68,9 +68,7 @@ augroup resCur
 augroup END
 
 " functional keys
-map <F1> :RainbowParenthesesToggle<CR>
 map <F2> :setlocal spell! spelllang=en_us<CR>
-map <F8> :TagbarToggle<CR>
 
 imap <F1>  <C-o><F1>
 imap <F2>  <C-o><F2>
@@ -78,8 +76,8 @@ imap <F3>  <C-o><F3>
 imap <F4>  <C-o><F4>
 imap <F5>  <C-o><F5>
 imap <F6>  <C-o><F6>
-imap <F7>  <C-o><F6>
-imap <F8>  <C-o><F6>
+imap <F7>  <C-o><F7>
+imap <F8>  <C-o><F8>
 imap <F9>  <C-o><F9>
 imap <F10> <C-o><F10>
 imap <F11> <C-o><F11>
@@ -181,8 +179,6 @@ function! StripTrailingWhitespaces()
   call cursor(l, c)
 endfunction
 
-" nnoremap <leader>sw :call StripTrailingWhitespaces()<CR>
-
 " code formatting
 set noeol
 set tabstop=2
@@ -233,10 +229,8 @@ set exrc
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PLUGIN OPTIONS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
-set nocompatible " be iMproved, required
-filetype off     " required by Vundle
+filetype off
 
-" set the runtime path to include Vundle and initialize
 " Load vim-plug
 if empty(glob("~/.vim/autoload/plug.vim"))
   execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
@@ -244,10 +238,6 @@ endif
 
 call plug#begin()
 
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'bling/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
@@ -258,8 +248,6 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'jiangmiao/auto-pairs'
 Plug 'alvan/vim-closetag'
 Plug 'Shougo/unite.vim'
-Plug 'tpope/vim-rails'
-Plug 'vim-ruby/vim-ruby'
 Plug 'flazz/vim-colorschemes'
 Plug '907th/vim-auto-save'
 Plug 'justincampbell/vim-eighties'
@@ -270,17 +258,13 @@ Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'mhinz/vim-startify'
 Plug 'itchyny/vim-cursorword'
 Plug 'scrooloose/nerdcommenter'
-Plug 'kana/vim-textobj-user'
 Plug 'yggdroot/indentline'
 Plug 'honza/vim-snippets'
-Plug 'vim-syntastic/syntastic'
 Plug 'ramele/agrep'
 Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'isaacsloan/vim-slang'
-Plug 'rhysd/vim-crystal'
 
 call plug#end()
-filetype plugin indent on    " required by Vundle
+filetype plugin indent on
 
 " Colorschemes
 if has('gui_running')
@@ -288,26 +272,6 @@ if has('gui_running')
 else
   color desert
 endif
-
-" Powerline
-set laststatus=2
-set t_Co=256
-
-" Airline
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline_powerline_fonts = 1
-let g:airline_theme='murmur'
-
-" Nerdtree
-map <leader>fd :NERDTreeFind<cr>
-nnoremap <leader>t :NERDTreeToggle<CR>
-inoremap <leader>t <ESC>:NERDTreeToggle<CR>
-let NERDTreeMapJumpParent='h'
-let NERDTreeMapActivateNode='l'
-let NERDTreeWinSize=30
-" https://github.com/scrooloose/nerdtree/issues/21
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Git gutter
 nmap ]h <Plug>GitGutterNextHunk
@@ -362,12 +326,6 @@ function! s:unite_settings()
   nnoremap <ESC> :UniteClose<cr>
 endfunction
 
-call unite#custom#profile('default', 'context', {
-  \ 'direction': 'botright',
-  \ 'vertical_preview': 1,
-  \ 'winheight': 15
-\ })
-
 let g:unite_source_grep_max_candidates = 50
 
 " Autosave
@@ -420,33 +378,6 @@ let g:ctrlp_reuse_window = 'startify'
 nnoremap  <leader>st :Startify<CR>
 autocmd User Startified set buftype=
 
-" Clever-f.vim
-let g:clever_f_fix_key_direction = 1
-let g:clever_f_show_prompt = 1
-let g:clever_f_chars_match_any_signs = ';'
-
-" Vim textobj user https://github.com/whatyouhide/vim-textobj-erb
-let s:whitespace = '\(\s\|\n\)*'
-let s:left_modifiers = '\(-\|=\{1,2}\|#\)\?'
-let s:right_modifiers = '\-\?'
-let s:left = '<%' . s:left_modifiers . s:whitespace
-let s:right = s:whitespace . s:right_modifiers . '%>'
-call textobj#user#plugin('erb', {
-\   '-': {
-\     'pattern': [s:left, s:right],
-\     'select-a': 'aE',
-\     'select-i': 'iE'
-\   },
-\ })
-
-" Vim-textobj-rubyblock
-runtime macros/matchit.vim
-
-" Vim-markdown
-let g:vim_markdown_conceal = 0
-let g:vim_markdown_emphasis_multiline = 0
-let g:vim_markdown_folding_level = 2
-
 " Agrep
 let agrep_default_flags = '-I --exclude-dir={.git,log,tmp}'
 if !exists('s:agrep_cmd')
@@ -460,16 +391,6 @@ let g:agrep_results_win_sp_mod = 'vs'
 
 " Auto-pair
 let g:AutoPairsShortcutBackInsert = '<C-b>'
-
-" Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-" let g:syntastic_enable_sign = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_javascript_checkers = ['jshint']
-" let g:syntastic_crystal_checkers = ['ameba']
 
 " Closetag
 let g:closetag_filenames = "*.html,*.xhtml,*.html.erb"
