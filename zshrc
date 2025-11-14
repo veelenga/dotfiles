@@ -80,3 +80,5 @@ export NVM_DIR="$HOME/.nvm"
 
 # Created by `pipx` on 2025-08-24 17:11:44
 export PATH="$PATH:~/.local/bin"
+
+alias claude="/Users/veelenga/.claude/local/claude"

@@ -75,19 +75,6 @@
               ("C-TAB" . 'copilot-accept-completion-by-word)
               ("C-<tab>" . 'copilot-accept-completion-by-word)))
 
-(use-package! claudemacs
-  :config
-  (setq claudemacs-prefer-projectile-root t)
-  (add-hook 'claudemacs-mode-hook
-            (lambda () (evil-local-mode -1) (turn-off-evil-mode)))
-
-  (add-hook 'buffer-list-update-hook
-            (lambda ()
-              (when (and (buffer-name)
-                         (string-match-p "claudemacs\\|claude" (buffer-name)))
-                (evil-local-mode -1)
-                (turn-off-evil-mode)))))
-
 (use-package! eat
   :config
   (setq eat-term-scrollback-size 400000)
