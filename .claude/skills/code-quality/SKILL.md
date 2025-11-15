@@ -71,6 +71,16 @@ Always use named constants instead of magic numbers or strings for:
 - Use early returns/guard clauses to reduce nesting
 - Extract nested logic into separate methods
 
+### Comments
+- Don't add comments where code is self-explanatory
+- Good code should be readable without excessive comments
+- Use comments only for:
+  - Complex algorithms or business logic that isn't obvious
+  - "Why" explanations when the reason isn't clear from code alone
+  - Important gotchas or non-obvious behavior
+  - Public API documentation
+- If you find yourself needing comments to explain what code does, consider refactoring for clarity instead
+
 ## Avoid Overengineering
 
 ### YAGNI (You Aren't Gonna Need It)
